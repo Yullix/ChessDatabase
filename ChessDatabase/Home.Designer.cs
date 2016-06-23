@@ -95,8 +95,8 @@
             this.panelBoard = new System.Windows.Forms.Panel();
             this.lstMoves = new System.Windows.Forms.ListBox();
             this.panelWhitePlayer = new System.Windows.Forms.Panel();
-            this.labelWhitePlayer = new System.Windows.Forms.Label();
             this.txtWhitePlayer = new System.Windows.Forms.TextBox();
+            this.labelWhitePlayer = new System.Windows.Forms.Label();
             this.panelBlackPlayer = new System.Windows.Forms.Panel();
             this.txtBlackPlayer = new System.Windows.Forms.TextBox();
             this.labelBlackPlayer = new System.Windows.Forms.Label();
@@ -833,6 +833,14 @@
             this.panelWhitePlayer.Size = new System.Drawing.Size(146, 57);
             this.panelWhitePlayer.TabIndex = 118;
             // 
+            // txtWhitePlayer
+            // 
+            this.txtWhitePlayer.Location = new System.Drawing.Point(6, 25);
+            this.txtWhitePlayer.Name = "txtWhitePlayer";
+            this.txtWhitePlayer.ReadOnly = true;
+            this.txtWhitePlayer.Size = new System.Drawing.Size(100, 20);
+            this.txtWhitePlayer.TabIndex = 1;
+            // 
             // labelWhitePlayer
             // 
             this.labelWhitePlayer.AutoSize = true;
@@ -841,14 +849,6 @@
             this.labelWhitePlayer.Size = new System.Drawing.Size(67, 13);
             this.labelWhitePlayer.TabIndex = 0;
             this.labelWhitePlayer.Text = "White Player";
-            // 
-            // txtWhitePlayer
-            // 
-            this.txtWhitePlayer.Location = new System.Drawing.Point(6, 25);
-            this.txtWhitePlayer.Name = "txtWhitePlayer";
-            this.txtWhitePlayer.ReadOnly = true;
-            this.txtWhitePlayer.Size = new System.Drawing.Size(100, 20);
-            this.txtWhitePlayer.TabIndex = 1;
             // 
             // panelBlackPlayer
             // 

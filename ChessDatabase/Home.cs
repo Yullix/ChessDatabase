@@ -8,6 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using ChessDatabase.Models;
+using System.IO;
+using System.Reflection;
 
 namespace ChessDatabase
 {
@@ -25,6 +27,13 @@ namespace ChessDatabase
             currentGame = new Game();
 
             SetPosition(currentGame);
+
+            Assembly currentAssembly = Assembly.GetExecutingAssembly();
+            Stream pawnStream = currentAssembly.GetManifestResourceStream("ChessDatabase.whitePawn.png");
+            pBoxa1.Image = new Bitmap(pawnStream);
+
+            //pBoxa1.Image = Image.FromFile(Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location), "Images/whitePawn.png"));
+            //pBoxa1.Image = Image.FromFile("Images/whitePawn.png");
         }
 
         public void SetPosition(Game game)
@@ -32,9 +41,9 @@ namespace ChessDatabase
 
         }
 
-        private void pictureBox37_Click(object sender, EventArgs e)
+        public Piece returnPiece(string imageName)
         {
-
+            throw new NotImplementedException();
         }
     }
 }

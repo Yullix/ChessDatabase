@@ -8,5 +8,8 @@ namespace ChessDatabase.Models
 {
     public class Piece
     {
+        public string name { get; set; }
+        public string color { get; set; }
+        public bool isCaptured { get; set; }
     }
 }
