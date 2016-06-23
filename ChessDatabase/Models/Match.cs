@@ -6,14 +6,14 @@ using System.Threading.Tasks;
 
 namespace ChessDatabase.Models
 {
-    public class Match
+    public class Game
     {
         public string blackPlayer { get; set; }
         public string whitePlayer { get; set; }
 
         public virtual ICollection<Move> Moves { get; set; }
 
-        public Match()
+        public Game()
         {
             this.Moves = new HashSet<Move>();
         }
