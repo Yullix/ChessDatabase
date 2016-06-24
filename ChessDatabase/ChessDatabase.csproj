@@ -88,17 +88,17 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Resources\blackBishop.png" />
-    <Content Include="Resources\blackKing.png" />
-    <Content Include="Resources\blackKnight.png" />
-    <Content Include="Resources\blackPawn.png" />
-    <Content Include="Resources\blackQueen.png" />
-    <Content Include="Resources\blackRook.png" />
-    <Content Include="Resources\whiteBishop.png" />
-    <Content Include="Resources\whiteKing.png" />
-    <Content Include="Resources\whiteKnight.png" />
+    <EmbeddedResource Include="Resources\blackKing.png" />
+    <EmbeddedResource Include="Resources\blackKnight.png" />
+    <EmbeddedResource Include="Resources\blackPawn.png" />
+    <EmbeddedResource Include="Resources\blackQueen.png" />
+    <EmbeddedResource Include="Resources\blackRook.png" />
+    <EmbeddedResource Include="Resources\whiteBishop.png" />
+    <EmbeddedResource Include="Resources\whiteKing.png" />
+    <EmbeddedResource Include="Resources\whiteKnight.png" />
     <EmbeddedResource Include="Resources\whitePawn.png" />
-    <Content Include="Resources\whiteQueen.png" />
-    <Content Include="Resources\whiteRook.png" />
+    <EmbeddedResource Include="Resources\whiteQueen.png" />
+    <EmbeddedResource Include="Resources\whiteRook.png" />
     <Content Include="whitePawn.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

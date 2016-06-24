@@ -234,7 +234,7 @@
             // 
             // pBoxb6
             // 
-            this.pBoxb6.BackColor = System.Drawing.Color.Black;
+            this.pBoxb6.BackColor = System.Drawing.SystemColors.WindowFrame;
             this.pBoxb6.Location = new System.Drawing.Point(60, 120);
             this.pBoxb6.Name = "pBoxb6";
             this.pBoxb6.Size = new System.Drawing.Size(60, 60);
@@ -243,7 +243,7 @@
             // 
             // pBoxd6
             // 
-            this.pBoxd6.BackColor = System.Drawing.Color.Black;
+            this.pBoxd6.BackColor = System.Drawing.SystemColors.WindowFrame;
             this.pBoxd6.Location = new System.Drawing.Point(180, 120);
             this.pBoxd6.Name = "pBoxd6";
             this.pBoxd6.Size = new System.Drawing.Size(60, 60);
@@ -252,7 +252,7 @@
             // 
             // pBoxf6
             // 
-            this.pBoxf6.BackColor = System.Drawing.Color.Black;
+            this.pBoxf6.BackColor = System.Drawing.SystemColors.WindowFrame;
             this.pBoxf6.Location = new System.Drawing.Point(300, 120);
             this.pBoxf6.Name = "pBoxf6";
             this.pBoxf6.Size = new System.Drawing.Size(60, 60);
@@ -261,7 +261,7 @@
             // 
             // pBoxh6
             // 
-            this.pBoxh6.BackColor = System.Drawing.Color.Black;
+            this.pBoxh6.BackColor = System.Drawing.SystemColors.WindowFrame;
             this.pBoxh6.Location = new System.Drawing.Point(420, 120);
             this.pBoxh6.Name = "pBoxh6";
             this.pBoxh6.Size = new System.Drawing.Size(60, 60);
@@ -270,7 +270,7 @@
             // 
             // pBoxa5
             // 
-            this.pBoxa5.BackColor = System.Drawing.Color.Black;
+            this.pBoxa5.BackColor = System.Drawing.SystemColors.WindowFrame;
             this.pBoxa5.Location = new System.Drawing.Point(0, 180);
             this.pBoxa5.Name = "pBoxa5";
             this.pBoxa5.Size = new System.Drawing.Size(60, 60);
@@ -279,7 +279,7 @@
             // 
             // pBoxc5
             // 
-            this.pBoxc5.BackColor = System.Drawing.Color.Black;
+            this.pBoxc5.BackColor = System.Drawing.SystemColors.WindowFrame;
             this.pBoxc5.Location = new System.Drawing.Point(120, 180);
             this.pBoxc5.Name = "pBoxc5";
             this.pBoxc5.Size = new System.Drawing.Size(60, 60);
@@ -288,7 +288,7 @@
             // 
             // pBoxe5
             // 
-            this.pBoxe5.BackColor = System.Drawing.Color.Black;
+            this.pBoxe5.BackColor = System.Drawing.SystemColors.WindowFrame;
             this.pBoxe5.Location = new System.Drawing.Point(240, 180);
             this.pBoxe5.Name = "pBoxe5";
             this.pBoxe5.Size = new System.Drawing.Size(60, 60);
@@ -297,7 +297,7 @@
             // 
             // pBoxg5
             // 
-            this.pBoxg5.BackColor = System.Drawing.Color.Black;
+            this.pBoxg5.BackColor = System.Drawing.SystemColors.WindowFrame;
             this.pBoxg5.Location = new System.Drawing.Point(360, 180);
             this.pBoxg5.Name = "pBoxg5";
             this.pBoxg5.Size = new System.Drawing.Size(60, 60);
@@ -387,7 +387,7 @@
             // 
             // pBoxh4
             // 
-            this.pBoxh4.BackColor = System.Drawing.Color.Black;
+            this.pBoxh4.BackColor = System.Drawing.SystemColors.WindowFrame;
             this.pBoxh4.Location = new System.Drawing.Point(420, 240);
             this.pBoxh4.Name = "pBoxh4";
             this.pBoxh4.Size = new System.Drawing.Size(60, 60);
@@ -396,7 +396,7 @@
             // 
             // pBoxf4
             // 
-            this.pBoxf4.BackColor = System.Drawing.Color.Black;
+            this.pBoxf4.BackColor = System.Drawing.SystemColors.WindowFrame;
             this.pBoxf4.Location = new System.Drawing.Point(300, 240);
             this.pBoxf4.Name = "pBoxf4";
             this.pBoxf4.Size = new System.Drawing.Size(60, 60);
@@ -405,7 +405,7 @@
             // 
             // pBoxd4
             // 
-            this.pBoxd4.BackColor = System.Drawing.Color.Black;
+            this.pBoxd4.BackColor = System.Drawing.SystemColors.WindowFrame;
             this.pBoxd4.Location = new System.Drawing.Point(180, 240);
             this.pBoxd4.Name = "pBoxd4";
             this.pBoxd4.Size = new System.Drawing.Size(60, 60);
@@ -414,7 +414,7 @@
             // 
             // pBoxb4
             // 
-            this.pBoxb4.BackColor = System.Drawing.Color.Black;
+            this.pBoxb4.BackColor = System.Drawing.SystemColors.WindowFrame;
             this.pBoxb4.Location = new System.Drawing.Point(60, 240);
             this.pBoxb4.Name = "pBoxb4";
             this.pBoxb4.Size = new System.Drawing.Size(60, 60);
@@ -459,7 +459,7 @@
             // 
             // pBoxg3
             // 
-            this.pBoxg3.BackColor = System.Drawing.Color.Black;
+            this.pBoxg3.BackColor = System.Drawing.SystemColors.WindowFrame;
             this.pBoxg3.Location = new System.Drawing.Point(360, 300);
             this.pBoxg3.Name = "pBoxg3";
             this.pBoxg3.Size = new System.Drawing.Size(60, 60);
@@ -468,7 +468,7 @@
             // 
             // pBoxe3
             // 
-            this.pBoxe3.BackColor = System.Drawing.Color.Black;
+            this.pBoxe3.BackColor = System.Drawing.SystemColors.WindowFrame;
             this.pBoxe3.Location = new System.Drawing.Point(240, 300);
             this.pBoxe3.Name = "pBoxe3";
             this.pBoxe3.Size = new System.Drawing.Size(60, 60);
@@ -477,7 +477,7 @@
             // 
             // pBoxc3
             // 
-            this.pBoxc3.BackColor = System.Drawing.Color.Black;
+            this.pBoxc3.BackColor = System.Drawing.SystemColors.WindowFrame;
             this.pBoxc3.Location = new System.Drawing.Point(120, 300);
             this.pBoxc3.Name = "pBoxc3";
             this.pBoxc3.Size = new System.Drawing.Size(60, 60);
@@ -486,7 +486,7 @@
             // 
             // pBoxa3
             // 
-            this.pBoxa3.BackColor = System.Drawing.Color.Black;
+            this.pBoxa3.BackColor = System.Drawing.SystemColors.WindowFrame;
             this.pBoxa3.Location = new System.Drawing.Point(0, 300);
             this.pBoxa3.Name = "pBoxa3";
             this.pBoxa3.Size = new System.Drawing.Size(60, 60);
@@ -510,6 +510,7 @@
             this.pBoxe2.Size = new System.Drawing.Size(60, 60);
             this.pBoxe2.TabIndex = 66;
             this.pBoxe2.TabStop = false;
+            this.pBoxe2.Click += new System.EventHandler(this.pBoxe2_Click);
             // 
             // pBoxg2
             // 
@@ -522,7 +523,7 @@
             // 
             // pBoxh2
             // 
-            this.pBoxh2.BackColor = System.Drawing.Color.Black;
+            this.pBoxh2.BackColor = System.Drawing.SystemColors.WindowFrame;
             this.pBoxh2.Location = new System.Drawing.Point(420, 360);
             this.pBoxh2.Name = "pBoxh2";
             this.pBoxh2.Size = new System.Drawing.Size(60, 60);
@@ -531,7 +532,7 @@
             // 
             // pBoxf2
             // 
-            this.pBoxf2.BackColor = System.Drawing.Color.Black;
+            this.pBoxf2.BackColor = System.Drawing.SystemColors.WindowFrame;
             this.pBoxf2.Location = new System.Drawing.Point(300, 360);
             this.pBoxf2.Name = "pBoxf2";
             this.pBoxf2.Size = new System.Drawing.Size(60, 60);
@@ -540,7 +541,7 @@
             // 
             // pBoxd2
             // 
-            this.pBoxd2.BackColor = System.Drawing.Color.Black;
+            this.pBoxd2.BackColor = System.Drawing.SystemColors.WindowFrame;
             this.pBoxd2.Location = new System.Drawing.Point(180, 360);
             this.pBoxd2.Name = "pBoxd2";
             this.pBoxd2.Size = new System.Drawing.Size(60, 60);
@@ -549,7 +550,7 @@
             // 
             // pBoxb2
             // 
-            this.pBoxb2.BackColor = System.Drawing.Color.Black;
+            this.pBoxb2.BackColor = System.Drawing.SystemColors.WindowFrame;
             this.pBoxb2.Location = new System.Drawing.Point(60, 360);
             this.pBoxb2.Name = "pBoxb2";
             this.pBoxb2.Size = new System.Drawing.Size(60, 60);
@@ -576,7 +577,7 @@
             // 
             // pBoxg1
             // 
-            this.pBoxg1.BackColor = System.Drawing.Color.Black;
+            this.pBoxg1.BackColor = System.Drawing.SystemColors.WindowFrame;
             this.pBoxg1.Location = new System.Drawing.Point(360, 420);
             this.pBoxg1.Name = "pBoxg1";
             this.pBoxg1.Size = new System.Drawing.Size(60, 60);
@@ -594,7 +595,7 @@
             // 
             // pBoxe1
             // 
-            this.pBoxe1.BackColor = System.Drawing.Color.Black;
+            this.pBoxe1.BackColor = System.Drawing.SystemColors.WindowFrame;
             this.pBoxe1.Location = new System.Drawing.Point(240, 420);
             this.pBoxe1.Name = "pBoxe1";
             this.pBoxe1.Size = new System.Drawing.Size(60, 60);
@@ -612,7 +613,7 @@
             // 
             // pBoxc1
             // 
-            this.pBoxc1.BackColor = System.Drawing.Color.Black;
+            this.pBoxc1.BackColor = System.Drawing.SystemColors.WindowFrame;
             this.pBoxc1.Location = new System.Drawing.Point(120, 420);
             this.pBoxc1.Name = "pBoxc1";
             this.pBoxc1.Size = new System.Drawing.Size(60, 60);
@@ -630,7 +631,7 @@
             // 
             // pBoxa1
             // 
-            this.pBoxa1.BackColor = System.Drawing.Color.Black;
+            this.pBoxa1.BackColor = System.Drawing.SystemColors.WindowFrame;
             this.pBoxa1.Location = new System.Drawing.Point(0, 420);
             this.pBoxa1.Name = "pBoxa1";
             this.pBoxa1.Size = new System.Drawing.Size(60, 60);
@@ -639,7 +640,7 @@
             // 
             // pBoxg7
             // 
-            this.pBoxg7.BackColor = System.Drawing.Color.Black;
+            this.pBoxg7.BackColor = System.Drawing.SystemColors.WindowFrame;
             this.pBoxg7.Location = new System.Drawing.Point(360, 60);
             this.pBoxg7.Name = "pBoxg7";
             this.pBoxg7.Size = new System.Drawing.Size(60, 60);
@@ -648,7 +649,7 @@
             // 
             // pBoxe7
             // 
-            this.pBoxe7.BackColor = System.Drawing.Color.Black;
+            this.pBoxe7.BackColor = System.Drawing.SystemColors.WindowFrame;
             this.pBoxe7.Location = new System.Drawing.Point(240, 60);
             this.pBoxe7.Name = "pBoxe7";
             this.pBoxe7.Size = new System.Drawing.Size(60, 60);
@@ -657,7 +658,7 @@
             // 
             // pBoxc7
             // 
-            this.pBoxc7.BackColor = System.Drawing.Color.Black;
+            this.pBoxc7.BackColor = System.Drawing.SystemColors.WindowFrame;
             this.pBoxc7.Location = new System.Drawing.Point(120, 60);
             this.pBoxc7.Name = "pBoxc7";
             this.pBoxc7.Size = new System.Drawing.Size(60, 60);
@@ -666,7 +667,7 @@
             // 
             // pBoxa7
             // 
-            this.pBoxa7.BackColor = System.Drawing.Color.Black;
+            this.pBoxa7.BackColor = System.Drawing.SystemColors.WindowFrame;
             this.pBoxa7.Location = new System.Drawing.Point(0, 60);
             this.pBoxa7.Name = "pBoxa7";
             this.pBoxa7.Size = new System.Drawing.Size(60, 60);
@@ -711,7 +712,7 @@
             // 
             // pBoxb8
             // 
-            this.pBoxb8.BackColor = System.Drawing.Color.Black;
+            this.pBoxb8.BackColor = System.Drawing.SystemColors.WindowFrame;
             this.pBoxb8.Location = new System.Drawing.Point(60, 0);
             this.pBoxb8.Name = "pBoxb8";
             this.pBoxb8.Size = new System.Drawing.Size(60, 60);
@@ -720,7 +721,7 @@
             // 
             // pBoxd8
             // 
-            this.pBoxd8.BackColor = System.Drawing.Color.Black;
+            this.pBoxd8.BackColor = System.Drawing.SystemColors.WindowFrame;
             this.pBoxd8.Location = new System.Drawing.Point(180, 0);
             this.pBoxd8.Name = "pBoxd8";
             this.pBoxd8.Size = new System.Drawing.Size(60, 60);
@@ -729,7 +730,7 @@
             // 
             // pBoxf8
             // 
-            this.pBoxf8.BackColor = System.Drawing.Color.Black;
+            this.pBoxf8.BackColor = System.Drawing.SystemColors.WindowFrame;
             this.pBoxf8.Location = new System.Drawing.Point(300, 0);
             this.pBoxf8.Name = "pBoxf8";
             this.pBoxf8.Size = new System.Drawing.Size(60, 60);
@@ -738,7 +739,7 @@
             // 
             // pBoxh8
             // 
-            this.pBoxh8.BackColor = System.Drawing.Color.Black;
+            this.pBoxh8.BackColor = System.Drawing.SystemColors.WindowFrame;
             this.pBoxh8.Location = new System.Drawing.Point(420, 0);
             this.pBoxh8.Name = "pBoxh8";
             this.pBoxh8.Size = new System.Drawing.Size(60, 60);
