@@ -113,6 +113,10 @@ namespace ChessDatabase
 
         public bool CompleteMove()
         {
+            new Move()
+            {
+                
+            };
             startSq = "";
             endSq = "";
             return false;
