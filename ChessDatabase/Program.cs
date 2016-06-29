@@ -16,7 +16,7 @@ namespace ChessDatabase
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Home());
+            Application.Run(new Home(new Models.Game()));
         }
     }
 }

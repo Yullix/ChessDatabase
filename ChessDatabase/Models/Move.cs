@@ -13,7 +13,7 @@ namespace ChessDatabase.Models
         public string startSq { get; set; }
         public string endSq { get; set; }
         public string color { get; set; }
-        public string piece { get; set; }
+        public string pieceAnnotation { get; set; }
         public int number { get; set; }
         
         public virtual Game Game { get; set; }

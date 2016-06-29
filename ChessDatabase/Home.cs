@@ -15,9 +15,9 @@ namespace ChessDatabase
 {
     public partial class Home : Form
     {
-        private string startSq;
-        private string endSq;
-        private Piece selectedPiece;
+        private PictureBox startSq;
+        private PictureBox endSq;
+        private string selectedPieceAnnotation;
         private Game currentGame;
         private Assembly currentAssembly;
         private Stream whitePawnStream;
@@ -33,21 +33,62 @@ namespace ChessDatabase
         private Stream blackQueenStream;
         private Stream blackKingStream;
 
-        public Home()
+        public Home(Game gameArgument)
         {
             InitializeComponent();
 
-            currentGame = new Game();
+            currentGame = gameArgument;
 
             SetPosition(currentGame);
 
-            startSq = "";
-            endSq = "";
+            startSq = null;
+            endSq = null;
+            selectedPieceAnnotation = "";
 
             var check = this.GetType().Assembly.GetManifestResourceNames();
 
             currentAssembly = Assembly.GetExecutingAssembly();
 
+            for(int c = 0; c < 8; c++)
+            {
+                char row = 'a';
+                for (int r = 0; r < 8; r++)
+                {
+                    
+                    switch(currentGame.position[c,r])
+                    {
+                        case "wP":
+                            break;
+                        case "wN":
+                            break;
+                        case "wB":
+                            break;
+                        case "wR":
+                            break;
+                        case "wQ":
+                            break;
+                        case "wK":
+                            break;
+                        case "bP":
+                            break;
+                        case "bN":
+                            break;
+                        case "bB":
+                            break;
+                        case "bR":
+                            break;
+                        case "bQ":
+                            break;
+                        case "bK":
+                            break;
+                    }
+                    switch(row)
+                    {
+
+                    }
+
+                }
+            }
             whitePawnStream = currentAssembly.GetManifestResourceStream("ChessDatabase.Resources.whitePawn.png");
             whiteKnightStream = currentAssembly.GetManifestResourceStream("ChessDatabase.Resources.whiteKnight.png");
             whiteBishopStream = currentAssembly.GetManifestResourceStream("ChessDatabase.Resources.whiteBishop.png");
@@ -115,39 +156,39 @@ namespace ChessDatabase
         {
             new Move()
             {
-                
+                startSq = startSq.Name,
+                endSq = endSq.Name,
+                GameID = currentGame.GameID
             };
-            startSq = "";
-            endSq = "";
+            startSq = null;
+            endSq = null;
             return false;
         }
 
-        public Piece returnPiece(string imageName)
+        private void SelectSquare(PictureBox square)
         {
-            throw new NotImplementedException();
+            if(startSq == null)
+            {
+                if (square.Image != null)
+                {
+                    startSq = square;
+                    square.BackColor = Color.Brown;
+                }
+                else
+                    return;
+            }
+            else
+            {
+                endSq = square;
+                CompleteMove();
+            }
         }
 
         private void pBoxe2_Click(object sender, EventArgs e)
         {
             PictureBox e2 = (PictureBox)sender;
 
-            if (startSq == "")
-            {
-                if (pBoxe2.Image != null)
-                {
-                    startSq = "pBoxe2";
-                    pBoxe2.BackColor = Color.Brown;
-                }
-                else
-                {
-
-                }
-            }
-            else
-            {
-                endSq = "pBoxe2";
-                CompleteMove();
-            }      
+            SelectSquare(e2); 
         }
     }
 }

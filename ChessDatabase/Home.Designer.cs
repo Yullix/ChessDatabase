@@ -100,6 +100,7 @@
             this.panelBlackPlayer = new System.Windows.Forms.Panel();
             this.txtBlackPlayer = new System.Windows.Forms.TextBox();
             this.labelBlackPlayer = new System.Windows.Forms.Label();
+            this.labelMoves = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pBoxb7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pBoxd7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pBoxf7)).BeginInit();
@@ -877,12 +878,22 @@
             this.labelBlackPlayer.TabIndex = 0;
             this.labelBlackPlayer.Text = "Black Player";
             // 
+            // labelMoves
+            // 
+            this.labelMoves.AutoSize = true;
+            this.labelMoves.Location = new System.Drawing.Point(601, 24);
+            this.labelMoves.Name = "labelMoves";
+            this.labelMoves.Size = new System.Drawing.Size(39, 13);
+            this.labelMoves.TabIndex = 2;
+            this.labelMoves.Text = "Moves";
+            // 
             // Home
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(1109, 633);
+            this.Controls.Add(this.labelMoves);
             this.Controls.Add(this.panelBlackPlayer);
             this.Controls.Add(this.panelWhitePlayer);
             this.Controls.Add(this.lstMoves);
@@ -959,6 +970,7 @@
             this.panelBlackPlayer.ResumeLayout(false);
             this.panelBlackPlayer.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -1036,5 +1048,6 @@
         private System.Windows.Forms.Panel panelBlackPlayer;
         private System.Windows.Forms.TextBox txtBlackPlayer;
         private System.Windows.Forms.Label labelBlackPlayer;
+        private System.Windows.Forms.Label labelMoves;
     }
 }
