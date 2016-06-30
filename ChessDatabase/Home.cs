@@ -17,7 +17,7 @@ namespace ChessDatabase
     {
         private PictureBox startSq;
         private PictureBox endSq;
-        private string selectedPieceAnnotation;
+        private static string selectedPieceAnnotation;
         private Game currentGame;
         private Assembly currentAssembly;
         private Stream whitePawnStream;
@@ -39,8 +39,6 @@ namespace ChessDatabase
 
             currentGame = gameArgument;
 
-            SetPosition(currentGame);
-
             startSq = null;
             endSq = null;
             selectedPieceAnnotation = "";
@@ -49,46 +47,6 @@ namespace ChessDatabase
 
             currentAssembly = Assembly.GetExecutingAssembly();
 
-            for(int c = 0; c < 8; c++)
-            {
-                char row = 'a';
-                for (int r = 0; r < 8; r++)
-                {
-                    
-                    switch(currentGame.position[c,r])
-                    {
-                        case "wP":
-                            break;
-                        case "wN":
-                            break;
-                        case "wB":
-                            break;
-                        case "wR":
-                            break;
-                        case "wQ":
-                            break;
-                        case "wK":
-                            break;
-                        case "bP":
-                            break;
-                        case "bN":
-                            break;
-                        case "bB":
-                            break;
-                        case "bR":
-                            break;
-                        case "bQ":
-                            break;
-                        case "bK":
-                            break;
-                    }
-                    switch(row)
-                    {
-
-                    }
-
-                }
-            }
             whitePawnStream = currentAssembly.GetManifestResourceStream("ChessDatabase.Resources.whitePawn.png");
             whiteKnightStream = currentAssembly.GetManifestResourceStream("ChessDatabase.Resources.whiteKnight.png");
             whiteBishopStream = currentAssembly.GetManifestResourceStream("ChessDatabase.Resources.whiteBishop.png");
@@ -103,53 +61,87 @@ namespace ChessDatabase
             blackQueenStream = currentAssembly.GetManifestResourceStream("ChessDatabase.Resources.blackQueen.png");
             blackKingStream = currentAssembly.GetManifestResourceStream("ChessDatabase.Resources.blackKing.png");
 
-            //Drawing whites pawns
-            pBoxa2.Image = new Bitmap(whitePawnStream);
-            pBoxb2.Image = new Bitmap(whitePawnStream);
-            pBoxc2.Image = new Bitmap(whitePawnStream);
-            pBoxd2.Image = new Bitmap(whitePawnStream);
-            pBoxe2.Image = new Bitmap(whitePawnStream);
-            pBoxf2.Image = new Bitmap(whitePawnStream);
-            pBoxg2.Image = new Bitmap(whitePawnStream);
-            pBoxh2.Image = new Bitmap(whitePawnStream);
-
-            //Drawing rest of whites pieces
-            pBoxa1.Image = new Bitmap(whiteRookStream);
-            pBoxb1.Image = new Bitmap(whiteKnightStream);
-            pBoxc1.Image = new Bitmap(whiteBishopStream);
-            pBoxd1.Image = new Bitmap(whiteQueenStream);
-            pBoxe1.Image = new Bitmap(whiteKingStream);
-            pBoxf1.Image = new Bitmap(whiteBishopStream);
-            pBoxg1.Image = new Bitmap(whiteKnightStream);
-            pBoxh1.Image = new Bitmap(whiteRookStream);
-
-            //Drawing blacks pawns
-            pBoxa7.Image = new Bitmap(blackPawnStream);
-            pBoxb7.Image = new Bitmap(blackPawnStream);
-            pBoxc7.Image = new Bitmap(blackPawnStream);
-            pBoxd7.Image = new Bitmap(blackPawnStream);
-            pBoxe7.Image = new Bitmap(blackPawnStream);
-            pBoxf7.Image = new Bitmap(blackPawnStream);
-            pBoxg7.Image = new Bitmap(blackPawnStream);
-            pBoxh7.Image = new Bitmap(blackPawnStream);
-
-            //Drawing rest of blacks pieces
-            pBoxa8.Image = new Bitmap(blackRookStream);
-            pBoxb8.Image = new Bitmap(blackKnightStream);
-            pBoxc8.Image = new Bitmap(blackBishopStream);
-            pBoxd8.Image = new Bitmap(blackQueenStream);
-            pBoxe8.Image = new Bitmap(blackKingStream);
-            pBoxf8.Image = new Bitmap(blackBishopStream);
-            pBoxg8.Image = new Bitmap(blackKnightStream);
-            pBoxh8.Image = new Bitmap(blackRookStream);
-
-            //pBoxa1.Image = Image.FromFile(Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location), "Images/whitePawn.png"));
-            //pBoxa1.Image = Image.FromFile("Images/whitePawn.png");
+            SetPosition();
         }
 
-        public void SetPosition(Game game)
+        public void SetPosition()
         {
-
+            for (int c = 0; c < 8; c++)
+            {
+                char row = 'a';
+                for (int r = 0; r < 8; r++)
+                {
+                    PictureBox pSquare = this.Controls.Find("pBox" + row + (c + 1), true).FirstOrDefault() as PictureBox;
+                    switch (currentGame.position[c, r])
+                    {
+                        case "wP":
+                            pSquare.Image = new Bitmap(whitePawnStream);
+                            break;
+                        case "wN":
+                            pSquare.Image = new Bitmap(whiteKnightStream);
+                            break;
+                        case "wB":
+                            pSquare.Image = new Bitmap(whiteBishopStream);
+                            break;
+                        case "wR":
+                            pSquare.Image = new Bitmap(whiteRookStream);
+                            break;
+                        case "wQ":
+                            pSquare.Image = new Bitmap(whiteQueenStream);
+                            break;
+                        case "wK":
+                            pSquare.Image = new Bitmap(whiteKingStream);
+                            break;
+                        case "bP":
+                            pSquare.Image = new Bitmap(blackPawnStream);
+                            break;
+                        case "bN":
+                            pSquare.Image = new Bitmap(blackKnightStream);
+                            break;
+                        case "bB":
+                            pSquare.Image = new Bitmap(blackBishopStream);
+                            break;
+                        case "bR":
+                            pSquare.Image = new Bitmap(blackRookStream);
+                            break;
+                        case "bQ":
+                            pSquare.Image = new Bitmap(blackQueenStream);
+                            break;
+                        case "bK":
+                            pSquare.Image = new Bitmap(blackKingStream);
+                            break;
+                        default:
+                            pSquare.Image = null;
+                            break;
+                    }
+                    switch (row)
+                    {
+                        case 'a':
+                            row = 'b';
+                            break;
+                        case 'b':
+                            row = 'c';
+                            break;
+                        case 'c':
+                            row = 'd';
+                            break;
+                        case 'd':
+                            row = 'e';
+                            break;
+                        case 'e':
+                            row = 'f';
+                            break;
+                        case 'f':
+                            row = 'g';
+                            break;
+                        case 'g':
+                            row = 'h';
+                            break;
+                        default:
+                            break;
+                    }
+                }
+            }
         }
 
         public bool CompleteMove()
@@ -160,8 +152,54 @@ namespace ChessDatabase
                 endSq = endSq.Name,
                 GameID = currentGame.GameID
             };
+
+            startSq.Image = null;
+
+            switch(selectedPieceAnnotation)
+            {
+                case "wP":
+                    endSq.Image = new Bitmap(whitePawnStream);
+                    break;
+                case "wN":
+                    endSq.Image = new Bitmap(whiteKnightStream);
+                    break;
+                case "wB":
+                    endSq.Image = new Bitmap(whiteBishopStream);
+                    break;
+                case "wR":
+                    endSq.Image = new Bitmap(whiteRookStream);
+                    break;
+                case "wQ":
+                    endSq.Image = new Bitmap(whiteQueenStream);
+                    break;
+                case "wK":
+                    endSq.Image = new Bitmap(whiteKingStream);
+                    break;
+                case "bP":
+                    endSq.Image = new Bitmap(blackPawnStream);
+                    break;
+                case "bN":
+                    endSq.Image = new Bitmap(blackKnightStream);
+                    break;
+                case "bB":
+                    endSq.Image = new Bitmap(blackBishopStream);
+                    break;
+                case "bR":
+                    endSq.Image = new Bitmap(blackRookStream);
+                    break;
+                case "bQ":
+                    endSq.Image = new Bitmap(blackQueenStream);
+                    break;
+                case "bK":
+                    endSq.Image = new Bitmap(blackKingStream);
+                    break;
+                default:
+                    endSq.Image = null;
+                    break;
+            }
             startSq = null;
             endSq = null;
+            //SetPosition();
             return false;
         }
 
@@ -173,6 +211,41 @@ namespace ChessDatabase
                 {
                     startSq = square;
                     square.BackColor = Color.Brown;
+                    string[] squareString = square.Name.Split('x');
+
+                    int[] squarePosition = new int[2];
+
+                    switch (squareString[1][0])
+                    {
+                        case 'a':
+                            squarePosition[1] = 0;
+                            break;
+                        case 'b':
+                            squarePosition[1] = 1;
+                            break;
+                        case 'c':
+                            squarePosition[1] = 2;
+                            break;
+                        case 'd':
+                            squarePosition[1] = 3;
+                            break;
+                        case 'e':
+                            squarePosition[1] = 4;
+                            break;
+                        case 'f':
+                            squarePosition[1] = 5;
+                            break;
+                        case 'g':
+                            squarePosition[1] = 6;
+                            break;
+                        case 'h':
+                            squarePosition[1] = 7;
+                            break;
+                    }
+
+                    squarePosition[0] = Int32.Parse(squareString[1][1].ToString()) - 1;
+
+                    selectedPieceAnnotation = currentGame.position[squarePosition[0], squarePosition[1]];
                 }
                 else
                     return;
@@ -189,6 +262,13 @@ namespace ChessDatabase
             PictureBox e2 = (PictureBox)sender;
 
             SelectSquare(e2); 
+        }
+
+        private void pBoxe4_Click(object sender, EventArgs e)
+        {
+            PictureBox e4 = (PictureBox)sender;
+
+            SelectSquare(e4);
         }
     }
 }

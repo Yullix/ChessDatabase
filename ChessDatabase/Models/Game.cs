@@ -21,39 +21,39 @@ namespace ChessDatabase.Models
 
             // White starting position
             position[0, 0] = "wR";
-            position[1, 0] = "wN";
-            position[2, 0] = "wB";
-            position[3, 0] = "wQ";
-            position[4, 0] = "wK";
-            position[5, 0] = "wB";
-            position[6, 0] = "wN";
-            position[7, 0] = "wR";
-            position[0, 1] = "wP";
+            position[0, 1] = "wN";
+            position[0, 2] = "wB";
+            position[0, 3] = "wQ";
+            position[0, 4] = "wK";
+            position[0, 5] = "wB";
+            position[0, 6] = "wN";
+            position[0, 7] = "wR";
+            position[1, 0] = "wP";
             position[1, 1] = "wP";
-            position[2, 1] = "wP";
-            position[3, 1] = "wP";
-            position[4, 1] = "wP";
-            position[5, 1] = "wP";
-            position[6, 1] = "wP";
-            position[7, 1] = "wP";
+            position[1, 2] = "wP";
+            position[1, 3] = "wP";
+            position[1, 4] = "wP";
+            position[1, 5] = "wP";
+            position[1, 6] = "wP";
+            position[1, 7] = "wP";
 
             //Black starting position
-            position[0, 7] = "bR";
-            position[1, 7] = "bN";
-            position[2, 7] = "bB";
-            position[3, 7] = "bQ";
-            position[4, 7] = "bK";
-            position[5, 7] = "bB";
-            position[6, 7] = "bN";
+            position[7, 0] = "bR";
+            position[7, 1] = "bN";
+            position[7, 2] = "bB";
+            position[7, 3] = "bQ";
+            position[7, 4] = "bK";
+            position[7, 5] = "bB";
+            position[7, 6] = "bN";
             position[7, 7] = "bR";
-            position[0, 6] = "bP";
-            position[1, 6] = "bP";
-            position[2, 6] = "bP";
-            position[3, 6] = "bP";
-            position[4, 6] = "bP";
-            position[5, 6] = "bP";
+            position[6, 0] = "bP";
+            position[6, 1] = "bP";
+            position[6, 2] = "bP";
+            position[6, 3] = "bP";
+            position[6, 4] = "bP";
+            position[6, 5] = "bP";
             position[6, 6] = "bP";
-            position[7, 6] = "bP";
+            position[6, 7] = "bP";
 
             this.Moves = new HashSet<Move>();
         }

@@ -376,6 +376,7 @@
             this.pBoxe4.Size = new System.Drawing.Size(60, 60);
             this.pBoxe4.TabIndex = 81;
             this.pBoxe4.TabStop = false;
+            this.pBoxe4.Click += new System.EventHandler(this.pBoxe4_Click);
             // 
             // pBoxg4
             // 
