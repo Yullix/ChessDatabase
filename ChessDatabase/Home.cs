@@ -17,6 +17,8 @@ namespace ChessDatabase
     {
         private PictureBox startSq;
         private PictureBox endSq;
+        private int[] startSqPos;
+        private int[] endSqPos;
         private static string selectedPieceAnnotation;
         private Game currentGame;
         private Assembly currentAssembly;
@@ -41,6 +43,8 @@ namespace ChessDatabase
 
             startSq = null;
             endSq = null;
+            startSqPos = new int[2];
+            endSqPos = new int[2];
             selectedPieceAnnotation = "";
 
             var check = this.GetType().Assembly.GetManifestResourceNames();
@@ -64,6 +68,7 @@ namespace ChessDatabase
             SetPosition();
         }
 
+        // Greates the graphical position from currentGame.position
         public void SetPosition()
         {
             for (int c = 0; c < 8; c++)
@@ -144,117 +149,105 @@ namespace ChessDatabase
             }
         }
 
+        //Completes a move after a square with a piece on it and an empty square has been selected
         public bool CompleteMove()
         {
-            new Move()
+            var newMove = new Move()
             {
-                startSq = startSq.Name,
-                endSq = endSq.Name,
+                startSqRow = startSqPos[0],
+                startSqColumn = startSqPos[1],
+                endSqRow = endSqPos[0],
+                endSqColumn = endSqPos[1],
                 GameID = currentGame.GameID
             };
 
-            startSq.Image = null;
-
-            switch(selectedPieceAnnotation)
+            // Changes the color of the starting square back to its original color
+            if(startSqPos[0] % 2 == 1)
             {
-                case "wP":
-                    endSq.Image = new Bitmap(whitePawnStream);
-                    break;
-                case "wN":
-                    endSq.Image = new Bitmap(whiteKnightStream);
-                    break;
-                case "wB":
-                    endSq.Image = new Bitmap(whiteBishopStream);
-                    break;
-                case "wR":
-                    endSq.Image = new Bitmap(whiteRookStream);
-                    break;
-                case "wQ":
-                    endSq.Image = new Bitmap(whiteQueenStream);
-                    break;
-                case "wK":
-                    endSq.Image = new Bitmap(whiteKingStream);
-                    break;
-                case "bP":
-                    endSq.Image = new Bitmap(blackPawnStream);
-                    break;
-                case "bN":
-                    endSq.Image = new Bitmap(blackKnightStream);
-                    break;
-                case "bB":
-                    endSq.Image = new Bitmap(blackBishopStream);
-                    break;
-                case "bR":
-                    endSq.Image = new Bitmap(blackRookStream);
-                    break;
-                case "bQ":
-                    endSq.Image = new Bitmap(blackQueenStream);
-                    break;
-                case "bK":
-                    endSq.Image = new Bitmap(blackKingStream);
-                    break;
-                default:
-                    endSq.Image = null;
-                    break;
+                if (startSqPos[1] % 2 == 1)
+                    startSq.BackColor = Color.Gray;
+                else
+                    startSq.BackColor = Color.White;
             }
+            else
+            {
+                if (startSqPos[1] % 2 == 1)
+                    startSq.BackColor = Color.White;
+                else
+                    startSq.BackColor = Color.Gray;
+            }
+
+            currentGame.Moves.Add(newMove);
+
+            currentGame.position[startSqPos[0], startSqPos[1]] = "";
+            currentGame.position[endSqPos[0], endSqPos[1]] = selectedPieceAnnotation;
+
             startSq = null;
             endSq = null;
-            //SetPosition();
+            SetPosition();
             return false;
         }
 
+        //Selects a square to perform a move
         private void SelectSquare(PictureBox square)
         {
             if(startSq == null)
             {
                 if (square.Image != null)
                 {
-                    startSq = square;
                     square.BackColor = Color.Brown;
-                    string[] squareString = square.Name.Split('x');
-
-                    int[] squarePosition = new int[2];
-
-                    switch (squareString[1][0])
-                    {
-                        case 'a':
-                            squarePosition[1] = 0;
-                            break;
-                        case 'b':
-                            squarePosition[1] = 1;
-                            break;
-                        case 'c':
-                            squarePosition[1] = 2;
-                            break;
-                        case 'd':
-                            squarePosition[1] = 3;
-                            break;
-                        case 'e':
-                            squarePosition[1] = 4;
-                            break;
-                        case 'f':
-                            squarePosition[1] = 5;
-                            break;
-                        case 'g':
-                            squarePosition[1] = 6;
-                            break;
-                        case 'h':
-                            squarePosition[1] = 7;
-                            break;
-                    }
-
-                    squarePosition[0] = Int32.Parse(squareString[1][1].ToString()) - 1;
-
-                    selectedPieceAnnotation = currentGame.position[squarePosition[0], squarePosition[1]];
+                    startSq = square;
+                    startSqPos = GetSquarePos(square.Name);
+                    selectedPieceAnnotation = currentGame.position[startSqPos[0], startSqPos[1]];
                 }
                 else
                     return;
             }
             else
             {
+                endSqPos = GetSquarePos(square.Name);
                 endSq = square;
                 CompleteMove();
             }
+        }
+
+        // Returns two int values that represents the position of the square in currentGame.position
+        private int[] GetSquarePos(string pBoxName)
+        {
+            string[] squareString = pBoxName.Split('x');
+
+            int[] squarePos = new int[2];
+            squarePos[0] = Int32.Parse(squareString[1][1].ToString()) - 1;
+
+            switch (squareString[1][0])
+            {
+                case 'a':
+                    squarePos[1] = 0;
+                    break;
+                case 'b':
+                    squarePos[1] = 1;
+                    break;
+                case 'c':
+                    squarePos[1] = 2;
+                    break;
+                case 'd':
+                    squarePos[1] = 3;
+                    break;
+                case 'e':
+                    squarePos[1] = 4;
+                    break;
+                case 'f':
+                    squarePos[1] = 5;
+                    break;
+                case 'g':
+                    squarePos[1] = 6;
+                    break;
+                case 'h':
+                    squarePos[1] = 7;
+                    break;
+            }
+
+            return squarePos;
         }
 
         private void pBoxe2_Click(object sender, EventArgs e)
