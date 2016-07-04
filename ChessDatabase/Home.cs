@@ -250,18 +250,452 @@ namespace ChessDatabase
             return squarePos;
         }
 
+        private void pBoxa1_Click(object sender, EventArgs e)
+        {
+            PictureBox square = (PictureBox)sender;
+
+            SelectSquare(square);
+        }
+
+        private void pBoxb1_Click(object sender, EventArgs e)
+        {
+            PictureBox square = (PictureBox)sender;
+
+            SelectSquare(square);
+        }
+
+        private void pBoxc1_Click(object sender, EventArgs e)
+        {
+            PictureBox square = (PictureBox)sender;
+
+            SelectSquare(square);
+        }
+
+        private void pBoxd1_Click(object sender, EventArgs e)
+        {
+            PictureBox square = (PictureBox)sender;
+
+            SelectSquare(square);
+        }
+
+        private void pBoxe1_Click(object sender, EventArgs e)
+        {
+            PictureBox square = (PictureBox)sender;
+
+            SelectSquare(square);
+        }
+
+        private void pBoxf1_Click(object sender, EventArgs e)
+        {
+            PictureBox square = (PictureBox)sender;
+
+            SelectSquare(square);
+        }
+
+        private void pBoxg1_Click(object sender, EventArgs e)
+        {
+            PictureBox square = (PictureBox)sender;
+
+            SelectSquare(square);
+        }
+
+        private void pBoxh1_Click(object sender, EventArgs e)
+        {
+            PictureBox square = (PictureBox)sender;
+
+            SelectSquare(square);
+        }
+
+        private void pBoxa2_Click(object sender, EventArgs e)
+        {
+            PictureBox square = (PictureBox)sender;
+
+            SelectSquare(square);
+        }
+
+        private void pBoxb2_Click(object sender, EventArgs e)
+        {
+            PictureBox square = (PictureBox)sender;
+
+            SelectSquare(square);
+        }
+
+        private void pBoxc2_Click(object sender, EventArgs e)
+        {
+            PictureBox square = (PictureBox)sender;
+
+            SelectSquare(square);
+        }
+
+        private void pBoxd2_Click(object sender, EventArgs e)
+        {
+            PictureBox square = (PictureBox)sender;
+
+            SelectSquare(square);
+        }
+
         private void pBoxe2_Click(object sender, EventArgs e)
         {
-            PictureBox e2 = (PictureBox)sender;
+            PictureBox square = (PictureBox)sender;
 
-            SelectSquare(e2); 
+            SelectSquare(square);
+        }
+
+        private void pBoxf2_Click(object sender, EventArgs e)
+        {
+            PictureBox square = (PictureBox)sender;
+
+            SelectSquare(square);
+        }
+
+        private void pBoxg2_Click(object sender, EventArgs e)
+        {
+            PictureBox square = (PictureBox)sender;
+
+            SelectSquare(square);
+        }
+
+        private void pBoxh2_Click(object sender, EventArgs e)
+        {
+            PictureBox square = (PictureBox)sender;
+
+            SelectSquare(square);
+        }
+
+        private void pBoxa3_Click(object sender, EventArgs e)
+        {
+            PictureBox square = (PictureBox)sender;
+
+            SelectSquare(square);
+        }
+
+        private void pBoxb3_Click(object sender, EventArgs e)
+        {
+            PictureBox square = (PictureBox)sender;
+
+            SelectSquare(square);
+        }
+
+        private void pBoxc3_Click(object sender, EventArgs e)
+        {
+            PictureBox square = (PictureBox)sender;
+
+            SelectSquare(square);
+        }
+
+        private void pBoxd3_Click(object sender, EventArgs e)
+        {
+            PictureBox square = (PictureBox)sender;
+
+            SelectSquare(square);
+        }
+
+        private void pBoxe3_Click(object sender, EventArgs e)
+        {
+            PictureBox square = (PictureBox)sender;
+
+            SelectSquare(square);
+        }
+
+        private void pBoxf3_Click(object sender, EventArgs e)
+        {
+            PictureBox square = (PictureBox)sender;
+
+            SelectSquare(square);
+        }
+
+        private void pBoxg3_Click(object sender, EventArgs e)
+        {
+            PictureBox square = (PictureBox)sender;
+
+            SelectSquare(square);
+        }
+
+        private void pBoxh3_Click(object sender, EventArgs e)
+        {
+            PictureBox square = (PictureBox)sender;
+
+            SelectSquare(square);
+        }
+
+        private void pBoxa4_Click(object sender, EventArgs e)
+        {
+            PictureBox square = (PictureBox)sender;
+
+            SelectSquare(square);
+        }
+
+        private void pBoxb4_Click(object sender, EventArgs e)
+        {
+            PictureBox square = (PictureBox)sender;
+
+            SelectSquare(square);
+        }
+
+        private void pBoxc4_Click(object sender, EventArgs e)
+        {
+            PictureBox square = (PictureBox)sender;
+
+            SelectSquare(square);
+        }
+
+        private void pBoxd4_Click(object sender, EventArgs e)
+        {
+            PictureBox square = (PictureBox)sender;
+
+            SelectSquare(square);
         }
 
         private void pBoxe4_Click(object sender, EventArgs e)
         {
-            PictureBox e4 = (PictureBox)sender;
+            PictureBox square = (PictureBox)sender;
 
-            SelectSquare(e4);
+            SelectSquare(square);
+        }
+
+        private void pBoxf4_Click(object sender, EventArgs e)
+        {
+            PictureBox square = (PictureBox)sender;
+
+            SelectSquare(square);
+        }
+
+        private void pBoxg4_Click(object sender, EventArgs e)
+        {
+            PictureBox square = (PictureBox)sender;
+
+            SelectSquare(square);
+        }
+
+        private void pBoxh4_Click(object sender, EventArgs e)
+        {
+            PictureBox square = (PictureBox)sender;
+
+            SelectSquare(square);
+        }
+
+        private void pBoxa5_Click(object sender, EventArgs e)
+        {
+            PictureBox square = (PictureBox)sender;
+
+            SelectSquare(square);
+        }
+
+        private void pBoxb5_Click(object sender, EventArgs e)
+        {
+            PictureBox square = (PictureBox)sender;
+
+            SelectSquare(square);
+        }
+
+        private void pBoxc5_Click(object sender, EventArgs e)
+        {
+            PictureBox square = (PictureBox)sender;
+
+            SelectSquare(square);
+        }
+
+        private void pBoxd5_Click(object sender, EventArgs e)
+        {
+            PictureBox square = (PictureBox)sender;
+
+            SelectSquare(square);
+        }
+
+        private void pBoxe5_Click(object sender, EventArgs e)
+        {
+            PictureBox square = (PictureBox)sender;
+
+            SelectSquare(square);
+        }
+
+        private void pBoxf5_Click(object sender, EventArgs e)
+        {
+            PictureBox square = (PictureBox)sender;
+
+            SelectSquare(square);
+        }
+
+        private void pBoxg5_Click(object sender, EventArgs e)
+        {
+            PictureBox square = (PictureBox)sender;
+
+            SelectSquare(square);
+        }
+
+        private void pBoxh5_Click(object sender, EventArgs e)
+        {
+            PictureBox square = (PictureBox)sender;
+
+            SelectSquare(square);
+        }
+
+        private void pBoxa6_Click(object sender, EventArgs e)
+        {
+            PictureBox square = (PictureBox)sender;
+
+            SelectSquare(square);
+        }
+
+        private void pBoxb6_Click(object sender, EventArgs e)
+        {
+            PictureBox square = (PictureBox)sender;
+
+            SelectSquare(square);
+        }
+
+        private void pBoxc6_Click(object sender, EventArgs e)
+        {
+            PictureBox square = (PictureBox)sender;
+
+            SelectSquare(square);
+        }
+
+        private void pBoxd6_Click(object sender, EventArgs e)
+        {
+            PictureBox square = (PictureBox)sender;
+
+            SelectSquare(square);
+        }
+
+        private void pBoxe6_Click(object sender, EventArgs e)
+        {
+            PictureBox square = (PictureBox)sender;
+
+            SelectSquare(square);
+        }
+
+        private void pBoxf6_Click(object sender, EventArgs e)
+        {
+            PictureBox square = (PictureBox)sender;
+
+            SelectSquare(square);
+        }
+
+        private void pBoxg6_Click(object sender, EventArgs e)
+        {
+            PictureBox square = (PictureBox)sender;
+
+            SelectSquare(square);
+        }
+
+        private void pBoxh6_Click(object sender, EventArgs e)
+        {
+            PictureBox square = (PictureBox)sender;
+
+            SelectSquare(square);
+        }
+
+        private void pBoxa7_Click(object sender, EventArgs e)
+        {
+            PictureBox square = (PictureBox)sender;
+
+            SelectSquare(square);
+        }
+
+        private void pBoxb7_Click(object sender, EventArgs e)
+        {
+            PictureBox square = (PictureBox)sender;
+
+            SelectSquare(square);
+        }
+
+        private void pBoxc7_Click(object sender, EventArgs e)
+        {
+            PictureBox square = (PictureBox)sender;
+
+            SelectSquare(square);
+        }
+
+        private void pBoxd7_Click(object sender, EventArgs e)
+        {
+            PictureBox square = (PictureBox)sender;
+
+            SelectSquare(square);
+        }
+
+        private void pBoxe7_Click(object sender, EventArgs e)
+        {
+            PictureBox square = (PictureBox)sender;
+
+            SelectSquare(square);
+        }
+
+        private void pBoxf7_Click(object sender, EventArgs e)
+        {
+            PictureBox square = (PictureBox)sender;
+
+            SelectSquare(square);
+        }
+
+        private void pBoxg7_Click(object sender, EventArgs e)
+        {
+            PictureBox square = (PictureBox)sender;
+
+            SelectSquare(square);
+        }
+
+        private void pBoxh7_Click(object sender, EventArgs e)
+        {
+            PictureBox square = (PictureBox)sender;
+
+            SelectSquare(square);
+        }
+
+        private void pBoxa8_Click(object sender, EventArgs e)
+        {
+            PictureBox square = (PictureBox)sender;
+
+            SelectSquare(square);
+        }
+
+        private void pBoxb8_Click(object sender, EventArgs e)
+        {
+            PictureBox square = (PictureBox)sender;
+
+            SelectSquare(square);
+        }
+
+        private void pBoxc8_Click(object sender, EventArgs e)
+        {
+            PictureBox square = (PictureBox)sender;
+
+            SelectSquare(square);
+        }
+
+        private void pBoxd8_Click(object sender, EventArgs e)
+        {
+            PictureBox square = (PictureBox)sender;
+
+            SelectSquare(square);
+        }
+
+        private void pBoxe8_Click(object sender, EventArgs e)
+        {
+            PictureBox square = (PictureBox)sender;
+
+            SelectSquare(square);
+        }
+
+        private void pBoxf8_Click(object sender, EventArgs e)
+        {
+            PictureBox square = (PictureBox)sender;
+
+            SelectSquare(square);
+        }
+
+        private void pBoxg8_Click(object sender, EventArgs e)
+        {
+            PictureBox square = (PictureBox)sender;
+
+            SelectSquare(square);
+        }
+
+        private void pBoxh8_Click(object sender, EventArgs e)
+        {
+            PictureBox square = (PictureBox)sender;
+
+            SelectSquare(square);
         }
     }
 }

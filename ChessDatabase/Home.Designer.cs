@@ -178,6 +178,7 @@
             this.pBoxb7.Size = new System.Drawing.Size(60, 60);
             this.pBoxb7.TabIndex = 103;
             this.pBoxb7.TabStop = false;
+            this.pBoxb7.Click += new System.EventHandler(this.pBoxb7_Click);
             // 
             // pBoxd7
             // 
@@ -187,6 +188,7 @@
             this.pBoxd7.Size = new System.Drawing.Size(60, 60);
             this.pBoxd7.TabIndex = 102;
             this.pBoxd7.TabStop = false;
+            this.pBoxd7.Click += new System.EventHandler(this.pBoxd7_Click);
             // 
             // pBoxf7
             // 
@@ -196,6 +198,7 @@
             this.pBoxf7.Size = new System.Drawing.Size(60, 60);
             this.pBoxf7.TabIndex = 101;
             this.pBoxf7.TabStop = false;
+            this.pBoxf7.Click += new System.EventHandler(this.pBoxf7_Click);
             // 
             // pBoxh7
             // 
@@ -205,6 +208,7 @@
             this.pBoxh7.Size = new System.Drawing.Size(60, 60);
             this.pBoxh7.TabIndex = 100;
             this.pBoxh7.TabStop = false;
+            this.pBoxh7.Click += new System.EventHandler(this.pBoxh7_Click);
             // 
             // pBoxa6
             // 
@@ -214,6 +218,7 @@
             this.pBoxa6.Size = new System.Drawing.Size(60, 60);
             this.pBoxa6.TabIndex = 99;
             this.pBoxa6.TabStop = false;
+            this.pBoxa6.Click += new System.EventHandler(this.pBoxa6_Click);
             // 
             // pBoxc6
             // 
@@ -223,6 +228,7 @@
             this.pBoxc6.Size = new System.Drawing.Size(60, 60);
             this.pBoxc6.TabIndex = 98;
             this.pBoxc6.TabStop = false;
+            this.pBoxc6.Click += new System.EventHandler(this.pBoxc6_Click);
             // 
             // pBoxe6
             // 
@@ -232,78 +238,87 @@
             this.pBoxe6.Size = new System.Drawing.Size(60, 60);
             this.pBoxe6.TabIndex = 97;
             this.pBoxe6.TabStop = false;
+            this.pBoxe6.Click += new System.EventHandler(this.pBoxe6_Click);
             // 
             // pBoxb6
             // 
-            this.pBoxb6.BackColor = System.Drawing.SystemColors.WindowFrame;
+            this.pBoxb6.BackColor = System.Drawing.Color.Gray;
             this.pBoxb6.Location = new System.Drawing.Point(60, 120);
             this.pBoxb6.Name = "pBoxb6";
             this.pBoxb6.Size = new System.Drawing.Size(60, 60);
             this.pBoxb6.TabIndex = 96;
             this.pBoxb6.TabStop = false;
+            this.pBoxb6.Click += new System.EventHandler(this.pBoxb6_Click);
             // 
             // pBoxd6
             // 
-            this.pBoxd6.BackColor = System.Drawing.SystemColors.WindowFrame;
+            this.pBoxd6.BackColor = System.Drawing.Color.Gray;
             this.pBoxd6.Location = new System.Drawing.Point(180, 120);
             this.pBoxd6.Name = "pBoxd6";
             this.pBoxd6.Size = new System.Drawing.Size(60, 60);
             this.pBoxd6.TabIndex = 95;
             this.pBoxd6.TabStop = false;
+            this.pBoxd6.Click += new System.EventHandler(this.pBoxd6_Click);
             // 
             // pBoxf6
             // 
-            this.pBoxf6.BackColor = System.Drawing.SystemColors.WindowFrame;
+            this.pBoxf6.BackColor = System.Drawing.Color.Gray;
             this.pBoxf6.Location = new System.Drawing.Point(300, 120);
             this.pBoxf6.Name = "pBoxf6";
             this.pBoxf6.Size = new System.Drawing.Size(60, 60);
             this.pBoxf6.TabIndex = 94;
             this.pBoxf6.TabStop = false;
+            this.pBoxf6.Click += new System.EventHandler(this.pBoxf6_Click);
             // 
             // pBoxh6
             // 
-            this.pBoxh6.BackColor = System.Drawing.SystemColors.WindowFrame;
+            this.pBoxh6.BackColor = System.Drawing.Color.Gray;
             this.pBoxh6.Location = new System.Drawing.Point(420, 120);
             this.pBoxh6.Name = "pBoxh6";
             this.pBoxh6.Size = new System.Drawing.Size(60, 60);
             this.pBoxh6.TabIndex = 93;
             this.pBoxh6.TabStop = false;
+            this.pBoxh6.Click += new System.EventHandler(this.pBoxh6_Click);
             // 
             // pBoxa5
             // 
-            this.pBoxa5.BackColor = System.Drawing.SystemColors.WindowFrame;
+            this.pBoxa5.BackColor = System.Drawing.Color.Gray;
             this.pBoxa5.Location = new System.Drawing.Point(0, 180);
             this.pBoxa5.Name = "pBoxa5";
             this.pBoxa5.Size = new System.Drawing.Size(60, 60);
             this.pBoxa5.TabIndex = 92;
             this.pBoxa5.TabStop = false;
+            this.pBoxa5.Click += new System.EventHandler(this.pBoxa5_Click);
             // 
             // pBoxc5
             // 
-            this.pBoxc5.BackColor = System.Drawing.SystemColors.WindowFrame;
+            this.pBoxc5.BackColor = System.Drawing.Color.Gray;
             this.pBoxc5.Location = new System.Drawing.Point(120, 180);
             this.pBoxc5.Name = "pBoxc5";
             this.pBoxc5.Size = new System.Drawing.Size(60, 60);
             this.pBoxc5.TabIndex = 91;
             this.pBoxc5.TabStop = false;
+            this.pBoxc5.Click += new System.EventHandler(this.pBoxc5_Click);
             // 
             // pBoxe5
             // 
-            this.pBoxe5.BackColor = System.Drawing.SystemColors.WindowFrame;
+            this.pBoxe5.BackColor = System.Drawing.Color.Gray;
             this.pBoxe5.Location = new System.Drawing.Point(240, 180);
             this.pBoxe5.Name = "pBoxe5";
             this.pBoxe5.Size = new System.Drawing.Size(60, 60);
             this.pBoxe5.TabIndex = 90;
             this.pBoxe5.TabStop = false;
+            this.pBoxe5.Click += new System.EventHandler(this.pBoxe5_Click);
             // 
             // pBoxg5
             // 
-            this.pBoxg5.BackColor = System.Drawing.SystemColors.WindowFrame;
+            this.pBoxg5.BackColor = System.Drawing.Color.Gray;
             this.pBoxg5.Location = new System.Drawing.Point(360, 180);
             this.pBoxg5.Name = "pBoxg5";
             this.pBoxg5.Size = new System.Drawing.Size(60, 60);
             this.pBoxg5.TabIndex = 89;
             this.pBoxg5.TabStop = false;
+            this.pBoxg5.Click += new System.EventHandler(this.pBoxg5_Click);
             // 
             // pBoxg6
             // 
@@ -313,6 +328,7 @@
             this.pBoxg6.Size = new System.Drawing.Size(60, 60);
             this.pBoxg6.TabIndex = 88;
             this.pBoxg6.TabStop = false;
+            this.pBoxg6.Click += new System.EventHandler(this.pBoxg6_Click);
             // 
             // pBoxb5
             // 
@@ -322,6 +338,7 @@
             this.pBoxb5.Size = new System.Drawing.Size(60, 60);
             this.pBoxb5.TabIndex = 87;
             this.pBoxb5.TabStop = false;
+            this.pBoxb5.Click += new System.EventHandler(this.pBoxb5_Click);
             // 
             // pBoxd5
             // 
@@ -331,6 +348,7 @@
             this.pBoxd5.Size = new System.Drawing.Size(60, 60);
             this.pBoxd5.TabIndex = 86;
             this.pBoxd5.TabStop = false;
+            this.pBoxd5.Click += new System.EventHandler(this.pBoxd5_Click);
             // 
             // pBoxf5
             // 
@@ -340,6 +358,7 @@
             this.pBoxf5.Size = new System.Drawing.Size(60, 60);
             this.pBoxf5.TabIndex = 85;
             this.pBoxf5.TabStop = false;
+            this.pBoxf5.Click += new System.EventHandler(this.pBoxf5_Click);
             // 
             // pBoxh5
             // 
@@ -349,6 +368,7 @@
             this.pBoxh5.Size = new System.Drawing.Size(60, 60);
             this.pBoxh5.TabIndex = 84;
             this.pBoxh5.TabStop = false;
+            this.pBoxh5.Click += new System.EventHandler(this.pBoxh5_Click);
             // 
             // pBoxa4
             // 
@@ -358,6 +378,7 @@
             this.pBoxa4.Size = new System.Drawing.Size(60, 60);
             this.pBoxa4.TabIndex = 83;
             this.pBoxa4.TabStop = false;
+            this.pBoxa4.Click += new System.EventHandler(this.pBoxa4_Click);
             // 
             // pBoxc4
             // 
@@ -367,6 +388,7 @@
             this.pBoxc4.Size = new System.Drawing.Size(60, 60);
             this.pBoxc4.TabIndex = 82;
             this.pBoxc4.TabStop = false;
+            this.pBoxc4.Click += new System.EventHandler(this.pBoxc4_Click);
             // 
             // pBoxe4
             // 
@@ -386,42 +408,47 @@
             this.pBoxg4.Size = new System.Drawing.Size(60, 60);
             this.pBoxg4.TabIndex = 80;
             this.pBoxg4.TabStop = false;
+            this.pBoxg4.Click += new System.EventHandler(this.pBoxg4_Click);
             // 
             // pBoxh4
             // 
-            this.pBoxh4.BackColor = System.Drawing.SystemColors.WindowFrame;
+            this.pBoxh4.BackColor = System.Drawing.Color.Gray;
             this.pBoxh4.Location = new System.Drawing.Point(420, 240);
             this.pBoxh4.Name = "pBoxh4";
             this.pBoxh4.Size = new System.Drawing.Size(60, 60);
             this.pBoxh4.TabIndex = 79;
             this.pBoxh4.TabStop = false;
+            this.pBoxh4.Click += new System.EventHandler(this.pBoxh4_Click);
             // 
             // pBoxf4
             // 
-            this.pBoxf4.BackColor = System.Drawing.SystemColors.WindowFrame;
+            this.pBoxf4.BackColor = System.Drawing.Color.Gray;
             this.pBoxf4.Location = new System.Drawing.Point(300, 240);
             this.pBoxf4.Name = "pBoxf4";
             this.pBoxf4.Size = new System.Drawing.Size(60, 60);
             this.pBoxf4.TabIndex = 78;
             this.pBoxf4.TabStop = false;
+            this.pBoxf4.Click += new System.EventHandler(this.pBoxf4_Click);
             // 
             // pBoxd4
             // 
-            this.pBoxd4.BackColor = System.Drawing.SystemColors.WindowFrame;
+            this.pBoxd4.BackColor = System.Drawing.Color.Gray;
             this.pBoxd4.Location = new System.Drawing.Point(180, 240);
             this.pBoxd4.Name = "pBoxd4";
             this.pBoxd4.Size = new System.Drawing.Size(60, 60);
             this.pBoxd4.TabIndex = 77;
             this.pBoxd4.TabStop = false;
+            this.pBoxd4.Click += new System.EventHandler(this.pBoxd4_Click);
             // 
             // pBoxb4
             // 
-            this.pBoxb4.BackColor = System.Drawing.SystemColors.WindowFrame;
+            this.pBoxb4.BackColor = System.Drawing.Color.Gray;
             this.pBoxb4.Location = new System.Drawing.Point(60, 240);
             this.pBoxb4.Name = "pBoxb4";
             this.pBoxb4.Size = new System.Drawing.Size(60, 60);
             this.pBoxb4.TabIndex = 76;
             this.pBoxb4.TabStop = false;
+            this.pBoxb4.Click += new System.EventHandler(this.pBoxb4_Click);
             // 
             // pBoxb3
             // 
@@ -431,6 +458,7 @@
             this.pBoxb3.Size = new System.Drawing.Size(60, 60);
             this.pBoxb3.TabIndex = 75;
             this.pBoxb3.TabStop = false;
+            this.pBoxb3.Click += new System.EventHandler(this.pBoxb3_Click);
             // 
             // pBoxd3
             // 
@@ -440,6 +468,7 @@
             this.pBoxd3.Size = new System.Drawing.Size(60, 60);
             this.pBoxd3.TabIndex = 74;
             this.pBoxd3.TabStop = false;
+            this.pBoxd3.Click += new System.EventHandler(this.pBoxd3_Click);
             // 
             // pBoxf3
             // 
@@ -449,6 +478,7 @@
             this.pBoxf3.Size = new System.Drawing.Size(60, 60);
             this.pBoxf3.TabIndex = 73;
             this.pBoxf3.TabStop = false;
+            this.pBoxf3.Click += new System.EventHandler(this.pBoxf3_Click);
             // 
             // pBoxh3
             // 
@@ -458,42 +488,47 @@
             this.pBoxh3.Size = new System.Drawing.Size(60, 60);
             this.pBoxh3.TabIndex = 72;
             this.pBoxh3.TabStop = false;
+            this.pBoxh3.Click += new System.EventHandler(this.pBoxh3_Click);
             // 
             // pBoxg3
             // 
-            this.pBoxg3.BackColor = System.Drawing.SystemColors.WindowFrame;
+            this.pBoxg3.BackColor = System.Drawing.Color.Gray;
             this.pBoxg3.Location = new System.Drawing.Point(360, 300);
             this.pBoxg3.Name = "pBoxg3";
             this.pBoxg3.Size = new System.Drawing.Size(60, 60);
             this.pBoxg3.TabIndex = 71;
             this.pBoxg3.TabStop = false;
+            this.pBoxg3.Click += new System.EventHandler(this.pBoxg3_Click);
             // 
             // pBoxe3
             // 
-            this.pBoxe3.BackColor = System.Drawing.SystemColors.WindowFrame;
+            this.pBoxe3.BackColor = System.Drawing.Color.Gray;
             this.pBoxe3.Location = new System.Drawing.Point(240, 300);
             this.pBoxe3.Name = "pBoxe3";
             this.pBoxe3.Size = new System.Drawing.Size(60, 60);
             this.pBoxe3.TabIndex = 70;
             this.pBoxe3.TabStop = false;
+            this.pBoxe3.Click += new System.EventHandler(this.pBoxe3_Click);
             // 
             // pBoxc3
             // 
-            this.pBoxc3.BackColor = System.Drawing.SystemColors.WindowFrame;
+            this.pBoxc3.BackColor = System.Drawing.Color.Gray;
             this.pBoxc3.Location = new System.Drawing.Point(120, 300);
             this.pBoxc3.Name = "pBoxc3";
             this.pBoxc3.Size = new System.Drawing.Size(60, 60);
             this.pBoxc3.TabIndex = 69;
             this.pBoxc3.TabStop = false;
+            this.pBoxc3.Click += new System.EventHandler(this.pBoxc3_Click);
             // 
             // pBoxa3
             // 
-            this.pBoxa3.BackColor = System.Drawing.SystemColors.WindowFrame;
+            this.pBoxa3.BackColor = System.Drawing.Color.Gray;
             this.pBoxa3.Location = new System.Drawing.Point(0, 300);
             this.pBoxa3.Name = "pBoxa3";
             this.pBoxa3.Size = new System.Drawing.Size(60, 60);
             this.pBoxa3.TabIndex = 68;
             this.pBoxa3.TabStop = false;
+            this.pBoxa3.Click += new System.EventHandler(this.pBoxa3_Click);
             // 
             // pBoxc2
             // 
@@ -503,6 +538,7 @@
             this.pBoxc2.Size = new System.Drawing.Size(60, 60);
             this.pBoxc2.TabIndex = 67;
             this.pBoxc2.TabStop = false;
+            this.pBoxc2.Click += new System.EventHandler(this.pBoxc2_Click);
             // 
             // pBoxe2
             // 
@@ -522,42 +558,47 @@
             this.pBoxg2.Size = new System.Drawing.Size(60, 60);
             this.pBoxg2.TabIndex = 65;
             this.pBoxg2.TabStop = false;
+            this.pBoxg2.Click += new System.EventHandler(this.pBoxg2_Click);
             // 
             // pBoxh2
             // 
-            this.pBoxh2.BackColor = System.Drawing.SystemColors.WindowFrame;
+            this.pBoxh2.BackColor = System.Drawing.Color.Gray;
             this.pBoxh2.Location = new System.Drawing.Point(420, 360);
             this.pBoxh2.Name = "pBoxh2";
             this.pBoxh2.Size = new System.Drawing.Size(60, 60);
             this.pBoxh2.TabIndex = 64;
             this.pBoxh2.TabStop = false;
+            this.pBoxh2.Click += new System.EventHandler(this.pBoxh2_Click);
             // 
             // pBoxf2
             // 
-            this.pBoxf2.BackColor = System.Drawing.SystemColors.WindowFrame;
+            this.pBoxf2.BackColor = System.Drawing.Color.Gray;
             this.pBoxf2.Location = new System.Drawing.Point(300, 360);
             this.pBoxf2.Name = "pBoxf2";
             this.pBoxf2.Size = new System.Drawing.Size(60, 60);
             this.pBoxf2.TabIndex = 63;
             this.pBoxf2.TabStop = false;
+            this.pBoxf2.Click += new System.EventHandler(this.pBoxf2_Click);
             // 
             // pBoxd2
             // 
-            this.pBoxd2.BackColor = System.Drawing.SystemColors.WindowFrame;
+            this.pBoxd2.BackColor = System.Drawing.Color.Gray;
             this.pBoxd2.Location = new System.Drawing.Point(180, 360);
             this.pBoxd2.Name = "pBoxd2";
             this.pBoxd2.Size = new System.Drawing.Size(60, 60);
             this.pBoxd2.TabIndex = 62;
             this.pBoxd2.TabStop = false;
+            this.pBoxd2.Click += new System.EventHandler(this.pBoxd2_Click);
             // 
             // pBoxb2
             // 
-            this.pBoxb2.BackColor = System.Drawing.SystemColors.WindowFrame;
+            this.pBoxb2.BackColor = System.Drawing.Color.Gray;
             this.pBoxb2.Location = new System.Drawing.Point(60, 360);
             this.pBoxb2.Name = "pBoxb2";
             this.pBoxb2.Size = new System.Drawing.Size(60, 60);
             this.pBoxb2.TabIndex = 61;
             this.pBoxb2.TabStop = false;
+            this.pBoxb2.Click += new System.EventHandler(this.pBoxb2_Click);
             // 
             // pBoxa2
             // 
@@ -567,6 +608,7 @@
             this.pBoxa2.Size = new System.Drawing.Size(60, 60);
             this.pBoxa2.TabIndex = 60;
             this.pBoxa2.TabStop = false;
+            this.pBoxa2.Click += new System.EventHandler(this.pBoxa2_Click);
             // 
             // pBoxh1
             // 
@@ -576,15 +618,17 @@
             this.pBoxh1.Size = new System.Drawing.Size(60, 60);
             this.pBoxh1.TabIndex = 59;
             this.pBoxh1.TabStop = false;
+            this.pBoxh1.Click += new System.EventHandler(this.pBoxh1_Click);
             // 
             // pBoxg1
             // 
-            this.pBoxg1.BackColor = System.Drawing.SystemColors.WindowFrame;
+            this.pBoxg1.BackColor = System.Drawing.Color.Gray;
             this.pBoxg1.Location = new System.Drawing.Point(360, 420);
             this.pBoxg1.Name = "pBoxg1";
             this.pBoxg1.Size = new System.Drawing.Size(60, 60);
             this.pBoxg1.TabIndex = 58;
             this.pBoxg1.TabStop = false;
+            this.pBoxg1.Click += new System.EventHandler(this.pBoxg1_Click);
             // 
             // pBoxf1
             // 
@@ -594,15 +638,17 @@
             this.pBoxf1.Size = new System.Drawing.Size(60, 60);
             this.pBoxf1.TabIndex = 57;
             this.pBoxf1.TabStop = false;
+            this.pBoxf1.Click += new System.EventHandler(this.pBoxf1_Click);
             // 
             // pBoxe1
             // 
-            this.pBoxe1.BackColor = System.Drawing.SystemColors.WindowFrame;
+            this.pBoxe1.BackColor = System.Drawing.Color.Gray;
             this.pBoxe1.Location = new System.Drawing.Point(240, 420);
             this.pBoxe1.Name = "pBoxe1";
             this.pBoxe1.Size = new System.Drawing.Size(60, 60);
             this.pBoxe1.TabIndex = 56;
             this.pBoxe1.TabStop = false;
+            this.pBoxe1.Click += new System.EventHandler(this.pBoxe1_Click);
             // 
             // pBoxd1
             // 
@@ -612,15 +658,17 @@
             this.pBoxd1.Size = new System.Drawing.Size(60, 60);
             this.pBoxd1.TabIndex = 55;
             this.pBoxd1.TabStop = false;
+            this.pBoxd1.Click += new System.EventHandler(this.pBoxd1_Click);
             // 
             // pBoxc1
             // 
-            this.pBoxc1.BackColor = System.Drawing.SystemColors.WindowFrame;
+            this.pBoxc1.BackColor = System.Drawing.Color.Gray;
             this.pBoxc1.Location = new System.Drawing.Point(120, 420);
             this.pBoxc1.Name = "pBoxc1";
             this.pBoxc1.Size = new System.Drawing.Size(60, 60);
             this.pBoxc1.TabIndex = 54;
             this.pBoxc1.TabStop = false;
+            this.pBoxc1.Click += new System.EventHandler(this.pBoxc1_Click);
             // 
             // pBoxb1
             // 
@@ -630,51 +678,57 @@
             this.pBoxb1.Size = new System.Drawing.Size(60, 60);
             this.pBoxb1.TabIndex = 53;
             this.pBoxb1.TabStop = false;
+            this.pBoxb1.Click += new System.EventHandler(this.pBoxb1_Click);
             // 
             // pBoxa1
             // 
-            this.pBoxa1.BackColor = System.Drawing.SystemColors.WindowFrame;
+            this.pBoxa1.BackColor = System.Drawing.Color.Gray;
             this.pBoxa1.Location = new System.Drawing.Point(0, 420);
             this.pBoxa1.Name = "pBoxa1";
             this.pBoxa1.Size = new System.Drawing.Size(60, 60);
             this.pBoxa1.TabIndex = 52;
             this.pBoxa1.TabStop = false;
+            this.pBoxa1.Click += new System.EventHandler(this.pBoxa1_Click);
             // 
             // pBoxg7
             // 
-            this.pBoxg7.BackColor = System.Drawing.SystemColors.WindowFrame;
+            this.pBoxg7.BackColor = System.Drawing.Color.Gray;
             this.pBoxg7.Location = new System.Drawing.Point(360, 60);
             this.pBoxg7.Name = "pBoxg7";
             this.pBoxg7.Size = new System.Drawing.Size(60, 60);
             this.pBoxg7.TabIndex = 104;
             this.pBoxg7.TabStop = false;
+            this.pBoxg7.Click += new System.EventHandler(this.pBoxg7_Click);
             // 
             // pBoxe7
             // 
-            this.pBoxe7.BackColor = System.Drawing.SystemColors.WindowFrame;
+            this.pBoxe7.BackColor = System.Drawing.Color.Gray;
             this.pBoxe7.Location = new System.Drawing.Point(240, 60);
             this.pBoxe7.Name = "pBoxe7";
             this.pBoxe7.Size = new System.Drawing.Size(60, 60);
             this.pBoxe7.TabIndex = 105;
             this.pBoxe7.TabStop = false;
+            this.pBoxe7.Click += new System.EventHandler(this.pBoxe7_Click);
             // 
             // pBoxc7
             // 
-            this.pBoxc7.BackColor = System.Drawing.SystemColors.WindowFrame;
+            this.pBoxc7.BackColor = System.Drawing.Color.Gray;
             this.pBoxc7.Location = new System.Drawing.Point(120, 60);
             this.pBoxc7.Name = "pBoxc7";
             this.pBoxc7.Size = new System.Drawing.Size(60, 60);
             this.pBoxc7.TabIndex = 106;
             this.pBoxc7.TabStop = false;
+            this.pBoxc7.Click += new System.EventHandler(this.pBoxc7_Click);
             // 
             // pBoxa7
             // 
-            this.pBoxa7.BackColor = System.Drawing.SystemColors.WindowFrame;
+            this.pBoxa7.BackColor = System.Drawing.Color.Gray;
             this.pBoxa7.Location = new System.Drawing.Point(0, 60);
             this.pBoxa7.Name = "pBoxa7";
             this.pBoxa7.Size = new System.Drawing.Size(60, 60);
             this.pBoxa7.TabIndex = 107;
             this.pBoxa7.TabStop = false;
+            this.pBoxa7.Click += new System.EventHandler(this.pBoxa7_Click);
             // 
             // pBoxg8
             // 
@@ -684,6 +738,7 @@
             this.pBoxg8.Size = new System.Drawing.Size(60, 60);
             this.pBoxg8.TabIndex = 108;
             this.pBoxg8.TabStop = false;
+            this.pBoxg8.Click += new System.EventHandler(this.pBoxg8_Click);
             // 
             // pBoxe8
             // 
@@ -693,6 +748,7 @@
             this.pBoxe8.Size = new System.Drawing.Size(60, 60);
             this.pBoxe8.TabIndex = 109;
             this.pBoxe8.TabStop = false;
+            this.pBoxe8.Click += new System.EventHandler(this.pBoxe8_Click);
             // 
             // pBoxc8
             // 
@@ -702,6 +758,7 @@
             this.pBoxc8.Size = new System.Drawing.Size(60, 60);
             this.pBoxc8.TabIndex = 110;
             this.pBoxc8.TabStop = false;
+            this.pBoxc8.Click += new System.EventHandler(this.pBoxc8_Click);
             // 
             // pBoxa8
             // 
@@ -711,42 +768,47 @@
             this.pBoxa8.Size = new System.Drawing.Size(60, 60);
             this.pBoxa8.TabIndex = 111;
             this.pBoxa8.TabStop = false;
+            this.pBoxa8.Click += new System.EventHandler(this.pBoxa8_Click);
             // 
             // pBoxb8
             // 
-            this.pBoxb8.BackColor = System.Drawing.SystemColors.WindowFrame;
+            this.pBoxb8.BackColor = System.Drawing.Color.Gray;
             this.pBoxb8.Location = new System.Drawing.Point(60, 0);
             this.pBoxb8.Name = "pBoxb8";
             this.pBoxb8.Size = new System.Drawing.Size(60, 60);
             this.pBoxb8.TabIndex = 112;
             this.pBoxb8.TabStop = false;
+            this.pBoxb8.Click += new System.EventHandler(this.pBoxb8_Click);
             // 
             // pBoxd8
             // 
-            this.pBoxd8.BackColor = System.Drawing.SystemColors.WindowFrame;
+            this.pBoxd8.BackColor = System.Drawing.Color.Gray;
             this.pBoxd8.Location = new System.Drawing.Point(180, 0);
             this.pBoxd8.Name = "pBoxd8";
             this.pBoxd8.Size = new System.Drawing.Size(60, 60);
             this.pBoxd8.TabIndex = 113;
             this.pBoxd8.TabStop = false;
+            this.pBoxd8.Click += new System.EventHandler(this.pBoxd8_Click);
             // 
             // pBoxf8
             // 
-            this.pBoxf8.BackColor = System.Drawing.SystemColors.WindowFrame;
+            this.pBoxf8.BackColor = System.Drawing.Color.Gray;
             this.pBoxf8.Location = new System.Drawing.Point(300, 0);
             this.pBoxf8.Name = "pBoxf8";
             this.pBoxf8.Size = new System.Drawing.Size(60, 60);
             this.pBoxf8.TabIndex = 114;
             this.pBoxf8.TabStop = false;
+            this.pBoxf8.Click += new System.EventHandler(this.pBoxf8_Click);
             // 
             // pBoxh8
             // 
-            this.pBoxh8.BackColor = System.Drawing.SystemColors.WindowFrame;
+            this.pBoxh8.BackColor = System.Drawing.Color.Gray;
             this.pBoxh8.Location = new System.Drawing.Point(420, 0);
             this.pBoxh8.Name = "pBoxh8";
             this.pBoxh8.Size = new System.Drawing.Size(60, 60);
             this.pBoxh8.TabIndex = 115;
             this.pBoxh8.TabStop = false;
+            this.pBoxh8.Click += new System.EventHandler(this.pBoxh8_Click);
             // 
             // panelBoard
             // 
