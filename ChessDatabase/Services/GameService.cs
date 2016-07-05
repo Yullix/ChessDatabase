@@ -3,11 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ChessDatabase.Models;
 
 namespace ChessDatabase.Services
 {
-    public interface IService
+    public class GameService : IService
     {
-        event EventHandler Updated;
+        public event EventHandler Updated;
     }
 }

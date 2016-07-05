@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using ChessDatabase.Models;
 using System.IO;
 using System.Reflection;
+using ChessDatabase.Services;
 
 namespace ChessDatabase
 {
@@ -19,6 +20,7 @@ namespace ChessDatabase
         private PictureBox endSq;
         private int[] startSqPos;
         private int[] endSqPos;
+        private string[,] position;
         private static string selectedPieceAnnotation;
         private Game currentGame;
         private Assembly currentAssembly;
@@ -34,12 +36,76 @@ namespace ChessDatabase
         private Stream blackRookStream;
         private Stream blackQueenStream;
         private Stream blackKingStream;
+        private MoveService _moveService;
+        private GameService _gameService;
+
+        public MoveService moveService
+        {
+            get
+            {
+                return _moveService ?? new MoveService();
+            }
+            private set
+            {
+                _moveService = value;
+            }
+        }
+
+        public GameService gameService
+        {
+            get
+            {
+                return _gameService ?? new GameService();
+            }
+            private set
+            {
+                _gameService = value;
+            }
+        }
 
         public Home(Game gameArgument)
         {
             InitializeComponent();
 
             currentGame = gameArgument;
+
+            position = new string[8, 8];
+
+            // White starting position
+            position[0, 0] = "wR";
+            position[0, 1] = "wN";
+            position[0, 2] = "wB";
+            position[0, 3] = "wQ";
+            position[0, 4] = "wK";
+            position[0, 5] = "wB";
+            position[0, 6] = "wN";
+            position[0, 7] = "wR";
+            position[1, 0] = "wP";
+            position[1, 1] = "wP";
+            position[1, 2] = "wP";
+            position[1, 3] = "wP";
+            position[1, 4] = "wP";
+            position[1, 5] = "wP";
+            position[1, 6] = "wP";
+            position[1, 7] = "wP";
+
+            //Black starting position
+            position[7, 0] = "bR";
+            position[7, 1] = "bN";
+            position[7, 2] = "bB";
+            position[7, 3] = "bQ";
+            position[7, 4] = "bK";
+            position[7, 5] = "bB";
+            position[7, 6] = "bN";
+            position[7, 7] = "bR";
+            position[6, 0] = "bP";
+            position[6, 1] = "bP";
+            position[6, 2] = "bP";
+            position[6, 3] = "bP";
+            position[6, 4] = "bP";
+            position[6, 5] = "bP";
+            position[6, 6] = "bP";
+            position[6, 7] = "bP";
 
             startSq = null;
             endSq = null;
@@ -77,7 +143,7 @@ namespace ChessDatabase
                 for (int r = 0; r < 8; r++)
                 {
                     PictureBox pSquare = this.Controls.Find("pBox" + row + (c + 1), true).FirstOrDefault() as PictureBox;
-                    switch (currentGame.position[c, r])
+                    switch (position[c, r])
                     {
                         case "wP":
                             pSquare.Image = new Bitmap(whitePawnStream);
@@ -179,8 +245,8 @@ namespace ChessDatabase
 
             currentGame.Moves.Add(newMove);
 
-            currentGame.position[startSqPos[0], startSqPos[1]] = "";
-            currentGame.position[endSqPos[0], endSqPos[1]] = selectedPieceAnnotation;
+            position[startSqPos[0], startSqPos[1]] = "";
+            position[endSqPos[0], endSqPos[1]] = selectedPieceAnnotation;
 
             startSq = null;
             endSq = null;
@@ -198,7 +264,7 @@ namespace ChessDatabase
                     square.BackColor = Color.Brown;
                     startSq = square;
                     startSqPos = GetSquarePos(square.Name);
-                    selectedPieceAnnotation = currentGame.position[startSqPos[0], startSqPos[1]];
+                    selectedPieceAnnotation = position[startSqPos[0], startSqPos[1]];
                 }
                 else
                     return;
