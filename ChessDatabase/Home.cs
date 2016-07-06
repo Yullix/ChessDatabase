@@ -8,9 +8,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using ChessDatabase.Models;
+using ChessDatabase.Services;
+using ChessDatabase.Repositories;
 using System.IO;
 using System.Reflection;
-using ChessDatabase.Services;
+
+//Ted Torkkeli
+// 2016-07-05
 
 namespace ChessDatabase
 {
@@ -38,12 +42,13 @@ namespace ChessDatabase
         private Stream blackKingStream;
         private MoveService _moveService;
         private GameService _gameService;
+        private RepositoryFactory _repoFactory;
 
         public MoveService moveService
         {
             get
             {
-                return _moveService ?? new MoveService();
+                return _moveService ?? new MoveService(repoFactory);
             }
             private set
             {
@@ -55,11 +60,23 @@ namespace ChessDatabase
         {
             get
             {
-                return _gameService ?? new GameService();
+                return _gameService ?? new GameService(repoFactory);
             }
             private set
             {
                 _gameService = value;
+            }
+        }
+
+        public RepositoryFactory repoFactory
+        {
+            get
+            {
+                return _repoFactory ?? new RepositoryFactory();
+            }
+            private set
+            {
+                _repoFactory = value;
             }
         }
 

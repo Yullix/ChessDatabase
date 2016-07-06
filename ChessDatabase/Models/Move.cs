@@ -4,6 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+//Ted Torkkeli
+// 2016-07-05
+
 namespace ChessDatabase.Models
 {
     public class Move
@@ -19,21 +22,5 @@ namespace ChessDatabase.Models
         public int moveNumber { get; set; }
         
         public virtual Game Game { get; set; }
-
-        //public Move(string startSq, string endSq, string color, string piece, int number)
-        //{
-        //    this.startSq = startSq;
-        //    this.endSq = endSq;
-        //    this.color = color;
-        //    this.piece = piece;
-        //    this.number = number;
-        //}
-
-        //public bool CheckLegality()
-        //{
-        //    var result = false;
-
-        //    return result;
-        //}
     }
 }

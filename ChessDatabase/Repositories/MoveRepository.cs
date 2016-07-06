@@ -5,18 +5,24 @@ using System.Text;
 using System.Threading.Tasks;
 using ChessDatabase.Models;
 
+//Ted Torkkeli
+// 2016-07-05
+
 namespace ChessDatabase.Repositories
 {
     public class MoveRepository : IRepository<Move, int>
     {
-        public void Add(Move item)
+        private ChessDatabaseContext context;
+
+        public MoveRepository(ChessDatabaseContext ctx)
         {
-            throw new NotImplementedException();
+            context = ctx;
         }
 
-        public IEnumerable<Move> All()
+        public void Add(Move item)
         {
-            throw new NotImplementedException();
+            context.Moves.Add(item);
+            context.SaveChanges();
         }
 
         public void Edit(Move item)

@@ -5,33 +5,61 @@ using System.Text;
 using System.Threading.Tasks;
 using ChessDatabase.Models;
 
+//Ted Torkkeli
+// 2016-07-05
+
 namespace ChessDatabase.Repositories
 {
     public class GameRepository : IRepository<Game, int>
     {
+        private ChessDatabaseContext context;
+
+        public GameRepository(ChessDatabaseContext ctx)
+        {
+            context = ctx;
+        }
+
         public void Add(Game item)
         {
-            throw new NotImplementedException();
+            context.Games.Add(item);
+            context.SaveChanges();
         }
 
         public IEnumerable<Game> All()
         {
-            throw new NotImplementedException();
+            var result = context.Games.ToList();
+
+            return result;
+        }
+
+        public IEnumerable<Game> ByFunc(Func<Game, bool> function)
+        {
+            var result = context.Games.Where(function).ToList();
+
+            return result;
         }
 
         public void Edit(Game item)
         {
-            throw new NotImplementedException();
+            context.Games.Remove(context.Games.FirstOrDefault(i => i.GameID.Equals(item.GameID)));
+            context.Games.Add(item);
+            context.SaveChanges();
         }
 
         public Game Find(int ID)
         {
-            throw new NotImplementedException();
+            return context.Games.FirstOrDefault(i => i.GameID.Equals(ID));
         }
 
-        public void Remove(Game item)
+        public bool Remove(int ID)
         {
-            throw new NotImplementedException();
+            if (context.Games.Where(i => i.GameID.Equals(ID)).Count() > 0)
+            {
+                context.Games.Remove(context.Games.FirstOrDefault(i => i.GameID.Equals(ID)));
+                context.SaveChanges();
+                return true;
+            }
+            return false;
         }
     }
 }
