@@ -12,6 +12,7 @@ namespace ChessDatabase.Repositories
     public interface IRepository<T, Tid>
     {
         void Add(T item);
+        IEnumerable<T> All();
         bool Remove(Tid ID);
         T Find(Tid ID);
         void Edit(T item);

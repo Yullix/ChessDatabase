@@ -43,6 +43,7 @@ namespace ChessDatabase
         private MoveService _moveService;
         private GameService _gameService;
         private RepositoryFactory _repoFactory;
+        private List<Move> gameMoves;
 
         public MoveService moveService
         {
@@ -85,6 +86,7 @@ namespace ChessDatabase
             InitializeComponent();
 
             currentGame = gameArgument;
+            gameMoves = gameArgument.Moves.ToList();
 
             position = new string[8, 8];
 

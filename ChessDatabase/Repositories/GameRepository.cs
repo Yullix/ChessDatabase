@@ -21,6 +21,7 @@ namespace ChessDatabase.Repositories
 
         public void Add(Game item)
         {
+            
             context.Games.Add(item);
             context.SaveChanges();
         }

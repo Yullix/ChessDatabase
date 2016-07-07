@@ -15,10 +15,28 @@ namespace ChessDatabase.Services
     {
         public event EventHandler Updated;
         private GameRepository gameRepository;
+        private MoveRepository moveRepository;
         
-        public GameService(RepositoryFactory repoFactory)
+        public GameService(RepositoryFactory _repoFactory)
         {
-            gameRepository = repoFactory.GetGameRepository();
+            gameRepository = _repoFactory.GetGameRepository();
+            moveRepository = _repoFactory.GetMoveRepository();
+        }
+
+        public void Add(List<Move> _moves, string _blackPlayer, string _whitePlayer)
+        {
+            Game newGame = new Game()
+            {
+                blackPlayer = _blackPlayer,
+                whitePlayer = _whitePlayer
+            };
+
+            gameRepository.Add(newGame);
+
+            foreach(var m in _moves)
+            {
+                moveRepository.Add(m);
+            }
         }
     }
 }
