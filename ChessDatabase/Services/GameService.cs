@@ -25,17 +25,28 @@ namespace ChessDatabase.Services
 
         public void Add(List<Move> _moves, string _blackPlayer, string _whitePlayer)
         {
-            Game newGame = new Game()
+            try
             {
-                blackPlayer = _blackPlayer,
-                whitePlayer = _whitePlayer
-            };
+                int gameID = Guid.NewGuid().GetHashCode();
 
-            gameRepository.Add(newGame);
+                Game newGame = new Game()
+                {
+                    blackPlayer = _blackPlayer,
+                    whitePlayer = _whitePlayer,
+                    GameID = gameID
+                };
 
-            foreach(var m in _moves)
+                gameRepository.Add(newGame);
+
+                foreach (var m in _moves)
+                {
+                    m.GameID = gameID;
+                    moveRepository.Add(m);
+                }
+            }
+            catch(NotUniqueIdException)
             {
-                moveRepository.Add(m);
+                Add(_moves, _blackPlayer, _whitePlayer);
             }
         }
     }

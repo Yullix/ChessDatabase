@@ -8,6 +8,16 @@ using ChessDatabase.Models;
 //Ted Torkkeli
 // 2016-07-05
 
+public class NotUniqueIdException : Exception
+{
+    int ID;
+
+    public NotUniqueIdException(string message, int _ID) : base(message)
+    {
+        this.ID = _ID;
+    }
+}
+
 namespace ChessDatabase.Repositories
 {
     public class GameRepository : IRepository<Game, int>
@@ -21,7 +31,11 @@ namespace ChessDatabase.Repositories
 
         public void Add(Game item)
         {
-            
+            if(context.Games.Where(g => g.GameID.Equals(item.GameID)).Count() > 0)
+            {
+                throw new NotUniqueIdException("There is already a game with this ID in the database.", item.GameID);
+            }
+
             context.Games.Add(item);
             context.SaveChanges();
         }
