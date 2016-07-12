@@ -3,13 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ChessDatabase.Models;
 
 //Ted Torkkeli
 // 2016-07-05
 
 namespace ChessDatabase.Repositories
 {
-    public interface IRepository<T, Tid>
+    public interface IRepository<T, Tid> where T : IEntity
     {
         void Add(T item);
         IEnumerable<T> All();

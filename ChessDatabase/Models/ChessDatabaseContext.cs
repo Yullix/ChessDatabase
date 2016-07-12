@@ -12,7 +12,13 @@ namespace ChessDatabase.Models
 {
     public class ChessDatabaseContext : DbContext
     {
-        public DbSet<Move> Moves;
-        public DbSet<Game> Games;
+        //public ChessDatabaseContext()
+        //    : base("name=ChessDatabaseContext")
+        //{
+
+        //}
+
+        public DbSet<Move> Moves { get; set; }
+        public DbSet<Game> Games { get; set; }
     }
 }

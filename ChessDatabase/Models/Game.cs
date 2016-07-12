@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -9,11 +10,18 @@ using System.Threading.Tasks;
 
 namespace ChessDatabase.Models
 {
-    public class Game
+    public class Game : IEntity
     {
+        [Key]
+        public int Id { get; set; }
+
+        [Required]
+        [MaxLength(30)]
         public string blackPlayer { get; set; }
+
+        [Required]
+        [MaxLength(30)]
         public string whitePlayer { get; set; }
-        public int GameID { get; set; }
 
         public virtual ICollection<Move> Moves { get; set; }
 

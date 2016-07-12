@@ -32,7 +32,7 @@ namespace ChessDatabase.Services
         /// <param name="gameID"></param>
         /// <param name="moveNumber"></param>
         /// <returns>bool value that represents if the move was successful or not</returns>
-        public bool MakeMove(int[,] position, string pieceAnnotation, int[] startSq, int[] endSq, string color, int gameID, int moveNumber)
+        public bool MakeMove(int[,] position, char pieceAnnotation, int[] startSq, int[] endSq, string color, int gameID, int moveNumber)
         {
             if (IsLegal(position, pieceAnnotation, startSq, endSq))
             {
@@ -41,7 +41,7 @@ namespace ChessDatabase.Services
                     color = color,
                     endSqColumn = endSq[0],
                     endSqRow = endSq[1],
-                    GameID = gameID,
+                    Id = gameID,
                     moveNumber = moveNumber,
                     pieceAnnotation = pieceAnnotation,
                     startSqColumn = startSq[0],
@@ -63,7 +63,7 @@ namespace ChessDatabase.Services
         /// <param name="startSq"></param>
         /// <param name="endSq"></param>
         /// <returns>bool value representing if the move is legal or not</returns>
-        private bool IsLegal(int[,] position, string pieceAnnotation, int[] startSq, int[] endSq)
+        private bool IsLegal(int[,] position, char pieceAnnotation, int[] startSq, int[] endSq)
         {
             throw new NotImplementedException();
         }

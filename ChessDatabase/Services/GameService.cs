@@ -33,14 +33,14 @@ namespace ChessDatabase.Services
                 {
                     blackPlayer = _blackPlayer,
                     whitePlayer = _whitePlayer,
-                    GameID = gameID
+                    Id = gameID
                 };
 
                 gameRepository.Add(newGame);
 
                 foreach (var m in _moves)
                 {
-                    m.GameID = gameID;
+                    m.GameId = gameID;
                     moveRepository.Add(m);
                 }
             }

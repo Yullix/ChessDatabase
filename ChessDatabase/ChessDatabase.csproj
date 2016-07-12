@@ -65,6 +65,7 @@
     <Compile Include="Models\ChessDatabaseContext.cs" />
     <Compile Include="Models\ContextSingleton.cs" />
     <Compile Include="Models\Game.cs" />
+    <Compile Include="Models\IEntity.cs" />
     <Compile Include="Models\Move.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

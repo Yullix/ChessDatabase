@@ -31,10 +31,10 @@ namespace ChessDatabase.Repositories
 
         public void Add(Game item)
         {
-            if(context.Games.Where(g => g.GameID.Equals(item.GameID)).Count() > 0)
-            {
-                throw new NotUniqueIdException("There is already a game with this ID in the database.", item.GameID);
-            }
+            //if(context.Games.Where(g => g.Id.Equals(item.Id)).Count() > 0)
+            //{
+            //    throw new NotUniqueIdException("There is already a game with this ID in the database.", item.Id);
+            //}
 
             context.Games.Add(item);
             context.SaveChanges();
@@ -56,21 +56,21 @@ namespace ChessDatabase.Repositories
 
         public void Edit(Game item)
         {
-            context.Games.Remove(context.Games.FirstOrDefault(i => i.GameID.Equals(item.GameID)));
+            context.Games.Remove(context.Games.FirstOrDefault(i => i.Id.Equals(item.Id)));
             context.Games.Add(item);
             context.SaveChanges();
         }
 
         public Game Find(int ID)
         {
-            return context.Games.FirstOrDefault(i => i.GameID.Equals(ID));
+            return context.Games.FirstOrDefault(i => i.Id.Equals(ID));
         }
 
         public bool Remove(int ID)
         {
-            if (context.Games.Where(i => i.GameID.Equals(ID)).Count() > 0)
+            if (context.Games.Where(i => i.Id.Equals(ID)).Count() > 0)
             {
-                context.Games.Remove(context.Games.FirstOrDefault(i => i.GameID.Equals(ID)));
+                context.Games.Remove(context.Games.FirstOrDefault(i => i.Id.Equals(ID)));
                 context.SaveChanges();
                 return true;
             }

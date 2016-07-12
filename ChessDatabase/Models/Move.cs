@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -9,16 +11,34 @@ using System.Threading.Tasks;
 
 namespace ChessDatabase.Models
 {
-    public class Move
+    public class Move : IEntity
     {
-        public int MoveID { get; set; }
-        public int GameID { get; set; }
+        [Key]
+        public int Id { get; set; }
+
+        [Required]
+        [ForeignKey("Game")]
+        public int GameId { get; set; }
+
+        [Required]
         public int startSqRow { get; set; }
+
+        [Required]
         public int startSqColumn { get; set; }
+
+        [Required]
         public int endSqRow { get; set; }
+
+        [Required]
         public int endSqColumn { get; set; }
+
+        [Required]
         public string color { get; set; }
-        public string pieceAnnotation { get; set; }
+
+        [Required]
+        public char pieceAnnotation { get; set; }
+
+        [Required]
         public int moveNumber { get; set; }
         
         public virtual Game Game { get; set; }

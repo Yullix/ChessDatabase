@@ -25,12 +25,27 @@ namespace ChessDatabase.Repositories
             context.SaveChanges();
         }
 
+        public IEnumerable<Move> All()
+        {
+            throw new NotImplementedException();
+        }
+
+        public IEnumerable<Move> ByFunc(Func<Move, bool> function)
+        {
+            throw new NotImplementedException();
+        }
+
         public void Edit(Move item)
         {
             throw new NotImplementedException();
         }
 
         public Move Find(int ID)
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool Remove(int ID)
         {
             throw new NotImplementedException();
         }

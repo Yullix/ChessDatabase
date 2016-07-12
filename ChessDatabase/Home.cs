@@ -26,7 +26,6 @@ namespace ChessDatabase
         private int[] endSqPos;
         private string[,] position;
         private static string selectedPieceAnnotation;
-        private Game currentGame;
         private Assembly currentAssembly;
         private Stream whitePawnStream;
         private Stream whiteKnightStream;
@@ -81,12 +80,11 @@ namespace ChessDatabase
             }
         }
 
-        public Home(Game gameArgument)
+        public Home()
         {
             InitializeComponent();
 
-            currentGame = gameArgument;
-            gameMoves = gameArgument.Moves.ToList();
+            gameMoves = new List<Move>();
 
             position = new string[8, 8];
 
@@ -237,14 +235,6 @@ namespace ChessDatabase
         //Completes a move after a square with a piece on it and an empty square has been selected
         public bool CompleteMove()
         {
-            var newMove = new Move()
-            {
-                startSqRow = startSqPos[0],
-                startSqColumn = startSqPos[1],
-                endSqRow = endSqPos[0],
-                endSqColumn = endSqPos[1],
-                GameID = currentGame.GameID
-            };
 
             // Changes the color of the starting square back to its original color
             if(startSqPos[0] % 2 == 1)
@@ -261,8 +251,6 @@ namespace ChessDatabase
                 else
                     startSq.BackColor = Color.Gray;
             }
-
-            currentGame.Moves.Add(newMove);
 
             position[startSqPos[0], startSqPos[1]] = "";
             position[endSqPos[0], endSqPos[1]] = selectedPieceAnnotation;
@@ -781,6 +769,11 @@ namespace ChessDatabase
             PictureBox square = (PictureBox)sender;
 
             SelectSquare(square);
+        }
+
+        private void btnSaveGame_Click(object sender, EventArgs e)
+        {
+            gameService.Add(gameMoves, txtBlackPlayer.Text, txtWhitePlayer.Text);
         }
     }
 }

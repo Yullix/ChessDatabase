@@ -101,6 +101,7 @@
             this.txtBlackPlayer = new System.Windows.Forms.TextBox();
             this.labelBlackPlayer = new System.Windows.Forms.Label();
             this.labelMoves = new System.Windows.Forms.Label();
+            this.btnSaveGame = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pBoxb7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pBoxd7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pBoxf7)).BeginInit();
@@ -902,7 +903,6 @@
             // 
             this.txtWhitePlayer.Location = new System.Drawing.Point(6, 25);
             this.txtWhitePlayer.Name = "txtWhitePlayer";
-            this.txtWhitePlayer.ReadOnly = true;
             this.txtWhitePlayer.Size = new System.Drawing.Size(100, 20);
             this.txtWhitePlayer.TabIndex = 1;
             // 
@@ -928,7 +928,6 @@
             // 
             this.txtBlackPlayer.Location = new System.Drawing.Point(6, 25);
             this.txtBlackPlayer.Name = "txtBlackPlayer";
-            this.txtBlackPlayer.ReadOnly = true;
             this.txtBlackPlayer.Size = new System.Drawing.Size(100, 20);
             this.txtBlackPlayer.TabIndex = 1;
             // 
@@ -950,12 +949,24 @@
             this.labelMoves.TabIndex = 2;
             this.labelMoves.Text = "Moves";
             // 
+            // btnSaveGame
+            // 
+            this.btnSaveGame.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.btnSaveGame.Location = new System.Drawing.Point(756, 239);
+            this.btnSaveGame.Name = "btnSaveGame";
+            this.btnSaveGame.Size = new System.Drawing.Size(100, 40);
+            this.btnSaveGame.TabIndex = 120;
+            this.btnSaveGame.Text = "Save Game";
+            this.btnSaveGame.UseVisualStyleBackColor = false;
+            this.btnSaveGame.Click += new System.EventHandler(this.btnSaveGame_Click);
+            // 
             // Home
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(1109, 633);
+            this.Controls.Add(this.btnSaveGame);
             this.Controls.Add(this.labelMoves);
             this.Controls.Add(this.panelBlackPlayer);
             this.Controls.Add(this.panelWhitePlayer);
@@ -1112,5 +1123,6 @@
         private System.Windows.Forms.TextBox txtBlackPlayer;
         private System.Windows.Forms.Label labelBlackPlayer;
         private System.Windows.Forms.Label labelMoves;
+        private System.Windows.Forms.Button btnSaveGame;
     }
 }
