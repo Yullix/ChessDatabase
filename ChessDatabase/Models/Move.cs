@@ -42,5 +42,37 @@ namespace ChessDatabase.Models
         public int moveNumber { get; set; }
         
         public virtual Game Game { get; set; }
+
+        public override string ToString()
+        {
+            char column = 'a';
+
+            switch(endSqColumn)
+            {
+                case 1:
+                    column = 'b';
+                    break;
+                case 2:
+                    column = 'c';
+                    break;
+                case 3:
+                    column = 'd';
+                    break;
+                case 4:
+                    column = 'e';
+                    break;
+                case 5:
+                    column = 'f';
+                    break;
+                case 6:
+                    column = 'g';
+                    break;
+                case 7:
+                    column = 'h';
+                    break;
+            }
+
+            return moveNumber.ToString() + ". " + pieceAnnotation + column + (endSqRow + 1);
+        }
     }
 }

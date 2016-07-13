@@ -23,6 +23,10 @@ namespace ChessDatabase.Models
         [MaxLength(30)]
         public string whitePlayer { get; set; }
 
+        public DateTime date { get; set; }
+
+        public string name { get; set; }
+
         public virtual ICollection<Move> Moves { get; set; }
 
         public Game()

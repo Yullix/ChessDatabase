@@ -26,6 +26,8 @@ namespace ChessDatabase
         private int[] endSqPos;
         private string[,] position;
         private static string selectedPieceAnnotation;
+        private string color;
+        private int moveNmbr;
         private Assembly currentAssembly;
         private Stream whitePawnStream;
         private Stream whiteKnightStream;
@@ -85,8 +87,9 @@ namespace ChessDatabase
             InitializeComponent();
 
             gameMoves = new List<Move>();
-
+            color = "white";
             position = new string[8, 8];
+            moveNmbr = 1;
 
             // White starting position
             position[0, 0] = "wR";
@@ -255,6 +258,32 @@ namespace ChessDatabase
             position[startSqPos[0], startSqPos[1]] = "";
             position[endSqPos[0], endSqPos[1]] = selectedPieceAnnotation;
 
+            var newMove = new Move()
+            {
+                color = color,
+                moveNumber = moveNmbr,
+                pieceAnnotation = selectedPieceAnnotation[1],
+                startSqColumn = startSqPos[1],
+                startSqRow = startSqPos[0],
+                endSqColumn = endSqPos[1],
+                endSqRow = endSqPos[0]
+            };
+
+            gameMoves.Add(newMove);
+
+            switch(color)
+            {
+                case "white":
+                    lstMovesWhite.Items.Add(newMove);
+                    color = "black";
+                    break;
+                case "black":
+                    lstMovesBlack.Items.Add(newMove);
+                    color = "white";
+                    moveNmbr += 1;
+                    break;
+            }
+
             startSq = null;
             endSq = null;
             SetPosition();
@@ -321,6 +350,12 @@ namespace ChessDatabase
             }
 
             return squarePos;
+        }
+
+
+        private void btnSaveGame_Click(object sender, EventArgs e)
+        {
+            gameService.Add(gameMoves, txtBlackPlayer.Text, txtWhitePlayer.Text, dateGameDate.Value);
         }
 
         private void pBoxa1_Click(object sender, EventArgs e)
@@ -769,11 +804,6 @@ namespace ChessDatabase
             PictureBox square = (PictureBox)sender;
 
             SelectSquare(square);
-        }
-
-        private void btnSaveGame_Click(object sender, EventArgs e)
-        {
-            gameService.Add(gameMoves, txtBlackPlayer.Text, txtWhitePlayer.Text);
         }
     }
 }

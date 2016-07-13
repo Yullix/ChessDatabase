@@ -68,8 +68,14 @@ namespace ChessDatabase.Repositories
 
         public bool Remove(int ID)
         {
-            if (context.Games.Where(i => i.Id.Equals(ID)).Count() > 0)
+            Game game = context.Games.FirstOrDefault(g => g.Id.Equals(ID));
+
+            if (game != null)
             {
+                foreach(var m in context.Moves.Where(i => i.GameId.Equals(ID)).ToList())
+                {
+                    context.Moves.Remove(m);
+                }
                 context.Games.Remove(context.Games.FirstOrDefault(i => i.Id.Equals(ID)));
                 context.SaveChanges();
                 return true;

@@ -23,31 +23,31 @@ namespace ChessDatabase.Services
             moveRepository = _repoFactory.GetMoveRepository();
         }
 
-        public void Add(List<Move> _moves, string _blackPlayer, string _whitePlayer)
+        public void Add(List<Move> _moves, string _blackPlayer, string _whitePlayer, DateTime gameDate)
         {
             try
             {
-                int gameID = Guid.NewGuid().GetHashCode();
-
                 Game newGame = new Game()
                 {
                     blackPlayer = _blackPlayer,
                     whitePlayer = _whitePlayer,
-                    Id = gameID
+                    Moves = _moves,
+                    date = gameDate
                 };
 
                 gameRepository.Add(newGame);
-
-                foreach (var m in _moves)
-                {
-                    m.GameId = gameID;
-                    moveRepository.Add(m);
-                }
             }
             catch(NotUniqueIdException)
             {
-                Add(_moves, _blackPlayer, _whitePlayer);
+                
             }
+        }
+
+        public IEnumerable<Game> ByPlayer(string name)
+        {
+            Func<Game, bool> func = i => i.whitePlayer.Equals(name) || i.blackPlayer.Equals(name);
+
+            return gameRepository.ByFunc(func);
         }
     }
 }

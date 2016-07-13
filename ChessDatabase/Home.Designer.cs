@@ -93,7 +93,7 @@
             this.pBoxf8 = new System.Windows.Forms.PictureBox();
             this.pBoxh8 = new System.Windows.Forms.PictureBox();
             this.panelBoard = new System.Windows.Forms.Panel();
-            this.lstMoves = new System.Windows.Forms.ListBox();
+            this.lstMovesWhite = new System.Windows.Forms.ListBox();
             this.panelWhitePlayer = new System.Windows.Forms.Panel();
             this.txtWhitePlayer = new System.Windows.Forms.TextBox();
             this.labelWhitePlayer = new System.Windows.Forms.Label();
@@ -102,6 +102,8 @@
             this.labelBlackPlayer = new System.Windows.Forms.Label();
             this.labelMoves = new System.Windows.Forms.Label();
             this.btnSaveGame = new System.Windows.Forms.Button();
+            this.dateGameDate = new System.Windows.Forms.DateTimePicker();
+            this.lstMovesBlack = new System.Windows.Forms.ListBox();
             ((System.ComponentModel.ISupportInitialize)(this.pBoxb7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pBoxd7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pBoxf7)).BeginInit();
@@ -882,19 +884,19 @@
             this.panelBoard.Size = new System.Drawing.Size(480, 480);
             this.panelBoard.TabIndex = 116;
             // 
-            // lstMoves
+            // lstMovesWhite
             // 
-            this.lstMoves.FormattingEnabled = true;
-            this.lstMoves.Location = new System.Drawing.Point(604, 40);
-            this.lstMoves.Name = "lstMoves";
-            this.lstMoves.Size = new System.Drawing.Size(146, 238);
-            this.lstMoves.TabIndex = 117;
+            this.lstMovesWhite.FormattingEnabled = true;
+            this.lstMovesWhite.Location = new System.Drawing.Point(604, 40);
+            this.lstMovesWhite.Name = "lstMovesWhite";
+            this.lstMovesWhite.Size = new System.Drawing.Size(70, 186);
+            this.lstMovesWhite.TabIndex = 117;
             // 
             // panelWhitePlayer
             // 
             this.panelWhitePlayer.Controls.Add(this.txtWhitePlayer);
             this.panelWhitePlayer.Controls.Add(this.labelWhitePlayer);
-            this.panelWhitePlayer.Location = new System.Drawing.Point(604, 307);
+            this.panelWhitePlayer.Location = new System.Drawing.Point(604, 232);
             this.panelWhitePlayer.Name = "panelWhitePlayer";
             this.panelWhitePlayer.Size = new System.Drawing.Size(146, 57);
             this.panelWhitePlayer.TabIndex = 118;
@@ -903,7 +905,7 @@
             // 
             this.txtWhitePlayer.Location = new System.Drawing.Point(6, 25);
             this.txtWhitePlayer.Name = "txtWhitePlayer";
-            this.txtWhitePlayer.Size = new System.Drawing.Size(100, 20);
+            this.txtWhitePlayer.Size = new System.Drawing.Size(137, 20);
             this.txtWhitePlayer.TabIndex = 1;
             // 
             // labelWhitePlayer
@@ -919,7 +921,7 @@
             // 
             this.panelBlackPlayer.Controls.Add(this.txtBlackPlayer);
             this.panelBlackPlayer.Controls.Add(this.labelBlackPlayer);
-            this.panelBlackPlayer.Location = new System.Drawing.Point(604, 400);
+            this.panelBlackPlayer.Location = new System.Drawing.Point(604, 295);
             this.panelBlackPlayer.Name = "panelBlackPlayer";
             this.panelBlackPlayer.Size = new System.Drawing.Size(146, 57);
             this.panelBlackPlayer.TabIndex = 119;
@@ -928,7 +930,7 @@
             // 
             this.txtBlackPlayer.Location = new System.Drawing.Point(6, 25);
             this.txtBlackPlayer.Name = "txtBlackPlayer";
-            this.txtBlackPlayer.Size = new System.Drawing.Size(100, 20);
+            this.txtBlackPlayer.Size = new System.Drawing.Size(137, 20);
             this.txtBlackPlayer.TabIndex = 1;
             // 
             // labelBlackPlayer
@@ -952,13 +954,28 @@
             // btnSaveGame
             // 
             this.btnSaveGame.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.btnSaveGame.Location = new System.Drawing.Point(756, 239);
+            this.btnSaveGame.Location = new System.Drawing.Point(610, 420);
             this.btnSaveGame.Name = "btnSaveGame";
-            this.btnSaveGame.Size = new System.Drawing.Size(100, 40);
+            this.btnSaveGame.Size = new System.Drawing.Size(137, 40);
             this.btnSaveGame.TabIndex = 120;
             this.btnSaveGame.Text = "Save Game";
             this.btnSaveGame.UseVisualStyleBackColor = false;
             this.btnSaveGame.Click += new System.EventHandler(this.btnSaveGame_Click);
+            // 
+            // dateGameDate
+            // 
+            this.dateGameDate.Location = new System.Drawing.Point(610, 358);
+            this.dateGameDate.Name = "dateGameDate";
+            this.dateGameDate.Size = new System.Drawing.Size(137, 20);
+            this.dateGameDate.TabIndex = 121;
+            // 
+            // lstMovesBlack
+            // 
+            this.lstMovesBlack.FormattingEnabled = true;
+            this.lstMovesBlack.Location = new System.Drawing.Point(677, 40);
+            this.lstMovesBlack.Name = "lstMovesBlack";
+            this.lstMovesBlack.Size = new System.Drawing.Size(70, 186);
+            this.lstMovesBlack.TabIndex = 122;
             // 
             // Home
             // 
@@ -966,11 +983,13 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(1109, 633);
+            this.Controls.Add(this.lstMovesBlack);
+            this.Controls.Add(this.dateGameDate);
             this.Controls.Add(this.btnSaveGame);
             this.Controls.Add(this.labelMoves);
             this.Controls.Add(this.panelBlackPlayer);
             this.Controls.Add(this.panelWhitePlayer);
-            this.Controls.Add(this.lstMoves);
+            this.Controls.Add(this.lstMovesWhite);
             this.Controls.Add(this.panelBoard);
             this.Name = "Home";
             this.Text = "Home";
@@ -1115,7 +1134,7 @@
         private System.Windows.Forms.PictureBox pBoxf8;
         private System.Windows.Forms.PictureBox pBoxh8;
         private System.Windows.Forms.Panel panelBoard;
-        private System.Windows.Forms.ListBox lstMoves;
+        private System.Windows.Forms.ListBox lstMovesWhite;
         private System.Windows.Forms.Panel panelWhitePlayer;
         private System.Windows.Forms.TextBox txtWhitePlayer;
         private System.Windows.Forms.Label labelWhitePlayer;
@@ -1124,5 +1143,7 @@
         private System.Windows.Forms.Label labelBlackPlayer;
         private System.Windows.Forms.Label labelMoves;
         private System.Windows.Forms.Button btnSaveGame;
+        private System.Windows.Forms.DateTimePicker dateGameDate;
+        private System.Windows.Forms.ListBox lstMovesBlack;
     }
 }
