@@ -14,16 +14,16 @@ namespace ChessDatabase.Models
         public int Id { get; set; }
 
         [Required]
-        [ForeignKey("Game")]
+        [ForeignKey("game")]
         public int gameId { get; set; }
 
         [Required]
         public int moveNumber { get; set; }
 
-        [ForeignKey("Ply")]
+        [ForeignKey("whitePly")]
         public int whitePlyId { get; set; }
 
-        [ForeignKey("Ply")]
+        [ForeignKey("blackPly")]
         public int blackPlyId { get; set; }
 
         public virtual Game game { get; set; }

@@ -329,6 +329,7 @@ namespace ChessDatabase
         //Selects a square to perform a move
         private void SelectSquare(PictureBox square)
         {
+            //´
             if(startSq == null)
             {
                 if (square.Image != null)

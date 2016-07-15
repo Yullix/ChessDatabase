@@ -888,7 +888,7 @@
             this.lstMoves.FormattingEnabled = true;
             this.lstMoves.Location = new System.Drawing.Point(604, 40);
             this.lstMoves.Name = "lstMoves";
-            this.lstMoves.Size = new System.Drawing.Size(143, 186);
+            this.lstMoves.Size = new System.Drawing.Size(104, 186);
             this.lstMoves.TabIndex = 117;
             // 
             // panelWhitePlayer

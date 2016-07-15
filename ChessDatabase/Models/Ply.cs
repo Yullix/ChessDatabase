@@ -17,7 +17,7 @@ namespace ChessDatabase.Models
         public int Id { get; set; }
 
         [Required]
-        [ForeignKey("Move")]
+        [ForeignKey("move")]
         public int moveId { get; set; }
 
         [Required]

@@ -18,7 +18,8 @@ namespace ChessDatabase.Models
 
         //}
 
-        public DbSet<Ply> Moves { get; set; }
+        public DbSet<Ply> Plies { get; set; }
         public DbSet<Game> Games { get; set; }
+        public DbSet<Move> Moves { get; set; }
     }
 }

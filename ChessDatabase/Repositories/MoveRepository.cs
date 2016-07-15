@@ -21,7 +21,7 @@ namespace ChessDatabase.Repositories
 
         public void Add(Ply item)
         {
-            context.Moves.Add(item);
+            context.Plies.Add(item);
             context.SaveChanges();
         }
 
