@@ -27,11 +27,11 @@ namespace ChessDatabase.Models
 
         public string name { get; set; }
 
-        public virtual ICollection<Move> Moves { get; set; }
+        public virtual ICollection<Move> moves { get; set; }
 
         public Game()
         {
-            this.Moves = new HashSet<Move>();
+            this.moves = new HashSet<Move>();
         }
     }
 }

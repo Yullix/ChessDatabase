@@ -28,7 +28,7 @@ namespace ChessDatabase
             }
         }
 
-        public void Move(Move move)
+        public void Move(Ply move)
         {
 
         }

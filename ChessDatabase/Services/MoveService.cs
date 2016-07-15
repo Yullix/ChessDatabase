@@ -36,7 +36,7 @@ namespace ChessDatabase.Services
         {
             if (IsLegal(position, pieceAnnotation, startSq, endSq))
             {
-                Move newMove = new Move()
+                Ply newMove = new Ply()
                 {
                     color = color,
                     endSqColumn = endSq[0],

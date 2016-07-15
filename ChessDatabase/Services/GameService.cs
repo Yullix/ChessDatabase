@@ -31,7 +31,7 @@ namespace ChessDatabase.Services
                 {
                     blackPlayer = _blackPlayer,
                     whitePlayer = _whitePlayer,
-                    Moves = _moves,
+                    moves = _moves,
                     date = gameDate
                 };
 

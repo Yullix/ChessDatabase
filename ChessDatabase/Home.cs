@@ -28,6 +28,7 @@ namespace ChessDatabase
         private static string selectedPieceAnnotation;
         private string color;
         private int moveNmbr;
+        private string plyAnnotation;
         private Assembly currentAssembly;
         private Stream whitePawnStream;
         private Stream whiteKnightStream;
@@ -45,6 +46,7 @@ namespace ChessDatabase
         private GameService _gameService;
         private RepositoryFactory _repoFactory;
         private List<Move> gameMoves;
+        private Move currentMove;
 
         public MoveService moveService
         {
@@ -235,6 +237,21 @@ namespace ChessDatabase
             }
         }
 
+        public void UpdateMoveList()
+        {
+            if(color == "white")
+            {
+                int lastIndex = lstMoves.Items.Count - 1;
+
+                lstMoves.Items.RemoveAt(lstMoves.Items.Count - 1);
+                lstMoves.Items.Add(currentMove);
+            }
+            else
+            {
+                lstMoves.Items.Add(currentMove);
+            }
+        }
+
         //Completes a move after a square with a piece on it and an empty square has been selected
         public bool CompleteMove()
         {
@@ -254,35 +271,54 @@ namespace ChessDatabase
                 else
                     startSq.BackColor = Color.Gray;
             }
-
+            // Removes the piece from the starting square and puts it on the end square
             position[startSqPos[0], startSqPos[1]] = "";
             position[endSqPos[0], endSqPos[1]] = selectedPieceAnnotation;
 
-            var newMove = new Move()
+            char _pieceAnnotation = selectedPieceAnnotation[1];
+
+            if(_pieceAnnotation == 'P')
+            {
+                _pieceAnnotation = ' ';
+            }
+
+            var pBoxNameSplit = endSq.Name.Split('x');
+
+            string _plyAnnotation = _pieceAnnotation + pBoxNameSplit[1];
+
+            var newPly = new Ply()
             {
                 color = color,
                 moveNumber = moveNmbr,
-                pieceAnnotation = selectedPieceAnnotation[1],
+                pieceAnnotation = _pieceAnnotation,
                 startSqColumn = startSqPos[1],
                 startSqRow = startSqPos[0],
                 endSqColumn = endSqPos[1],
-                endSqRow = endSqPos[0]
+                endSqRow = endSqPos[0],
+                plyAnnotation = _plyAnnotation
             };
-
-            gameMoves.Add(newMove);
 
             switch(color)
             {
                 case "white":
-                    lstMovesWhite.Items.Add(newMove);
+                    currentMove = new Move()
+                    {
+                        whitePly = newPly,
+                        moveNumber = moveNmbr
+                    };
+                    gameMoves.Add(currentMove);
                     color = "black";
                     break;
                 case "black":
-                    lstMovesBlack.Items.Add(newMove);
+                    gameMoves.RemoveAt(gameMoves.Count() - 1);
+                    gameMoves.Add(currentMove);
+                    currentMove.blackPly = newPly;
                     color = "white";
                     moveNmbr += 1;
                     break;
             }
+
+            UpdateMoveList();
 
             startSq = null;
             endSq = null;
@@ -297,10 +333,20 @@ namespace ChessDatabase
             {
                 if (square.Image != null)
                 {
-                    square.BackColor = Color.Brown;
                     startSq = square;
                     startSqPos = GetSquarePos(square.Name);
                     selectedPieceAnnotation = position[startSqPos[0], startSqPos[1]];
+
+                    if (color == "white" && selectedPieceAnnotation[0] == 'w')
+                    {
+                        square.BackColor = Color.Brown;
+                    }
+                    else if (color == "black" && selectedPieceAnnotation[0] == 'b')
+                    {
+                        square.BackColor = Color.Brown;
+                    }
+                    else
+                        startSq = null;
                 }
                 else
                     return;

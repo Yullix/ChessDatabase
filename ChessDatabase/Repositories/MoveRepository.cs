@@ -10,7 +10,7 @@ using ChessDatabase.Models;
 
 namespace ChessDatabase.Repositories
 {
-    public class MoveRepository : IRepository<Move, int>
+    public class MoveRepository : IRepository<Ply, int>
     {
         private ChessDatabaseContext context;
 
@@ -19,28 +19,28 @@ namespace ChessDatabase.Repositories
             context = ctx;
         }
 
-        public void Add(Move item)
+        public void Add(Ply item)
         {
             context.Moves.Add(item);
             context.SaveChanges();
         }
 
-        public IEnumerable<Move> All()
+        public IEnumerable<Ply> All()
         {
             throw new NotImplementedException();
         }
 
-        public IEnumerable<Move> ByFunc(Func<Move, bool> function)
+        public IEnumerable<Ply> ByFunc(Func<Ply, bool> function)
         {
             throw new NotImplementedException();
         }
 
-        public void Edit(Move item)
+        public void Edit(Ply item)
         {
             throw new NotImplementedException();
         }
 
-        public Move Find(int ID)
+        public Ply Find(int ID)
         {
             throw new NotImplementedException();
         }
@@ -50,7 +50,7 @@ namespace ChessDatabase.Repositories
             throw new NotImplementedException();
         }
 
-        public void Remove(Move item)
+        public void Remove(Ply item)
         {
             throw new NotImplementedException();
         }

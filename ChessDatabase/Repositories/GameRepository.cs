@@ -72,13 +72,13 @@ namespace ChessDatabase.Repositories
 
             if (game != null)
             {
-                foreach(var m in context.Moves.Where(i => i.GameId.Equals(ID)).ToList())
-                {
-                    context.Moves.Remove(m);
-                }
-                context.Games.Remove(context.Games.FirstOrDefault(i => i.Id.Equals(ID)));
-                context.SaveChanges();
-                return true;
+                //foreach(var m in context.Moves.Where(i => i.gameId.Equals(ID)).ToList())
+                //{
+                //    context.Moves.Remove(m);
+                //}
+                //context.Games.Remove(context.Games.FirstOrDefault(i => i.Id.Equals(ID)));
+                //context.SaveChanges();
+                //return true;
             }
             return false;
         }
