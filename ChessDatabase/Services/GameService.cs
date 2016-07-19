@@ -14,12 +14,12 @@ namespace ChessDatabase.Services
     public class GameService : IService
     {
         public event EventHandler Updated;
-        private GameRepository gameRepository;
+        //private GameRepository gameRepository;
         private MoveRepository moveRepository;
         
         public GameService(RepositoryFactory _repoFactory)
         {
-            gameRepository = _repoFactory.GetGameRepository();
+            //gameRepository = _repoFactory.GetGameRepository();
             moveRepository = _repoFactory.GetMoveRepository();
         }
 
@@ -27,15 +27,15 @@ namespace ChessDatabase.Services
         {
             try
             {
-                Game newGame = new Game()
-                {
-                    blackPlayer = _blackPlayer,
-                    whitePlayer = _whitePlayer,
-                    moves = _moves,
-                    date = gameDate
-                };
+                //Game newGame = new Game()
+                //{
+                //    blackPlayer = _blackPlayer,
+                //    whitePlayer = _whitePlayer,
+                //    moves = _moves,
+                //    date = gameDate
+                //};
 
-                gameRepository.Add(newGame);
+                //gameRepository.Add(newGame);
             }
             catch(NotUniqueIdException)
             {
@@ -43,11 +43,11 @@ namespace ChessDatabase.Services
             }
         }
 
-        public IEnumerable<Game> ByPlayer(string name)
-        {
-            Func<Game, bool> func = i => i.whitePlayer.Equals(name) || i.blackPlayer.Equals(name);
+        //public IEnumerable<Game> ByPlayer(string name)
+        //{
+        //    Func<Game, bool> func = i => i.whitePlayer.Equals(name) || i.blackPlayer.Equals(name);
 
-            return gameRepository.ByFunc(func);
-        }
+        //    return gameRepository.ByFunc(func);
+        //}
     }
 }

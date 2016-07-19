@@ -66,27 +66,58 @@
     <Compile Include="Migrations\201607151400582_Init.Designer.cs">
       <DependentUpon>201607151400582_Init.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201607191323203_AddedModels.cs" />
+    <Compile Include="Migrations\201607191323203_AddedModels.Designer.cs">
+      <DependentUpon>201607191323203_AddedModels.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201607191326237_ChangedGameName.cs" />
+    <Compile Include="Migrations\201607191326237_ChangedGameName.Designer.cs">
+      <DependentUpon>201607191326237_ChangedGameName.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201607191329208_AddedCategoryToMatch.cs" />
+    <Compile Include="Migrations\201607191329208_AddedCategoryToMatch.Designer.cs">
+      <DependentUpon>201607191329208_AddedCategoryToMatch.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\Category.cs" />
     <Compile Include="Models\ChessDatabaseContext.cs" />
     <Compile Include="Models\ContextSingleton.cs" />
     <Compile Include="Models\Game.cs" />
     <Compile Include="Models\IEntity.cs" />
+    <Compile Include="Models\Match.cs" />
     <Compile Include="Models\Move.cs" />
+    <Compile Include="Models\Opening.cs" />
+    <Compile Include="Models\Player.cs" />
     <Compile Include="Models\Ply.cs" />
+    <Compile Include="Models\Tournament.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\GameRepository.cs" />
     <Compile Include="Repositories\IRepository.cs" />
     <Compile Include="Repositories\MoveRepository.cs" />
     <Compile Include="Repositories\RepositoryFactory.cs" />
+    <Compile Include="Services\CategoryService.cs" />
     <Compile Include="Services\GameService.cs" />
     <Compile Include="Services\IService.cs" />
+    <Compile Include="Services\MatchService.cs" />
     <Compile Include="Services\MoveService.cs" />
+    <Compile Include="Services\OpeningService.cs" />
+    <Compile Include="Services\PlayerService.cs" />
+    <Compile Include="Services\TournamentService.cs" />
     <EmbeddedResource Include="Home.resx">
       <DependentUpon>Home.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201607151400582_Init.resx">
       <DependentUpon>201607151400582_Init.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201607191323203_AddedModels.resx">
+      <DependentUpon>201607191323203_AddedModels.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201607191326237_ChangedGameName.resx">
+      <DependentUpon>201607191326237_ChangedGameName.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201607191329208_AddedCategoryToMatch.resx">
+      <DependentUpon>201607191329208_AddedCategoryToMatch.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

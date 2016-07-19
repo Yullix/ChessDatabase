@@ -5,23 +5,25 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-//Ted Torkkeli
-// 2016-07-05
-
 namespace ChessDatabase.Models
 {
-    public class Game : IEntity
+    public class Tournament : IEntity
     {
         [Key]
         public int Id { get; set; }
 
+        [Required]
         public string name { get; set; }
 
-        public virtual ICollection<Move> moves { get; set; }
+        public DateTime startDate { get; set; }
 
-        public Game()
+        public DateTime endDate { get; set; }
+
+        public ICollection<Match> matches { get; set; }
+
+        public Tournament()
         {
-            this.moves = new HashSet<Move>();
+            this.matches = new HashSet<Match>();
         }
     }
 }

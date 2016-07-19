@@ -29,10 +29,10 @@ namespace ChessDatabase.Repositories
         /// Gets an instance of GameRepository
         /// </summary>
         /// <returns>new instance of GameRepository</returns>
-        public GameRepository GetGameRepository()
-        {
-            return new GameRepository(context);
-        }
+        //public GameRepository GetGameRepository()
+        //{
+        //    return new GameRepository(context);
+        //}
 
         /// <summary>
         /// Gets an instance of MoveRepository

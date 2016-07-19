@@ -19,7 +19,11 @@ namespace ChessDatabase.Models
         //}
 
         public DbSet<Ply> Plies { get; set; }
-        public DbSet<Game> Games { get; set; }
+        public DbSet<Match> Matches { get; set; }
+        public DbSet<Opening> Openings { get; set; }
+        public DbSet<Tournament> Tournaments { get; set; }
+        public DbSet<Player> Players { get; set; }
         public DbSet<Move> Moves { get; set; }
+        public DbSet<Category> Categories { get; set; }
     }
 }
