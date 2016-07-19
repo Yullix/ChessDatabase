@@ -47,5 +47,10 @@ namespace ChessDatabase.Repositories
         {
             return new MatchRepository(context);
         }
+
+        public PlayerRepository GetPlayerRepository()
+        {
+            return new PlayerRepository(context);
+        }
     }
 }

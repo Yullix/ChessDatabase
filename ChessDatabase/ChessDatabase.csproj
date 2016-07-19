@@ -100,6 +100,7 @@
     <Compile Include="Repositories\IRepository.cs" />
     <Compile Include="Repositories\MatchRepository.cs" />
     <Compile Include="Repositories\MoveRepository.cs" />
+    <Compile Include="Repositories\PlayerRepository.cs" />
     <Compile Include="Repositories\RepositoryFactory.cs" />
     <Compile Include="Services\CategoryService.cs" />
     <Compile Include="Services\GameService.cs" />

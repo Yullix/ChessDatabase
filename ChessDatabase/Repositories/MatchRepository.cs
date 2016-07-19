@@ -54,7 +54,7 @@ namespace ChessDatabase.Repositories
             if (removeMatch != null)
             {
                 context.Matches.Remove(removeMatch);
-
+                context.SaveChanges();
                 return true;
             }
             return false;
