@@ -78,6 +78,10 @@
     <Compile Include="Migrations\201607191329208_AddedCategoryToMatch.Designer.cs">
       <DependentUpon>201607191329208_AddedCategoryToMatch.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201607191424188_AddedPlayerForeignKeyToMatch.cs" />
+    <Compile Include="Migrations\201607191424188_AddedPlayerForeignKeyToMatch.Designer.cs">
+      <DependentUpon>201607191424188_AddedPlayerForeignKeyToMatch.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Category.cs" />
     <Compile Include="Models\ChessDatabaseContext.cs" />
@@ -94,6 +98,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\GameRepository.cs" />
     <Compile Include="Repositories\IRepository.cs" />
+    <Compile Include="Repositories\MatchRepository.cs" />
     <Compile Include="Repositories\MoveRepository.cs" />
     <Compile Include="Repositories\RepositoryFactory.cs" />
     <Compile Include="Services\CategoryService.cs" />
@@ -118,6 +123,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201607191329208_AddedCategoryToMatch.resx">
       <DependentUpon>201607191329208_AddedCategoryToMatch.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201607191424188_AddedPlayerForeignKeyToMatch.resx">
+      <DependentUpon>201607191424188_AddedPlayerForeignKeyToMatch.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

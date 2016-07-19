@@ -11,16 +11,20 @@ namespace ChessDatabase.Models
     public class Match : Game
     {
         [Required]
-        [MaxLength(30)]
-        public string blackPlayer { get; set; }
+        [ForeignKey("blackPlayer")]
+        public int blackPlayerId { get; set; }
 
         [Required]
-        [MaxLength(30)]
-        public string whitePlayer { get; set; }
+        [ForeignKey("whitePlayer")]
+        public int whitePlayerId { get; set; }
 
         [ForeignKey("category")]
-        public int CategoryId { get; set; }
+        public Nullable<int> categoryId { get; set; }
 
         public virtual Category category { get; set; }
+
+        public virtual Player blackPlayer { get; set; }
+
+        public virtual Player whitePlayer { get; set; }
     }
 }
