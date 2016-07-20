@@ -17,8 +17,8 @@ namespace ChessDatabase.Models
         public int Id { get; set; }
 
         [Required]
-        [ForeignKey("move")]
-        public int moveId { get; set; }
+        [ForeignKey("game")]
+        public int gameId { get; set; }
 
         [Required]
         public int startSqRow { get; set; }
@@ -44,7 +44,7 @@ namespace ChessDatabase.Models
         [Required]
         public int moveNumber { get; set; }
 
-        public virtual Move move { get; set; }
+        public virtual Game game { get; set; }
 
         public override string ToString()
         {

@@ -20,7 +20,7 @@ namespace ChessDatabase.Services
             this.matchRepository = _repoFactory.GetMatchRepository();
         }
 
-        public void Add(List<Move> _moves, string _name, int _blackId, int _whiteId, int? _categoryId)
+        public void Add(List<Ply> _plys, string _name, int _blackId, int _whiteId, int? _categoryId)
         {
             var newMatch = new Match()
             {
@@ -28,13 +28,10 @@ namespace ChessDatabase.Services
                 blackPlayerId = _blackId,
                 whitePlayerId = _whiteId,
                 categoryId = _categoryId,
-                moves = _moves
+                plies = _plys
             };
 
-            foreach(var m in _moves)
-            {
-
-            }
+            matchRepository.Add(newMatch);
         }
 
         public bool Remove(int _Id)

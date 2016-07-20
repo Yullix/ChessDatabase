@@ -52,5 +52,20 @@ namespace ChessDatabase.Repositories
         {
             return new PlayerRepository(context);
         }
+
+        public CategoryRepository GetCategoryRepository()
+        {
+            return new CategoryRepository(context);
+        }
+
+        public OpeningRepository GetOpeningRepositry()
+        {
+            return new OpeningRepository(context);
+        }
+
+        public TournamentRepository GetTournamentRepository()
+        {
+            return new TournamentRepository(context);
+        }
     }
 }

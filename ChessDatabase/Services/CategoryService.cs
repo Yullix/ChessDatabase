@@ -4,12 +4,19 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using ChessDatabase.Models;
+using ChessDatabase.Repositories;
 
 namespace ChessDatabase.Services
 {
-    class CategoryService : IService
+    public class CategoryService : IService
     {
         public event EventHandler Updated;
+        private CategoryRepository categoryRepository;
+
+        public CategoryService(RepositoryFactory _repoFactory)
+        {
+            this.categoryRepository = _repoFactory.GetCategoryRepository();
+        }
 
         public void Add(string _name, string _description)
         {
@@ -18,26 +25,28 @@ namespace ChessDatabase.Services
                 name = _name,
                 description = _description
             };
+
+            categoryRepository.Add(newCategory);
         }
 
-        public bool Find(int _Id)
+        public Category Find(int _Id)
         {
-            return true;
+            return categoryRepository.Find(_Id);
         }
 
         public bool Remove(int _Id)
         {
-            return true;
+            return categoryRepository.Remove(_Id);
         }
 
         public IEnumerable<Category> All()
         {
-            return new List<Category>();
+            return categoryRepository.All();
         }
 
-        public void Update(Category _category)
+        public void Edit(Category _category)
         {
-
+            categoryRepository.Edit(_category);
         }
     }
 }

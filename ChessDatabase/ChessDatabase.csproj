@@ -82,6 +82,10 @@
     <Compile Include="Migrations\201607191424188_AddedPlayerForeignKeyToMatch.Designer.cs">
       <DependentUpon>201607191424188_AddedPlayerForeignKeyToMatch.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201607201322093_RemovedMoveFromContext.cs" />
+    <Compile Include="Migrations\201607201322093_RemovedMoveFromContext.Designer.cs">
+      <DependentUpon>201607201322093_RemovedMoveFromContext.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Category.cs" />
     <Compile Include="Models\ChessDatabaseContext.cs" />
@@ -96,12 +100,15 @@
     <Compile Include="Models\Tournament.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\CategoryRepository.cs" />
     <Compile Include="Repositories\GameRepository.cs" />
     <Compile Include="Repositories\IRepository.cs" />
     <Compile Include="Repositories\MatchRepository.cs" />
     <Compile Include="Repositories\MoveRepository.cs" />
+    <Compile Include="Repositories\OpeningRepository.cs" />
     <Compile Include="Repositories\PlayerRepository.cs" />
     <Compile Include="Repositories\RepositoryFactory.cs" />
+    <Compile Include="Repositories\TournamentRepository.cs" />
     <Compile Include="Services\CategoryService.cs" />
     <Compile Include="Services\GameService.cs" />
     <Compile Include="Services\IService.cs" />
@@ -127,6 +134,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201607191424188_AddedPlayerForeignKeyToMatch.resx">
       <DependentUpon>201607191424188_AddedPlayerForeignKeyToMatch.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201607201322093_RemovedMoveFromContext.resx">
+      <DependentUpon>201607201322093_RemovedMoveFromContext.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
