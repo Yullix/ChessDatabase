@@ -25,5 +25,10 @@ namespace ChessDatabase.Models
         {
             this.matches = new HashSet<Match>();
         }
+
+        public override string ToString()
+        {
+            return name + " - " + startDate + " - " + endDate;
+        }
     }
 }

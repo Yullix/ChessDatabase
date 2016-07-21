@@ -103,6 +103,7 @@
             this.labelMoves = new System.Windows.Forms.Label();
             this.btnSaveGame = new System.Windows.Forms.Button();
             this.dateGameDate = new System.Windows.Forms.DateTimePicker();
+            this.btnPlayers = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pBoxb7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pBoxd7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pBoxf7)).BeginInit();
@@ -968,12 +969,24 @@
             this.dateGameDate.Size = new System.Drawing.Size(137, 20);
             this.dateGameDate.TabIndex = 121;
             // 
+            // btnPlayers
+            // 
+            this.btnPlayers.BackColor = System.Drawing.Color.White;
+            this.btnPlayers.Location = new System.Drawing.Point(802, 40);
+            this.btnPlayers.Name = "btnPlayers";
+            this.btnPlayers.Size = new System.Drawing.Size(153, 55);
+            this.btnPlayers.TabIndex = 122;
+            this.btnPlayers.Text = "Manage Players";
+            this.btnPlayers.UseVisualStyleBackColor = false;
+            this.btnPlayers.Click += new System.EventHandler(this.btnPlayers_Click);
+            // 
             // Home
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(1109, 633);
+            this.Controls.Add(this.btnPlayers);
             this.Controls.Add(this.dateGameDate);
             this.Controls.Add(this.btnSaveGame);
             this.Controls.Add(this.labelMoves);
@@ -1134,5 +1147,6 @@
         private System.Windows.Forms.Label labelMoves;
         private System.Windows.Forms.Button btnSaveGame;
         private System.Windows.Forms.DateTimePicker dateGameDate;
+        private System.Windows.Forms.Button btnPlayers;
     }
 }

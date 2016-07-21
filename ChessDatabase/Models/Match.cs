@@ -21,10 +21,18 @@ namespace ChessDatabase.Models
         [ForeignKey("category")]
         public Nullable<int> categoryId { get; set; }
 
+        [Required]
+        public DateTime date { get; set; }
+
         public virtual Category category { get; set; }
 
         public virtual Player blackPlayer { get; set; }
 
         public virtual Player whitePlayer { get; set; }
+
+        public override string ToString()
+        {
+            return whitePlayer.name + " vs. " + blackPlayer.name + " - " + date;
+        }
     }
 }

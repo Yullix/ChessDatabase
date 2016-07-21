@@ -24,7 +24,7 @@ namespace ChessDatabase.Repositories
 
         public IEnumerable<Player> All()
         {
-            return context.Players.ToList();
+            return context.Players.ToList() ?? new List<Player>();
         }
 
         public IEnumerable<Player> ByFunc(Func<Player, bool> function)

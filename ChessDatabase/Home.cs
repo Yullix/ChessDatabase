@@ -852,5 +852,11 @@ namespace ChessDatabase
 
             SelectSquare(square);
         }
+
+        private void btnPlayers_Click(object sender, EventArgs e)
+        {
+            ManagePlayers newForm = new ManagePlayers();
+            newForm.Show();
+        }
     }
 }

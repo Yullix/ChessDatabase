@@ -8,13 +8,7 @@ namespace ChessDatabase.Models
 {
     public class Move
     {
-        public int gameId { get; set; }
-
         public int moveNumber { get; set; }
-
-        public int whitePlyId { get; set; }
-
-        public int blackPlyId { get; set; }
 
         public Game game { get; set; }
 

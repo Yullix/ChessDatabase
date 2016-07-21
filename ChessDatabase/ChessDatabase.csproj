@@ -62,6 +62,12 @@
     <Compile Include="Home.Designer.cs">
       <DependentUpon>Home.cs</DependentUpon>
     </Compile>
+    <Compile Include="ManagePlayers.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ManagePlayers.Designer.cs">
+      <DependentUpon>ManagePlayers.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\201607151400582_Init.cs" />
     <Compile Include="Migrations\201607151400582_Init.Designer.cs">
       <DependentUpon>201607151400582_Init.cs</DependentUpon>
@@ -85,6 +91,10 @@
     <Compile Include="Migrations\201607201322093_RemovedMoveFromContext.cs" />
     <Compile Include="Migrations\201607201322093_RemovedMoveFromContext.Designer.cs">
       <DependentUpon>201607201322093_RemovedMoveFromContext.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201607211346067_AddedDateToMatch.cs" />
+    <Compile Include="Migrations\201607211346067_AddedDateToMatch.Designer.cs">
+      <DependentUpon>201607211346067_AddedDateToMatch.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Category.cs" />
@@ -120,6 +130,9 @@
     <EmbeddedResource Include="Home.resx">
       <DependentUpon>Home.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ManagePlayers.resx">
+      <DependentUpon>ManagePlayers.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201607151400582_Init.resx">
       <DependentUpon>201607151400582_Init.cs</DependentUpon>
     </EmbeddedResource>
@@ -137,6 +150,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201607201322093_RemovedMoveFromContext.resx">
       <DependentUpon>201607201322093_RemovedMoveFromContext.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201607211346067_AddedDateToMatch.resx">
+      <DependentUpon>201607211346067_AddedDateToMatch.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

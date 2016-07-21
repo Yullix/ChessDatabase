@@ -9,5 +9,10 @@ namespace ChessDatabase.Models
     public class Opening : Game
     {
         public string openingMove { get; set; }
+
+        public override string ToString()
+        {
+            return name;
+        }
     }
 }
