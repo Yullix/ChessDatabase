@@ -84,11 +84,17 @@ namespace ChessDatabase
 
         private void lstPlayers_SelectedIndexChanged(object sender, EventArgs e)
         {
-            Player player = (Player)lstPlayers.SelectedItem;
+            try
+            {
+                Player player = (Player)lstPlayers.SelectedItem;
 
-            txtPlayerName.Text = player.name;
-            txtPlayerRating.Text = player.rating.ToString();
-            UpdateLstPlayerMatches();
+                txtPlayerName.Text = player.name;
+                txtPlayerRating.Text = player.rating.ToString();
+                UpdateLstPlayerMatches();
+            }
+            catch
+            {
+            }
         }
 
         private void btnCreatePlayer_Click(object sender, EventArgs e)
@@ -123,7 +129,9 @@ namespace ChessDatabase
 
         private void btnDeletePlayer_Click(object sender, EventArgs e)
         {
+            Player deletePlayer = (Player)lstPlayers.SelectedItem;
 
+            playerService.Remove(deletePlayer.Id);
         }
     }
 }
