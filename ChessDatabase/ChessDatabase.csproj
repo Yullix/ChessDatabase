@@ -56,6 +56,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Board.cs" />
+    <Compile Include="ChessLogic.cs" />
     <Compile Include="Home.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -120,7 +121,6 @@
     <Compile Include="Repositories\RepositoryFactory.cs" />
     <Compile Include="Repositories\TournamentRepository.cs" />
     <Compile Include="Services\CategoryService.cs" />
-    <Compile Include="Services\GameService.cs" />
     <Compile Include="Services\IService.cs" />
     <Compile Include="Services\MatchService.cs" />
     <Compile Include="Services\MoveService.cs" />
