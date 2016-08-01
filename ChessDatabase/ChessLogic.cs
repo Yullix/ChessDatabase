@@ -3,6 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ChessDatabase.Models;
+
+//Ted Torkkeli
+// 2016-08-01
 
 namespace ChessDatabase
 {
@@ -96,6 +100,48 @@ namespace ChessDatabase
             startPosition[6, 7] = "bP";
 
             return startPosition;
+        }
+
+        /// <summary>
+        /// Returns a boolean value that represents wether the input move is legal or not
+        /// </summary>
+        /// <param name="_position"></param>
+        /// <param name="_pieceAnnotation"></param>
+        /// <param name="_color"></param>
+        /// <param name="_whiteCastle"></param>
+        /// <param name="_blackCastle"></param>
+        /// <param name="_startSq"></param>
+        /// <param name="_endSq"></param>
+        /// <returns>bool</returns>
+        public static bool CheckLegality(string[,] _position, char _pieceAnnotation, string _color, bool _whiteCastle, bool _blackCastle, int[] _startSq, int[] _endSq)
+        {
+            return true;
+        }
+
+        /// <summary>
+        /// Returns the position after making the ply in the argument position
+        /// </summary>
+        /// <param name="_position"></param>
+        /// <param name="_nextPly"></param>
+        /// <returns></returns>
+        public static string[,] NextMove(string[,] _position, Ply _nextPly)
+        {
+            return _position;
+        }
+
+        /// <summary>
+        /// Returns a position after undoing the ply the argument position
+        /// </summary>
+        /// <param name="_position"></param>
+        /// <param name="_lastPly"></param>
+        /// <returns>string[8,8]</returns>
+        public static string[,] UndoMove(string[,] _position, Ply _lastPly)
+        {
+            if(_lastPly.capturedPieceAnnotation == null)
+            {
+
+            }
+            return _position;
         }
     }
 }

@@ -29,6 +29,8 @@ namespace ChessDatabase
         private string color;
         private int moveNmbr;
         private string plyAnnotation;
+        private bool whiteCastle;
+        private bool blackCastle;
         private Assembly currentAssembly;
         private Stream whitePawnStream;
         private Stream whiteKnightStream;
@@ -79,6 +81,8 @@ namespace ChessDatabase
             color = "white";
             position = ChessLogic.GetStartPosition();
             moveNmbr = 1;
+            whiteCastle = true;
+            blackCastle = true;
 
             startSq = null;
             endSq = null;
@@ -107,7 +111,7 @@ namespace ChessDatabase
             SetPosition();
         }
 
-        // Greates the graphical position from currentGame.position
+        // Greates the graphical position from the jagged string array (position)
         public void SetPosition()
         {
             for (int c = 0; c < 8; c++)
@@ -204,9 +208,8 @@ namespace ChessDatabase
         }
 
         //Completes a move after a square with a piece on it and an empty square has been selected
-        public bool CompleteMove()
+        public void CompleteMove()
         {
-
             // Changes the color of the starting square back to its original color
             if(startSqPos[0] % 2 == 1)
             {
@@ -222,71 +225,84 @@ namespace ChessDatabase
                 else
                     startSq.BackColor = Color.Gray;
             }
-            // Removes the piece from the starting square and puts it on the end square
-            position[startSqPos[0], startSqPos[1]] = "";
-            position[endSqPos[0], endSqPos[1]] = selectedPieceAnnotation;
 
             char _pieceAnnotation = selectedPieceAnnotation[1];
 
-            if(_pieceAnnotation == 'P')
+            if (_pieceAnnotation == 'P')
             {
                 _pieceAnnotation = ' ';
             }
 
-            var pBoxNameSplit = endSq.Name.Split('x');
-
-            string _plyAnnotation = _pieceAnnotation + pBoxNameSplit[1];
-
-            var newPly = new Ply()
+            // Checks if the move is legal
+            if (ChessLogic.CheckLegality(position, _pieceAnnotation, color, whiteCastle, blackCastle, startSqPos, endSqPos))
             {
-                color = color,
-                moveNumber = moveNmbr,
-                pieceAnnotation = _pieceAnnotation,
-                startSqColumn = startSqPos[1],
-                startSqRow = startSqPos[0],
-                endSqColumn = endSqPos[1],
-                endSqRow = endSqPos[0],
-                plyAnnotation = _plyAnnotation
-            };
+                // Updates white's ability to castle
+                if(_pieceAnnotation == 'K' && whiteCastle)
+                    whiteCastle = false;
 
-            switch(color)
-            {
-                case "white":
-                    currentMove = new Move()
-                    {
-                        whitePly = newPly,
-                        moveNumber = moveNmbr
-                    };
-                    gameMoves.Add(currentMove);
-                    color = "black";
-                    break;
-                case "black":
-                    gameMoves.RemoveAt(gameMoves.Count() - 1);
-                    gameMoves.Add(currentMove);
-                    currentMove.blackPly = newPly;
-                    color = "white";
-                    moveNmbr += 1;
-                    break;
+                //Updates black's ability to castle
+                if (_pieceAnnotation == 'K' && blackCastle)
+                    blackCastle = false;
+
+                // Updates the jagged string array that holds the position
+                position[startSqPos[0], startSqPos[1]] = "";
+                position[endSqPos[0], endSqPos[1]] = selectedPieceAnnotation;
+
+                var pBoxNameSplit = endSq.Name.Split('x');
+
+                string _plyAnnotation = _pieceAnnotation + pBoxNameSplit[1];
+
+                var newPly = new Ply()
+                {
+                    color = color,
+                    moveNumber = moveNmbr,
+                    pieceAnnotation = _pieceAnnotation,
+                    startSqColumn = startSqPos[1],
+                    startSqRow = startSqPos[0],
+                    endSqColumn = endSqPos[1],
+                    endSqRow = endSqPos[0],
+                    plyAnnotation = _plyAnnotation
+                };
+
+                switch (color)
+                {
+                    case "white":
+                        currentMove = new Move()
+                        {
+                            whitePly = newPly,
+                            moveNumber = moveNmbr
+                        };
+                        gameMoves.Add(currentMove);
+                        color = "black";
+                        break;
+                    case "black":
+                        gameMoves.RemoveAt(gameMoves.Count() - 1);
+                        gameMoves.Add(currentMove);
+                        currentMove.blackPly = newPly;
+                        color = "white";
+                        moveNmbr += 1;
+                        break;
+                }
+
+                UpdateMoveList();
+                SetPosition();
             }
-
-            UpdateMoveList();
 
             startSq = null;
             endSq = null;
-            SetPosition();
-            return false;
         }
 
         //Selects a square to perform a move
         private void SelectSquare(PictureBox square)
         {
-            //´
+            // checks if there is a start square selected already
             if(startSq == null)
             {
+                // if the square does not hold a piece it cannot be selected as start square.
                 if (square.Image != null)
                 {
                     startSq = square;
-                    startSqPos = GetSquarePos(square.Name);
+                    startSqPos = ChessLogic.GetSquarePos(square.Name);
                     selectedPieceAnnotation = position[startSqPos[0], startSqPos[1]];
 
                     if (color == "white" && selectedPieceAnnotation[0] == 'w')
@@ -305,50 +321,50 @@ namespace ChessDatabase
             }
             else
             {
-                endSqPos = GetSquarePos(square.Name);
+                endSqPos = ChessLogic.GetSquarePos(square.Name);
                 endSq = square;
                 CompleteMove();
             }
         }
 
-        // Returns two int values that represents the position of the square in currentGame.position
-        private int[] GetSquarePos(string pBoxName)
-        {
-            string[] squareString = pBoxName.Split('x');
+        //// Returns two int values that represents the position of the square in currentGame.position
+        //private int[] GetSquarePos(string pBoxName)
+        //{
+        //    string[] squareString = pBoxName.Split('x');
 
-            int[] squarePos = new int[2];
-            squarePos[0] = Int32.Parse(squareString[1][1].ToString()) - 1;
+        //    int[] squarePos = new int[2];
+        //    squarePos[0] = Int32.Parse(squareString[1][1].ToString()) - 1;
 
-            switch (squareString[1][0])
-            {
-                case 'a':
-                    squarePos[1] = 0;
-                    break;
-                case 'b':
-                    squarePos[1] = 1;
-                    break;
-                case 'c':
-                    squarePos[1] = 2;
-                    break;
-                case 'd':
-                    squarePos[1] = 3;
-                    break;
-                case 'e':
-                    squarePos[1] = 4;
-                    break;
-                case 'f':
-                    squarePos[1] = 5;
-                    break;
-                case 'g':
-                    squarePos[1] = 6;
-                    break;
-                case 'h':
-                    squarePos[1] = 7;
-                    break;
-            }
+        //    switch (squareString[1][0])
+        //    {
+        //        case 'a':
+        //            squarePos[1] = 0;
+        //            break;
+        //        case 'b':
+        //            squarePos[1] = 1;
+        //            break;
+        //        case 'c':
+        //            squarePos[1] = 2;
+        //            break;
+        //        case 'd':
+        //            squarePos[1] = 3;
+        //            break;
+        //        case 'e':
+        //            squarePos[1] = 4;
+        //            break;
+        //        case 'f':
+        //            squarePos[1] = 5;
+        //            break;
+        //        case 'g':
+        //            squarePos[1] = 6;
+        //            break;
+        //        case 'h':
+        //            squarePos[1] = 7;
+        //            break;
+        //    }
 
-            return squarePos;
-        }
+        //    return squarePos;
+        //}
 
 
         private void btnSaveGame_Click(object sender, EventArgs e)

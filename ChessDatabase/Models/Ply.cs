@@ -44,6 +44,8 @@ namespace ChessDatabase.Models
         [Required]
         public int moveNumber { get; set; }
 
+        public string capturedPieceAnnotation { get; set; }
+
         public virtual Game game { get; set; }
 
         public override string ToString()

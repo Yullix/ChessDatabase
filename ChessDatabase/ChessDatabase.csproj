@@ -97,6 +97,10 @@
     <Compile Include="Migrations\201607211346067_AddedDateToMatch.Designer.cs">
       <DependentUpon>201607211346067_AddedDateToMatch.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201608011358449_AddedCapturedPiecePly.cs" />
+    <Compile Include="Migrations\201608011358449_AddedCapturedPiecePly.Designer.cs">
+      <DependentUpon>201608011358449_AddedCapturedPiecePly.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Category.cs" />
     <Compile Include="Models\ChessDatabaseContext.cs" />
@@ -153,6 +157,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201607211346067_AddedDateToMatch.resx">
       <DependentUpon>201607211346067_AddedDateToMatch.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201608011358449_AddedCapturedPiecePly.resx">
+      <DependentUpon>201608011358449_AddedCapturedPiecePly.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
