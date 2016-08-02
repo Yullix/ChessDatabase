@@ -126,7 +126,21 @@ namespace ChessDatabase
         /// <returns></returns>
         public static string[,] NextMove(string[,] _position, Ply _nextPly)
         {
-            return _position;
+            string[,] position = _position;          
+
+            switch(_nextPly.color)
+            {
+                case "white":
+                    position[_nextPly.startSqRow, _nextPly.startSqColumn] = "";
+                    position[_nextPly.endSqRow, _nextPly.endSqColumn] = "w" + _nextPly.pieceAnnotation.ToString();
+                    break;
+                case "black":
+                    position[_nextPly.startSqRow, _nextPly.startSqColumn] = "";
+                    position[_nextPly.endSqRow, _nextPly.endSqColumn] = "b" + _nextPly.pieceAnnotation;
+                    break;
+            }            
+
+            return position;
         }
 
         /// <summary>
@@ -137,11 +151,21 @@ namespace ChessDatabase
         /// <returns>string[8,8]</returns>
         public static string[,] UndoMove(string[,] _position, Ply _lastPly)
         {
-            if(_lastPly.capturedPieceAnnotation == null)
+            string[,] position = _position;
+            
+            switch(_lastPly.color)
             {
-
+                case "white":
+                    position[_lastPly.startSqRow, _lastPly.startSqColumn] = "w" + _lastPly.pieceAnnotation.ToString();
+                    position[_lastPly.endSqRow, _lastPly.endSqColumn] = _lastPly.capturedPieceAnnotation;
+                    break;
+                case "black":
+                    position[_lastPly.startSqRow, _lastPly.startSqColumn] = "b" + _lastPly.pieceAnnotation.ToString();
+                    position[_lastPly.endSqRow, _lastPly.endSqColumn] = _lastPly.capturedPieceAnnotation;
+                    break;
             }
-            return _position;
+
+            return position;
         }
     }
 }

@@ -47,6 +47,7 @@ namespace ChessDatabase
         private MoveService _moveService;
         private RepositoryFactory _repoFactory;
         private List<Move> gameMoves;
+        private List<Ply> gamePlies;
         private Move currentMove;
 
         public MoveService moveService
@@ -78,6 +79,7 @@ namespace ChessDatabase
             InitializeComponent();
 
             gameMoves = new List<Move>();
+            gamePlies = new List<Ply>();
             color = "white";
             position = ChessLogic.GetStartPosition();
             moveNmbr = 1;
@@ -228,11 +230,6 @@ namespace ChessDatabase
 
             char _pieceAnnotation = selectedPieceAnnotation[1];
 
-            if (_pieceAnnotation == 'P')
-            {
-                _pieceAnnotation = ' ';
-            }
-
             // Checks if the move is legal
             if (ChessLogic.CheckLegality(position, _pieceAnnotation, color, whiteCastle, blackCastle, startSqPos, endSqPos))
             {
@@ -243,10 +240,6 @@ namespace ChessDatabase
                 //Updates black's ability to castle
                 if (_pieceAnnotation == 'K' && blackCastle)
                     blackCastle = false;
-
-                // Updates the jagged string array that holds the position
-                position[startSqPos[0], startSqPos[1]] = "";
-                position[endSqPos[0], endSqPos[1]] = selectedPieceAnnotation;
 
                 var pBoxNameSplit = endSq.Name.Split('x');
 
@@ -263,6 +256,9 @@ namespace ChessDatabase
                     endSqRow = endSqPos[0],
                     plyAnnotation = _plyAnnotation
                 };
+
+                gamePlies.Add(newPly);
+                position = ChessLogic.NextMove(position, newPly);
 
                 switch (color)
                 {
@@ -370,6 +366,29 @@ namespace ChessDatabase
         private void btnSaveGame_Click(object sender, EventArgs e)
         {
             //gameService.Add(gameMoves, txtBlackPlayer.Text, txtWhitePlayer.Text, dateGameDate.Value);
+        }
+
+
+        private void btnPlayers_Click(object sender, EventArgs e)
+        {
+            ManagePlayers newForm = new ManagePlayers();
+            newForm.Show();
+        }
+
+        private void btnUndoMove_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                position = ChessLogic.UndoMove(position, gamePlies.Last());
+                gamePlies.RemoveAt(gamePlies.Count() - 1);
+
+                UpdateMoveList();
+                SetPosition();
+            }
+            catch
+            {
+                
+            }
         }
 
         private void pBoxa1_Click(object sender, EventArgs e)
@@ -818,12 +837,6 @@ namespace ChessDatabase
             PictureBox square = (PictureBox)sender;
 
             SelectSquare(square);
-        }
-
-        private void btnPlayers_Click(object sender, EventArgs e)
-        {
-            ManagePlayers newForm = new ManagePlayers();
-            newForm.Show();
         }
     }
 }
