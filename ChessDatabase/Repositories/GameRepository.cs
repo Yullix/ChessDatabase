@@ -8,16 +8,6 @@ using ChessDatabase.Models;
 //Ted Torkkeli
 // 2016-07-05
 
-public class NotUniqueIdException : Exception
-{
-    int ID;
-
-    public NotUniqueIdException(string message, int _ID) : base(message)
-    {
-        this.ID = _ID;
-    }
-}
-
 namespace ChessDatabase.Repositories
 {
     //public class GameRepository : IRepository<Game, int>

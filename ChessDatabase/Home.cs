@@ -45,6 +45,8 @@ namespace ChessDatabase
         private Stream blackQueenStream;
         private Stream blackKingStream;
         private MoveService _moveService;
+        private PlayerService _playerService;
+        private MatchService _matchService;
         private RepositoryFactory _repoFactory;
         private List<Move> gameMoves;
         private List<Ply> gamePlies;
@@ -59,6 +61,30 @@ namespace ChessDatabase
             private set
             {
                 _moveService = value;
+            }
+        }
+
+        public PlayerService playerService
+        {
+            get
+            {
+                return _playerService ?? new PlayerService(repoFactory);
+            }
+            private set
+            {
+                _playerService = value;
+            }
+        }
+
+        public MatchService matchService
+        {
+            get
+            {
+                return _matchService ?? new MatchService(repoFactory);
+            }
+            private set
+            {
+                _matchService = value;
             }
         }
 
@@ -91,6 +117,12 @@ namespace ChessDatabase
             startSqPos = new int[2];
             endSqPos = new int[2];
             selectedPieceAnnotation = "";
+
+            foreach(var p in playerService.All())
+            {
+                cboxWhitePlayer.Items.Add(p);
+                cboxBlackPlayer.Items.Add(p);
+            }
 
             var check = this.GetType().Assembly.GetManifestResourceNames();
 
@@ -196,16 +228,11 @@ namespace ChessDatabase
 
         public void UpdateMoveList()
         {
-            if(color == "white")
-            {
-                int lastIndex = lstMoves.Items.Count - 1;
+            lstMoves.Items.Clear();
 
-                lstMoves.Items.RemoveAt(lstMoves.Items.Count - 1);
-                lstMoves.Items.Add(currentMove);
-            }
-            else
+            foreach(var m in gameMoves)
             {
-                lstMoves.Items.Add(currentMove);
+                lstMoves.Items.Add(m);
             }
         }
 
@@ -258,6 +285,7 @@ namespace ChessDatabase
                 };
 
                 gamePlies.Add(newPly);
+
                 position = ChessLogic.NextMove(position, newPly);
 
                 switch (color)
@@ -323,49 +351,19 @@ namespace ChessDatabase
             }
         }
 
-        //// Returns two int values that represents the position of the square in currentGame.position
-        //private int[] GetSquarePos(string pBoxName)
-        //{
-        //    string[] squareString = pBoxName.Split('x');
-
-        //    int[] squarePos = new int[2];
-        //    squarePos[0] = Int32.Parse(squareString[1][1].ToString()) - 1;
-
-        //    switch (squareString[1][0])
-        //    {
-        //        case 'a':
-        //            squarePos[1] = 0;
-        //            break;
-        //        case 'b':
-        //            squarePos[1] = 1;
-        //            break;
-        //        case 'c':
-        //            squarePos[1] = 2;
-        //            break;
-        //        case 'd':
-        //            squarePos[1] = 3;
-        //            break;
-        //        case 'e':
-        //            squarePos[1] = 4;
-        //            break;
-        //        case 'f':
-        //            squarePos[1] = 5;
-        //            break;
-        //        case 'g':
-        //            squarePos[1] = 6;
-        //            break;
-        //        case 'h':
-        //            squarePos[1] = 7;
-        //            break;
-        //    }
-
-        //    return squarePos;
-        //}
-
-
         private void btnSaveGame_Click(object sender, EventArgs e)
         {
-            //gameService.Add(gameMoves, txtBlackPlayer.Text, txtWhitePlayer.Text, dateGameDate.Value);
+            try
+            {
+                Player whitePlayer = (Player)cboxWhitePlayer.SelectedItem;
+                Player blackPlayer = (Player)cboxBlackPlayer.SelectedItem;
+                matchService.Add(gamePlies, whitePlayer.name + " vs. " + blackPlayer.name + " - " + dateGameDate.Value.Date, blackPlayer.Id, whitePlayer.Id, dateGameDate.Value, null);
+                MessageBox.Show("The game was successfully saved.");
+            }
+            catch
+            {
+                MessageBox.Show("You must select a white and a black player.");
+            }
         }
 
 
@@ -381,6 +379,22 @@ namespace ChessDatabase
             {
                 position = ChessLogic.UndoMove(position, gamePlies.Last());
                 gamePlies.RemoveAt(gamePlies.Count() - 1);
+
+                switch (gamePlies.Last().color)
+                {
+                    case "white":
+                        gameMoves.RemoveAt(gameMoves.Count() - 1);
+                        color = "black";
+                        moveNmbr -= 1;
+                        break;
+                    case "black":
+                        Move moveHolder = gameMoves.Last();
+                        gameMoves.RemoveAt(gameMoves.Count() - 1);
+                        moveHolder.blackPly = null;
+                        gameMoves.Add(moveHolder);
+                        color = "white";
+                        break;
+                }
 
                 UpdateMoveList();
                 SetPosition();
