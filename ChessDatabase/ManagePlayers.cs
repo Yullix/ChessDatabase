@@ -76,7 +76,7 @@ namespace ChessDatabase
             Player player = (Player)lstPlayers.SelectedItem;
             lstPlayerMatches.Items.Clear();
 
-            foreach(var m in player.matches)
+            foreach(var m in matchService.ByPlayer(player.Id))
             {
                 lstPlayerMatches.Items.Add(m);
             }
@@ -119,7 +119,16 @@ namespace ChessDatabase
 
         private void btnOpenGame_Click(object sender, EventArgs e)
         {
-            Match match = (Match)lstPlayerMatches.SelectedItem;
+            try
+            {
+                Match viewMatch = (Match)lstPlayerMatches.SelectedItem;
+                Form newForm = new ViewMatch(viewMatch);
+                newForm.Show();
+            }
+            catch
+            {
+
+            }
         }
 
         private void btnDeleteGame_Click(object sender, EventArgs e)

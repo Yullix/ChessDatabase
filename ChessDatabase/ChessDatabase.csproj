@@ -131,6 +131,12 @@
     <Compile Include="Services\OpeningService.cs" />
     <Compile Include="Services\PlayerService.cs" />
     <Compile Include="Services\TournamentService.cs" />
+    <Compile Include="ViewMatch.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ViewMatch.Designer.cs">
+      <DependentUpon>ViewMatch.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Home.resx">
       <DependentUpon>Home.cs</DependentUpon>
     </EmbeddedResource>
@@ -171,6 +177,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="ViewMatch.resx">
+      <DependentUpon>ViewMatch.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

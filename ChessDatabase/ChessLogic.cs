@@ -126,17 +126,18 @@ namespace ChessDatabase
         /// <returns></returns>
         public static string[,] NextMove(string[,] _position, Ply _nextPly)
         {
-            string[,] position = _position;          
+            string[,] position = _position;
+            char pieceAnnotation = _nextPly.plyAnnotation[0];
 
             switch(_nextPly.color)
             {
                 case "white":
                     position[_nextPly.startSqRow, _nextPly.startSqColumn] = "";
-                    position[_nextPly.endSqRow, _nextPly.endSqColumn] = "w" + _nextPly.pieceAnnotation.ToString();
+                    position[_nextPly.endSqRow, _nextPly.endSqColumn] = "w" + pieceAnnotation.ToString();
                     break;
                 case "black":
                     position[_nextPly.startSqRow, _nextPly.startSqColumn] = "";
-                    position[_nextPly.endSqRow, _nextPly.endSqColumn] = "b" + _nextPly.pieceAnnotation;
+                    position[_nextPly.endSqRow, _nextPly.endSqColumn] = "b" + pieceAnnotation.ToString();
                     break;
             }            
 
@@ -152,15 +153,16 @@ namespace ChessDatabase
         public static string[,] UndoMove(string[,] _position, Ply _lastPly)
         {
             string[,] position = _position;
-            
-            switch(_lastPly.color)
+            char pieceAnnotation = _lastPly.plyAnnotation[0];
+
+            switch (_lastPly.color)
             {
                 case "white":
-                    position[_lastPly.startSqRow, _lastPly.startSqColumn] = "w" + _lastPly.pieceAnnotation.ToString();
+                    position[_lastPly.startSqRow, _lastPly.startSqColumn] = "w" + pieceAnnotation.ToString();
                     position[_lastPly.endSqRow, _lastPly.endSqColumn] = _lastPly.capturedPieceAnnotation;
                     break;
                 case "black":
-                    position[_lastPly.startSqRow, _lastPly.startSqColumn] = "b" + _lastPly.pieceAnnotation.ToString();
+                    position[_lastPly.startSqRow, _lastPly.startSqColumn] = "b" + pieceAnnotation.ToString();
                     position[_lastPly.endSqRow, _lastPly.endSqColumn] = _lastPly.capturedPieceAnnotation;
                     break;
             }
