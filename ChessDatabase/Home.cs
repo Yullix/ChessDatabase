@@ -18,7 +18,7 @@ using System.Reflection;
 
 namespace ChessDatabase
 {
-    public partial class Home : Form
+    public partial class Home : MainForm
     {
         private PictureBox startSq;
         private PictureBox endSq;

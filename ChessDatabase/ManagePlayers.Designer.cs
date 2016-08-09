@@ -40,12 +40,12 @@
             this.btnDeletePlayer = new System.Windows.Forms.Button();
             this.grpCreatePlayer = new System.Windows.Forms.GroupBox();
             this.grpPlayerInformation = new System.Windows.Forms.GroupBox();
-            this.lblPlayerName = new System.Windows.Forms.Label();
-            this.txtPlayerName = new System.Windows.Forms.TextBox();
-            this.lblPlayerRating = new System.Windows.Forms.Label();
-            this.txtPlayerRating = new System.Windows.Forms.TextBox();
             this.lstPlayerMatches = new System.Windows.Forms.ListBox();
             this.lblPlayerMatches = new System.Windows.Forms.Label();
+            this.txtPlayerRating = new System.Windows.Forms.TextBox();
+            this.lblPlayerRating = new System.Windows.Forms.Label();
+            this.txtPlayerName = new System.Windows.Forms.TextBox();
+            this.lblPlayerName = new System.Windows.Forms.Label();
             this.grpCreatePlayer.SuspendLayout();
             this.grpPlayerInformation.SuspendLayout();
             this.SuspendLayout();
@@ -53,9 +53,9 @@
             // lstPlayers
             // 
             this.lstPlayers.FormattingEnabled = true;
-            this.lstPlayers.Location = new System.Drawing.Point(12, 12);
+            this.lstPlayers.Location = new System.Drawing.Point(47, 84);
             this.lstPlayers.Name = "lstPlayers";
-            this.lstPlayers.Size = new System.Drawing.Size(190, 329);
+            this.lstPlayers.Size = new System.Drawing.Size(190, 472);
             this.lstPlayers.TabIndex = 0;
             this.lstPlayers.SelectedIndexChanged += new System.EventHandler(this.lstPlayers_SelectedIndexChanged);
             // 
@@ -74,7 +74,7 @@
             // btnOpenGame
             // 
             this.btnOpenGame.BackColor = System.Drawing.Color.White;
-            this.btnOpenGame.Location = new System.Drawing.Point(201, 240);
+            this.btnOpenGame.Location = new System.Drawing.Point(201, 383);
             this.btnOpenGame.Name = "btnOpenGame";
             this.btnOpenGame.Size = new System.Drawing.Size(118, 37);
             this.btnOpenGame.TabIndex = 6;
@@ -96,7 +96,7 @@
             // btnDeleteGame
             // 
             this.btnDeleteGame.BackColor = System.Drawing.Color.Red;
-            this.btnDeleteGame.Location = new System.Drawing.Point(201, 283);
+            this.btnDeleteGame.Location = new System.Drawing.Point(201, 426);
             this.btnDeleteGame.Name = "btnDeleteGame";
             this.btnDeleteGame.Size = new System.Drawing.Size(118, 37);
             this.btnDeleteGame.TabIndex = 8;
@@ -149,20 +149,22 @@
             // 
             // grpCreatePlayer
             // 
+            this.grpCreatePlayer.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.grpCreatePlayer.Controls.Add(this.btnCreatePlayer);
             this.grpCreatePlayer.Controls.Add(this.txtNewPlayerRating);
             this.grpCreatePlayer.Controls.Add(this.label3);
             this.grpCreatePlayer.Controls.Add(this.label2);
             this.grpCreatePlayer.Controls.Add(this.txtNewPlayerName);
-            this.grpCreatePlayer.Location = new System.Drawing.Point(542, 193);
+            this.grpCreatePlayer.Location = new System.Drawing.Point(588, 84);
             this.grpCreatePlayer.Name = "grpCreatePlayer";
             this.grpCreatePlayer.Size = new System.Drawing.Size(200, 153);
             this.grpCreatePlayer.TabIndex = 10;
             this.grpCreatePlayer.TabStop = false;
-            this.grpCreatePlayer.Text = "Create New Player";
+            this.grpCreatePlayer.Text = "New Player";
             // 
             // grpPlayerInformation
             // 
+            this.grpPlayerInformation.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.grpPlayerInformation.Controls.Add(this.lstPlayerMatches);
             this.grpPlayerInformation.Controls.Add(this.lblPlayerMatches);
             this.grpPlayerInformation.Controls.Add(this.btnEditPlayer);
@@ -173,53 +175,19 @@
             this.grpPlayerInformation.Controls.Add(this.txtPlayerName);
             this.grpPlayerInformation.Controls.Add(this.btnOpenGame);
             this.grpPlayerInformation.Controls.Add(this.lblPlayerName);
-            this.grpPlayerInformation.Location = new System.Drawing.Point(209, 12);
+            this.grpPlayerInformation.Location = new System.Drawing.Point(244, 84);
             this.grpPlayerInformation.Name = "grpPlayerInformation";
-            this.grpPlayerInformation.Size = new System.Drawing.Size(327, 334);
+            this.grpPlayerInformation.Size = new System.Drawing.Size(327, 472);
             this.grpPlayerInformation.TabIndex = 11;
             this.grpPlayerInformation.TabStop = false;
             this.grpPlayerInformation.Text = "Player Information";
-            // 
-            // lblPlayerName
-            // 
-            this.lblPlayerName.AutoSize = true;
-            this.lblPlayerName.Location = new System.Drawing.Point(9, 16);
-            this.lblPlayerName.Name = "lblPlayerName";
-            this.lblPlayerName.Size = new System.Drawing.Size(35, 13);
-            this.lblPlayerName.TabIndex = 3;
-            this.lblPlayerName.Text = "Name";
-            // 
-            // txtPlayerName
-            // 
-            this.txtPlayerName.Location = new System.Drawing.Point(6, 35);
-            this.txtPlayerName.Name = "txtPlayerName";
-            this.txtPlayerName.ReadOnly = true;
-            this.txtPlayerName.Size = new System.Drawing.Size(173, 20);
-            this.txtPlayerName.TabIndex = 1;
-            // 
-            // lblPlayerRating
-            // 
-            this.lblPlayerRating.AutoSize = true;
-            this.lblPlayerRating.Location = new System.Drawing.Point(6, 58);
-            this.lblPlayerRating.Name = "lblPlayerRating";
-            this.lblPlayerRating.Size = new System.Drawing.Size(62, 13);
-            this.lblPlayerRating.TabIndex = 4;
-            this.lblPlayerRating.Text = "ELO Rating";
-            // 
-            // txtPlayerRating
-            // 
-            this.txtPlayerRating.Location = new System.Drawing.Point(6, 75);
-            this.txtPlayerRating.Name = "txtPlayerRating";
-            this.txtPlayerRating.ReadOnly = true;
-            this.txtPlayerRating.Size = new System.Drawing.Size(85, 20);
-            this.txtPlayerRating.TabIndex = 5;
             // 
             // lstPlayerMatches
             // 
             this.lstPlayerMatches.FormattingEnabled = true;
             this.lstPlayerMatches.Location = new System.Drawing.Point(6, 134);
             this.lstPlayerMatches.Name = "lstPlayerMatches";
-            this.lstPlayerMatches.Size = new System.Drawing.Size(183, 186);
+            this.lstPlayerMatches.Size = new System.Drawing.Size(183, 329);
             this.lstPlayerMatches.TabIndex = 6;
             // 
             // lblPlayerMatches
@@ -231,21 +199,59 @@
             this.lblPlayerMatches.TabIndex = 7;
             this.lblPlayerMatches.Text = "Games Played";
             // 
+            // txtPlayerRating
+            // 
+            this.txtPlayerRating.Location = new System.Drawing.Point(6, 75);
+            this.txtPlayerRating.Name = "txtPlayerRating";
+            this.txtPlayerRating.ReadOnly = true;
+            this.txtPlayerRating.Size = new System.Drawing.Size(85, 20);
+            this.txtPlayerRating.TabIndex = 5;
+            // 
+            // lblPlayerRating
+            // 
+            this.lblPlayerRating.AutoSize = true;
+            this.lblPlayerRating.Location = new System.Drawing.Point(6, 58);
+            this.lblPlayerRating.Name = "lblPlayerRating";
+            this.lblPlayerRating.Size = new System.Drawing.Size(62, 13);
+            this.lblPlayerRating.TabIndex = 4;
+            this.lblPlayerRating.Text = "ELO Rating";
+            // 
+            // txtPlayerName
+            // 
+            this.txtPlayerName.Location = new System.Drawing.Point(6, 35);
+            this.txtPlayerName.Name = "txtPlayerName";
+            this.txtPlayerName.ReadOnly = true;
+            this.txtPlayerName.Size = new System.Drawing.Size(173, 20);
+            this.txtPlayerName.TabIndex = 1;
+            // 
+            // lblPlayerName
+            // 
+            this.lblPlayerName.AutoSize = true;
+            this.lblPlayerName.Location = new System.Drawing.Point(9, 16);
+            this.lblPlayerName.Name = "lblPlayerName";
+            this.lblPlayerName.Size = new System.Drawing.Size(35, 13);
+            this.lblPlayerName.TabIndex = 3;
+            this.lblPlayerName.Text = "Name";
+            // 
             // ManagePlayers
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(750, 381);
+            this.ClientSize = new System.Drawing.Size(984, 611);
             this.Controls.Add(this.grpPlayerInformation);
             this.Controls.Add(this.grpCreatePlayer);
             this.Controls.Add(this.lstPlayers);
             this.Name = "ManagePlayers";
             this.Text = "ManagePlayers";
+            this.Controls.SetChildIndex(this.lstPlayers, 0);
+            this.Controls.SetChildIndex(this.grpCreatePlayer, 0);
+            this.Controls.SetChildIndex(this.grpPlayerInformation, 0);
             this.grpCreatePlayer.ResumeLayout(false);
             this.grpCreatePlayer.PerformLayout();
             this.grpPlayerInformation.ResumeLayout(false);
             this.grpPlayerInformation.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 

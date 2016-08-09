@@ -13,7 +13,7 @@ using ChessDatabase.Models;
 
 namespace ChessDatabase
 {
-    public partial class ManagePlayers : Form
+    public partial class ManagePlayers : MainForm
     {
         private PlayerService _playerService;
         private MatchService _matchService;

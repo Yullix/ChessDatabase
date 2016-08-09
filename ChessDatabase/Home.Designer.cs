@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Home));
             this.lstMoves = new System.Windows.Forms.ListBox();
             this.panelWhitePlayer = new System.Windows.Forms.Panel();
             this.cboxWhitePlayer = new System.Windows.Forms.ComboBox();
@@ -35,7 +36,6 @@
             this.panelBlackPlayer = new System.Windows.Forms.Panel();
             this.cboxBlackPlayer = new System.Windows.Forms.ComboBox();
             this.labelBlackPlayer = new System.Windows.Forms.Label();
-            this.labelMoves = new System.Windows.Forms.Label();
             this.btnSaveGame = new System.Windows.Forms.Button();
             this.dateGameDate = new System.Windows.Forms.DateTimePicker();
             this.btnUndoMove = new System.Windows.Forms.Button();
@@ -104,12 +104,6 @@
             this.pBoxh1 = new System.Windows.Forms.PictureBox();
             this.pBoxa8 = new System.Windows.Forms.PictureBox();
             this.panelBoard = new System.Windows.Forms.Panel();
-            this.homeNavBar = new System.Windows.Forms.MenuStrip();
-            this.playersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.categoriesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.gamesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.openingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.tournamentsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panelWhitePlayer.SuspendLayout();
             this.panelBlackPlayer.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pBoxd8)).BeginInit();
@@ -177,30 +171,31 @@
             ((System.ComponentModel.ISupportInitialize)(this.pBoxh1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pBoxa8)).BeginInit();
             this.panelBoard.SuspendLayout();
-            this.homeNavBar.SuspendLayout();
             this.SuspendLayout();
             // 
             // lstMoves
             // 
             this.lstMoves.FormattingEnabled = true;
-            this.lstMoves.Location = new System.Drawing.Point(543, 34);
+            this.lstMoves.Location = new System.Drawing.Point(550, 68);
             this.lstMoves.Name = "lstMoves";
-            this.lstMoves.Size = new System.Drawing.Size(104, 186);
+            this.lstMoves.Size = new System.Drawing.Size(104, 394);
             this.lstMoves.TabIndex = 117;
             // 
             // panelWhitePlayer
             // 
+            this.panelWhitePlayer.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.panelWhitePlayer.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panelWhitePlayer.BackgroundImage")));
             this.panelWhitePlayer.Controls.Add(this.cboxWhitePlayer);
             this.panelWhitePlayer.Controls.Add(this.labelWhitePlayer);
-            this.panelWhitePlayer.Location = new System.Drawing.Point(537, 328);
+            this.panelWhitePlayer.Location = new System.Drawing.Point(675, 68);
             this.panelWhitePlayer.Name = "panelWhitePlayer";
-            this.panelWhitePlayer.Size = new System.Drawing.Size(146, 57);
+            this.panelWhitePlayer.Size = new System.Drawing.Size(200, 100);
             this.panelWhitePlayer.TabIndex = 118;
             // 
             // cboxWhitePlayer
             // 
             this.cboxWhitePlayer.FormattingEnabled = true;
-            this.cboxWhitePlayer.Location = new System.Drawing.Point(6, 25);
+            this.cboxWhitePlayer.Location = new System.Drawing.Point(57, 51);
             this.cboxWhitePlayer.Name = "cboxWhitePlayer";
             this.cboxWhitePlayer.Size = new System.Drawing.Size(131, 21);
             this.cboxWhitePlayer.TabIndex = 123;
@@ -208,7 +203,8 @@
             // labelWhitePlayer
             // 
             this.labelWhitePlayer.AutoSize = true;
-            this.labelWhitePlayer.Location = new System.Drawing.Point(3, 9);
+            this.labelWhitePlayer.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.labelWhitePlayer.Location = new System.Drawing.Point(85, 25);
             this.labelWhitePlayer.Name = "labelWhitePlayer";
             this.labelWhitePlayer.Size = new System.Drawing.Size(67, 13);
             this.labelWhitePlayer.TabIndex = 0;
@@ -216,17 +212,19 @@
             // 
             // panelBlackPlayer
             // 
+            this.panelBlackPlayer.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.panelBlackPlayer.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panelBlackPlayer.BackgroundImage")));
             this.panelBlackPlayer.Controls.Add(this.cboxBlackPlayer);
             this.panelBlackPlayer.Controls.Add(this.labelBlackPlayer);
-            this.panelBlackPlayer.Location = new System.Drawing.Point(537, 391);
+            this.panelBlackPlayer.Location = new System.Drawing.Point(675, 174);
             this.panelBlackPlayer.Name = "panelBlackPlayer";
-            this.panelBlackPlayer.Size = new System.Drawing.Size(146, 57);
+            this.panelBlackPlayer.Size = new System.Drawing.Size(200, 100);
             this.panelBlackPlayer.TabIndex = 119;
             // 
             // cboxBlackPlayer
             // 
             this.cboxBlackPlayer.FormattingEnabled = true;
-            this.cboxBlackPlayer.Location = new System.Drawing.Point(6, 25);
+            this.cboxBlackPlayer.Location = new System.Drawing.Point(57, 53);
             this.cboxBlackPlayer.Name = "cboxBlackPlayer";
             this.cboxBlackPlayer.Size = new System.Drawing.Size(131, 21);
             this.cboxBlackPlayer.TabIndex = 124;
@@ -234,25 +232,17 @@
             // labelBlackPlayer
             // 
             this.labelBlackPlayer.AutoSize = true;
-            this.labelBlackPlayer.Location = new System.Drawing.Point(3, 9);
+            this.labelBlackPlayer.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.labelBlackPlayer.Location = new System.Drawing.Point(86, 23);
             this.labelBlackPlayer.Name = "labelBlackPlayer";
             this.labelBlackPlayer.Size = new System.Drawing.Size(66, 13);
             this.labelBlackPlayer.TabIndex = 0;
             this.labelBlackPlayer.Text = "Black Player";
             // 
-            // labelMoves
-            // 
-            this.labelMoves.AutoSize = true;
-            this.labelMoves.Location = new System.Drawing.Point(601, 24);
-            this.labelMoves.Name = "labelMoves";
-            this.labelMoves.Size = new System.Drawing.Size(39, 13);
-            this.labelMoves.TabIndex = 2;
-            this.labelMoves.Text = "Moves";
-            // 
             // btnSaveGame
             // 
             this.btnSaveGame.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.btnSaveGame.Location = new System.Drawing.Point(543, 480);
+            this.btnSaveGame.Location = new System.Drawing.Point(675, 351);
             this.btnSaveGame.Name = "btnSaveGame";
             this.btnSaveGame.Size = new System.Drawing.Size(131, 40);
             this.btnSaveGame.TabIndex = 120;
@@ -262,15 +252,15 @@
             // 
             // dateGameDate
             // 
-            this.dateGameDate.Location = new System.Drawing.Point(543, 454);
+            this.dateGameDate.Location = new System.Drawing.Point(675, 308);
             this.dateGameDate.Name = "dateGameDate";
             this.dateGameDate.Size = new System.Drawing.Size(131, 20);
             this.dateGameDate.TabIndex = 121;
             // 
             // btnUndoMove
             // 
-            this.btnUndoMove.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.btnUndoMove.Location = new System.Drawing.Point(543, 226);
+            this.btnUndoMove.BackColor = System.Drawing.SystemColors.GrayText;
+            this.btnUndoMove.Location = new System.Drawing.Point(550, 488);
             this.btnUndoMove.Name = "btnUndoMove";
             this.btnUndoMove.Size = new System.Drawing.Size(104, 40);
             this.btnUndoMove.TabIndex = 123;
@@ -984,74 +974,33 @@
             this.panelBoard.Controls.Add(this.pBoxc8);
             this.panelBoard.Controls.Add(this.pBoxe8);
             this.panelBoard.Controls.Add(this.pBoxd8);
-            this.panelBoard.Location = new System.Drawing.Point(40, 40);
+            this.panelBoard.Location = new System.Drawing.Point(64, 68);
             this.panelBoard.Name = "panelBoard";
             this.panelBoard.Size = new System.Drawing.Size(480, 480);
             this.panelBoard.TabIndex = 116;
-            // 
-            // homeNavBar
-            // 
-            this.homeNavBar.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.playersToolStripMenuItem,
-            this.categoriesToolStripMenuItem,
-            this.gamesToolStripMenuItem,
-            this.openingsToolStripMenuItem,
-            this.tournamentsToolStripMenuItem});
-            this.homeNavBar.Location = new System.Drawing.Point(0, 0);
-            this.homeNavBar.Name = "homeNavBar";
-            this.homeNavBar.Size = new System.Drawing.Size(742, 24);
-            this.homeNavBar.TabIndex = 124;
-            this.homeNavBar.Text = "menuStrip1";
-            // 
-            // playersToolStripMenuItem
-            // 
-            this.playersToolStripMenuItem.Name = "playersToolStripMenuItem";
-            this.playersToolStripMenuItem.Size = new System.Drawing.Size(56, 20);
-            this.playersToolStripMenuItem.Text = "Players";
-            this.playersToolStripMenuItem.Click += new System.EventHandler(this.playersToolStripMenuItem_Click);
-            // 
-            // categoriesToolStripMenuItem
-            // 
-            this.categoriesToolStripMenuItem.Name = "categoriesToolStripMenuItem";
-            this.categoriesToolStripMenuItem.Size = new System.Drawing.Size(75, 20);
-            this.categoriesToolStripMenuItem.Text = "Categories";
-            // 
-            // gamesToolStripMenuItem
-            // 
-            this.gamesToolStripMenuItem.Name = "gamesToolStripMenuItem";
-            this.gamesToolStripMenuItem.Size = new System.Drawing.Size(55, 20);
-            this.gamesToolStripMenuItem.Text = "Games";
-            // 
-            // openingsToolStripMenuItem
-            // 
-            this.openingsToolStripMenuItem.Name = "openingsToolStripMenuItem";
-            this.openingsToolStripMenuItem.Size = new System.Drawing.Size(70, 20);
-            this.openingsToolStripMenuItem.Text = "Openings";
-            // 
-            // tournamentsToolStripMenuItem
-            // 
-            this.tournamentsToolStripMenuItem.Name = "tournamentsToolStripMenuItem";
-            this.tournamentsToolStripMenuItem.Size = new System.Drawing.Size(89, 20);
-            this.tournamentsToolStripMenuItem.Text = "Tournaments";
             // 
             // Home
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.ClientSize = new System.Drawing.Size(742, 540);
+            this.ClientSize = new System.Drawing.Size(984, 611);
             this.Controls.Add(this.btnUndoMove);
             this.Controls.Add(this.dateGameDate);
             this.Controls.Add(this.btnSaveGame);
-            this.Controls.Add(this.labelMoves);
             this.Controls.Add(this.panelBlackPlayer);
             this.Controls.Add(this.panelWhitePlayer);
             this.Controls.Add(this.lstMoves);
             this.Controls.Add(this.panelBoard);
-            this.Controls.Add(this.homeNavBar);
-            this.MainMenuStrip = this.homeNavBar;
             this.Name = "Home";
             this.Text = "Home";
+            this.Controls.SetChildIndex(this.panelBoard, 0);
+            this.Controls.SetChildIndex(this.lstMoves, 0);
+            this.Controls.SetChildIndex(this.panelWhitePlayer, 0);
+            this.Controls.SetChildIndex(this.panelBlackPlayer, 0);
+            this.Controls.SetChildIndex(this.btnSaveGame, 0);
+            this.Controls.SetChildIndex(this.dateGameDate, 0);
+            this.Controls.SetChildIndex(this.btnUndoMove, 0);
             this.panelWhitePlayer.ResumeLayout(false);
             this.panelWhitePlayer.PerformLayout();
             this.panelBlackPlayer.ResumeLayout(false);
@@ -1121,8 +1070,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pBoxh1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pBoxa8)).EndInit();
             this.panelBoard.ResumeLayout(false);
-            this.homeNavBar.ResumeLayout(false);
-            this.homeNavBar.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1134,7 +1081,6 @@
         private System.Windows.Forms.Label labelWhitePlayer;
         private System.Windows.Forms.Panel panelBlackPlayer;
         private System.Windows.Forms.Label labelBlackPlayer;
-        private System.Windows.Forms.Label labelMoves;
         private System.Windows.Forms.Button btnSaveGame;
         private System.Windows.Forms.DateTimePicker dateGameDate;
         private System.Windows.Forms.ComboBox cboxWhitePlayer;
@@ -1205,11 +1151,5 @@
         private System.Windows.Forms.PictureBox pBoxh1;
         private System.Windows.Forms.PictureBox pBoxa8;
         private System.Windows.Forms.Panel panelBoard;
-        private System.Windows.Forms.MenuStrip homeNavBar;
-        private System.Windows.Forms.ToolStripMenuItem playersToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem categoriesToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem gamesToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem openingsToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem tournamentsToolStripMenuItem;
     }
 }
