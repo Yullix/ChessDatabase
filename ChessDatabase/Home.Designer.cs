@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Home));
             this.lstMoves = new System.Windows.Forms.ListBox();
             this.panelWhitePlayer = new System.Windows.Forms.Panel();
             this.cboxWhitePlayer = new System.Windows.Forms.ComboBox();
@@ -183,8 +182,7 @@
             // 
             // panelWhitePlayer
             // 
-            this.panelWhitePlayer.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.panelWhitePlayer.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panelWhitePlayer.BackgroundImage")));
+            this.panelWhitePlayer.BackColor = System.Drawing.Color.Transparent;
             this.panelWhitePlayer.Controls.Add(this.cboxWhitePlayer);
             this.panelWhitePlayer.Controls.Add(this.labelWhitePlayer);
             this.panelWhitePlayer.Location = new System.Drawing.Point(675, 68);
@@ -195,7 +193,7 @@
             // cboxWhitePlayer
             // 
             this.cboxWhitePlayer.FormattingEnabled = true;
-            this.cboxWhitePlayer.Location = new System.Drawing.Point(57, 51);
+            this.cboxWhitePlayer.Location = new System.Drawing.Point(6, 60);
             this.cboxWhitePlayer.Name = "cboxWhitePlayer";
             this.cboxWhitePlayer.Size = new System.Drawing.Size(131, 21);
             this.cboxWhitePlayer.TabIndex = 123;
@@ -203,8 +201,9 @@
             // labelWhitePlayer
             // 
             this.labelWhitePlayer.AutoSize = true;
-            this.labelWhitePlayer.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.labelWhitePlayer.Location = new System.Drawing.Point(85, 25);
+            this.labelWhitePlayer.BackColor = System.Drawing.Color.Transparent;
+            this.labelWhitePlayer.ForeColor = System.Drawing.Color.Lime;
+            this.labelWhitePlayer.Location = new System.Drawing.Point(3, 44);
             this.labelWhitePlayer.Name = "labelWhitePlayer";
             this.labelWhitePlayer.Size = new System.Drawing.Size(67, 13);
             this.labelWhitePlayer.TabIndex = 0;
@@ -212,8 +211,7 @@
             // 
             // panelBlackPlayer
             // 
-            this.panelBlackPlayer.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.panelBlackPlayer.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panelBlackPlayer.BackgroundImage")));
+            this.panelBlackPlayer.BackColor = System.Drawing.Color.Transparent;
             this.panelBlackPlayer.Controls.Add(this.cboxBlackPlayer);
             this.panelBlackPlayer.Controls.Add(this.labelBlackPlayer);
             this.panelBlackPlayer.Location = new System.Drawing.Point(675, 174);
@@ -224,7 +222,7 @@
             // cboxBlackPlayer
             // 
             this.cboxBlackPlayer.FormattingEnabled = true;
-            this.cboxBlackPlayer.Location = new System.Drawing.Point(57, 53);
+            this.cboxBlackPlayer.Location = new System.Drawing.Point(3, 53);
             this.cboxBlackPlayer.Name = "cboxBlackPlayer";
             this.cboxBlackPlayer.Size = new System.Drawing.Size(131, 21);
             this.cboxBlackPlayer.TabIndex = 124;
@@ -232,8 +230,9 @@
             // labelBlackPlayer
             // 
             this.labelBlackPlayer.AutoSize = true;
-            this.labelBlackPlayer.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.labelBlackPlayer.Location = new System.Drawing.Point(86, 23);
+            this.labelBlackPlayer.BackColor = System.Drawing.Color.Transparent;
+            this.labelBlackPlayer.ForeColor = System.Drawing.Color.Lime;
+            this.labelBlackPlayer.Location = new System.Drawing.Point(3, 37);
             this.labelBlackPlayer.Name = "labelBlackPlayer";
             this.labelBlackPlayer.Size = new System.Drawing.Size(66, 13);
             this.labelBlackPlayer.TabIndex = 0;

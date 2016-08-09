@@ -52,6 +52,7 @@
             // 
             // lstPlayers
             // 
+            this.lstPlayers.BackColor = System.Drawing.Color.White;
             this.lstPlayers.FormattingEnabled = true;
             this.lstPlayers.Location = new System.Drawing.Point(47, 84);
             this.lstPlayers.Name = "lstPlayers";
@@ -74,6 +75,7 @@
             // btnOpenGame
             // 
             this.btnOpenGame.BackColor = System.Drawing.Color.White;
+            this.btnOpenGame.ForeColor = System.Drawing.Color.Black;
             this.btnOpenGame.Location = new System.Drawing.Point(201, 383);
             this.btnOpenGame.Name = "btnOpenGame";
             this.btnOpenGame.Size = new System.Drawing.Size(118, 37);
@@ -85,6 +87,7 @@
             // btnEditPlayer
             // 
             this.btnEditPlayer.BackColor = System.Drawing.Color.White;
+            this.btnEditPlayer.ForeColor = System.Drawing.Color.Black;
             this.btnEditPlayer.Location = new System.Drawing.Point(201, 26);
             this.btnEditPlayer.Name = "btnEditPlayer";
             this.btnEditPlayer.Size = new System.Drawing.Size(118, 37);
@@ -96,6 +99,7 @@
             // btnDeleteGame
             // 
             this.btnDeleteGame.BackColor = System.Drawing.Color.Red;
+            this.btnDeleteGame.ForeColor = System.Drawing.Color.Black;
             this.btnDeleteGame.Location = new System.Drawing.Point(201, 426);
             this.btnDeleteGame.Name = "btnDeleteGame";
             this.btnDeleteGame.Size = new System.Drawing.Size(118, 37);
@@ -114,6 +118,8 @@
             // label2
             // 
             this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.Transparent;
+            this.label2.ForeColor = System.Drawing.Color.Lime;
             this.label2.Location = new System.Drawing.Point(15, 59);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(62, 13);
@@ -130,6 +136,8 @@
             // label3
             // 
             this.label3.AutoSize = true;
+            this.label3.BackColor = System.Drawing.Color.Transparent;
+            this.label3.ForeColor = System.Drawing.Color.Lime;
             this.label3.Location = new System.Drawing.Point(12, 19);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(35, 13);
@@ -139,6 +147,7 @@
             // btnDeletePlayer
             // 
             this.btnDeletePlayer.BackColor = System.Drawing.Color.Red;
+            this.btnDeletePlayer.ForeColor = System.Drawing.Color.Black;
             this.btnDeletePlayer.Location = new System.Drawing.Point(201, 75);
             this.btnDeletePlayer.Name = "btnDeletePlayer";
             this.btnDeletePlayer.Size = new System.Drawing.Size(118, 37);
@@ -149,12 +158,13 @@
             // 
             // grpCreatePlayer
             // 
-            this.grpCreatePlayer.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.grpCreatePlayer.BackColor = System.Drawing.Color.Transparent;
             this.grpCreatePlayer.Controls.Add(this.btnCreatePlayer);
             this.grpCreatePlayer.Controls.Add(this.txtNewPlayerRating);
             this.grpCreatePlayer.Controls.Add(this.label3);
             this.grpCreatePlayer.Controls.Add(this.label2);
             this.grpCreatePlayer.Controls.Add(this.txtNewPlayerName);
+            this.grpCreatePlayer.ForeColor = System.Drawing.SystemColors.ActiveCaption;
             this.grpCreatePlayer.Location = new System.Drawing.Point(588, 84);
             this.grpCreatePlayer.Name = "grpCreatePlayer";
             this.grpCreatePlayer.Size = new System.Drawing.Size(200, 153);
@@ -164,7 +174,7 @@
             // 
             // grpPlayerInformation
             // 
-            this.grpPlayerInformation.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.grpPlayerInformation.BackColor = System.Drawing.Color.Transparent;
             this.grpPlayerInformation.Controls.Add(this.lstPlayerMatches);
             this.grpPlayerInformation.Controls.Add(this.lblPlayerMatches);
             this.grpPlayerInformation.Controls.Add(this.btnEditPlayer);
@@ -175,6 +185,7 @@
             this.grpPlayerInformation.Controls.Add(this.txtPlayerName);
             this.grpPlayerInformation.Controls.Add(this.btnOpenGame);
             this.grpPlayerInformation.Controls.Add(this.lblPlayerName);
+            this.grpPlayerInformation.ForeColor = System.Drawing.Color.Lime;
             this.grpPlayerInformation.Location = new System.Drawing.Point(244, 84);
             this.grpPlayerInformation.Name = "grpPlayerInformation";
             this.grpPlayerInformation.Size = new System.Drawing.Size(327, 472);
@@ -193,6 +204,7 @@
             // lblPlayerMatches
             // 
             this.lblPlayerMatches.AutoSize = true;
+            this.lblPlayerMatches.ForeColor = System.Drawing.Color.Lime;
             this.lblPlayerMatches.Location = new System.Drawing.Point(6, 109);
             this.lblPlayerMatches.Name = "lblPlayerMatches";
             this.lblPlayerMatches.Size = new System.Drawing.Size(75, 13);
@@ -210,6 +222,7 @@
             // lblPlayerRating
             // 
             this.lblPlayerRating.AutoSize = true;
+            this.lblPlayerRating.ForeColor = System.Drawing.Color.Lime;
             this.lblPlayerRating.Location = new System.Drawing.Point(6, 58);
             this.lblPlayerRating.Name = "lblPlayerRating";
             this.lblPlayerRating.Size = new System.Drawing.Size(62, 13);
@@ -227,6 +240,7 @@
             // lblPlayerName
             // 
             this.lblPlayerName.AutoSize = true;
+            this.lblPlayerName.ForeColor = System.Drawing.Color.Lime;
             this.lblPlayerName.Location = new System.Drawing.Point(9, 16);
             this.lblPlayerName.Name = "lblPlayerName";
             this.lblPlayerName.Size = new System.Drawing.Size(35, 13);
