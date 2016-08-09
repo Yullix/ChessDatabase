@@ -38,7 +38,6 @@
             this.labelMoves = new System.Windows.Forms.Label();
             this.btnSaveGame = new System.Windows.Forms.Button();
             this.dateGameDate = new System.Windows.Forms.DateTimePicker();
-            this.btnPlayers = new System.Windows.Forms.Button();
             this.btnUndoMove = new System.Windows.Forms.Button();
             this.pBoxd8 = new System.Windows.Forms.PictureBox();
             this.pBoxe8 = new System.Windows.Forms.PictureBox();
@@ -105,6 +104,12 @@
             this.pBoxh1 = new System.Windows.Forms.PictureBox();
             this.pBoxa8 = new System.Windows.Forms.PictureBox();
             this.panelBoard = new System.Windows.Forms.Panel();
+            this.homeNavBar = new System.Windows.Forms.MenuStrip();
+            this.playersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.categoriesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.gamesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.openingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.tournamentsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panelWhitePlayer.SuspendLayout();
             this.panelBlackPlayer.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pBoxd8)).BeginInit();
@@ -172,6 +177,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pBoxh1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pBoxa8)).BeginInit();
             this.panelBoard.SuspendLayout();
+            this.homeNavBar.SuspendLayout();
             this.SuspendLayout();
             // 
             // lstMoves
@@ -260,17 +266,6 @@
             this.dateGameDate.Name = "dateGameDate";
             this.dateGameDate.Size = new System.Drawing.Size(131, 20);
             this.dateGameDate.TabIndex = 121;
-            // 
-            // btnPlayers
-            // 
-            this.btnPlayers.BackColor = System.Drawing.Color.White;
-            this.btnPlayers.Location = new System.Drawing.Point(802, 40);
-            this.btnPlayers.Name = "btnPlayers";
-            this.btnPlayers.Size = new System.Drawing.Size(153, 55);
-            this.btnPlayers.TabIndex = 122;
-            this.btnPlayers.Text = "Manage Players";
-            this.btnPlayers.UseVisualStyleBackColor = false;
-            this.btnPlayers.Click += new System.EventHandler(this.btnPlayers_Click);
             // 
             // btnUndoMove
             // 
@@ -994,14 +989,58 @@
             this.panelBoard.Size = new System.Drawing.Size(480, 480);
             this.panelBoard.TabIndex = 116;
             // 
+            // homeNavBar
+            // 
+            this.homeNavBar.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.playersToolStripMenuItem,
+            this.categoriesToolStripMenuItem,
+            this.gamesToolStripMenuItem,
+            this.openingsToolStripMenuItem,
+            this.tournamentsToolStripMenuItem});
+            this.homeNavBar.Location = new System.Drawing.Point(0, 0);
+            this.homeNavBar.Name = "homeNavBar";
+            this.homeNavBar.Size = new System.Drawing.Size(742, 24);
+            this.homeNavBar.TabIndex = 124;
+            this.homeNavBar.Text = "menuStrip1";
+            // 
+            // playersToolStripMenuItem
+            // 
+            this.playersToolStripMenuItem.Name = "playersToolStripMenuItem";
+            this.playersToolStripMenuItem.Size = new System.Drawing.Size(56, 20);
+            this.playersToolStripMenuItem.Text = "Players";
+            this.playersToolStripMenuItem.Click += new System.EventHandler(this.playersToolStripMenuItem_Click);
+            // 
+            // categoriesToolStripMenuItem
+            // 
+            this.categoriesToolStripMenuItem.Name = "categoriesToolStripMenuItem";
+            this.categoriesToolStripMenuItem.Size = new System.Drawing.Size(75, 20);
+            this.categoriesToolStripMenuItem.Text = "Categories";
+            // 
+            // gamesToolStripMenuItem
+            // 
+            this.gamesToolStripMenuItem.Name = "gamesToolStripMenuItem";
+            this.gamesToolStripMenuItem.Size = new System.Drawing.Size(55, 20);
+            this.gamesToolStripMenuItem.Text = "Games";
+            // 
+            // openingsToolStripMenuItem
+            // 
+            this.openingsToolStripMenuItem.Name = "openingsToolStripMenuItem";
+            this.openingsToolStripMenuItem.Size = new System.Drawing.Size(70, 20);
+            this.openingsToolStripMenuItem.Text = "Openings";
+            // 
+            // tournamentsToolStripMenuItem
+            // 
+            this.tournamentsToolStripMenuItem.Name = "tournamentsToolStripMenuItem";
+            this.tournamentsToolStripMenuItem.Size = new System.Drawing.Size(89, 20);
+            this.tournamentsToolStripMenuItem.Text = "Tournaments";
+            // 
             // Home
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.ClientSize = new System.Drawing.Size(1109, 633);
+            this.ClientSize = new System.Drawing.Size(742, 540);
             this.Controls.Add(this.btnUndoMove);
-            this.Controls.Add(this.btnPlayers);
             this.Controls.Add(this.dateGameDate);
             this.Controls.Add(this.btnSaveGame);
             this.Controls.Add(this.labelMoves);
@@ -1009,6 +1048,8 @@
             this.Controls.Add(this.panelWhitePlayer);
             this.Controls.Add(this.lstMoves);
             this.Controls.Add(this.panelBoard);
+            this.Controls.Add(this.homeNavBar);
+            this.MainMenuStrip = this.homeNavBar;
             this.Name = "Home";
             this.Text = "Home";
             this.panelWhitePlayer.ResumeLayout(false);
@@ -1080,6 +1121,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.pBoxh1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pBoxa8)).EndInit();
             this.panelBoard.ResumeLayout(false);
+            this.homeNavBar.ResumeLayout(false);
+            this.homeNavBar.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1094,7 +1137,6 @@
         private System.Windows.Forms.Label labelMoves;
         private System.Windows.Forms.Button btnSaveGame;
         private System.Windows.Forms.DateTimePicker dateGameDate;
-        private System.Windows.Forms.Button btnPlayers;
         private System.Windows.Forms.ComboBox cboxWhitePlayer;
         private System.Windows.Forms.ComboBox cboxBlackPlayer;
         private System.Windows.Forms.Button btnUndoMove;
@@ -1163,5 +1205,11 @@
         private System.Windows.Forms.PictureBox pBoxh1;
         private System.Windows.Forms.PictureBox pBoxa8;
         private System.Windows.Forms.Panel panelBoard;
+        private System.Windows.Forms.MenuStrip homeNavBar;
+        private System.Windows.Forms.ToolStripMenuItem playersToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem categoriesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem gamesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem openingsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem tournamentsToolStripMenuItem;
     }
 }

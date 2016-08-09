@@ -366,8 +366,7 @@ namespace ChessDatabase
             }
         }
 
-
-        private void btnPlayers_Click(object sender, EventArgs e)
+        private void playersToolStripMenuItem_Click(object sender, EventArgs e)
         {
             ManagePlayers newForm = new ManagePlayers();
             newForm.Show();
