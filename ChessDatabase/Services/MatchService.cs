@@ -20,7 +20,7 @@ namespace ChessDatabase.Services
             this.matchRepository = _repoFactory.GetMatchRepository();
         }
 
-        public void Add(List<Ply> _plys, string _name, int _blackId, int _whiteId, DateTime _date, int? _categoryId)
+        public void Add(List<Ply> _plies, string _name, int _blackId, int _whiteId, DateTime _date, int? _categoryId)
         {
             var newMatch = new Match()
             {
@@ -29,15 +29,32 @@ namespace ChessDatabase.Services
                 whitePlayerId = _whiteId,
                 categoryId = _categoryId,
                 date = _date,
-                plies = _plys
+                plies = _plies
             };
 
             matchRepository.Add(newMatch);
+
+            OnUpdatedEventArgs eArgs = new OnUpdatedEventArgs()
+            {
+                updateMessage = "Add"
+            };
+
+            OnUpdated(eArgs);
         }
 
         public bool Remove(int _Id)
         {
-            return matchRepository.Remove(_Id);
+            if(matchRepository.Remove(_Id))
+            {
+                OnUpdatedEventArgs eArgs = new OnUpdatedEventArgs()
+                {
+                    updateMessage = "Remove"
+                };
+
+                OnUpdated(eArgs);
+                return true;
+            }
+            return false;
         }
 
         public IEnumerable<Match> All()
@@ -57,6 +74,11 @@ namespace ChessDatabase.Services
             Func<Match, bool> function = m => m.categoryId.Equals(_categoryId);
 
             return matchRepository.ByFunc(function);
+        }
+
+        protected virtual void OnUpdated(EventArgs e)
+        {
+            Updated?.Invoke(this, e);
         }
 
     }

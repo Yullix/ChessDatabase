@@ -9,6 +9,11 @@ using System.Threading.Tasks;
 
 namespace ChessDatabase.Services
 {
+    public class OnUpdatedEventArgs : EventArgs
+    {
+        public string updateMessage { get; set; }
+    }
+
     public interface IService
     {
         event EventHandler Updated;

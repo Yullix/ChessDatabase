@@ -20,18 +20,39 @@ namespace ChessDatabase.Services
 
         public void Add(string _name, int _rating)
         {
-            Player newPlayer = new Player()
+            if (_name != "")
             {
-                name = _name,
-                rating = _rating
-            };
+                Player newPlayer = new Player()
+                {
+                    name = _name,
+                    rating = _rating
+                };
+                playerRepository.Add(newPlayer);
 
-            playerRepository.Add(newPlayer);
+                OnUpdatedEventArgs eArgs = new OnUpdatedEventArgs()
+                {
+                    updateMessage = "Add"
+                };
+
+                OnUpdated(eArgs);
+            }
+            else
+                throw new ArgumentException("You must enter a name to create a new player.");            
         }
 
         public bool Remove(int _Id)
         {
-            return playerRepository.Remove(_Id);
+            if(playerRepository.Remove(_Id))
+            {
+                OnUpdatedEventArgs eArgs = new OnUpdatedEventArgs()
+                {
+                    updateMessage = "Remove"
+                };
+
+                OnUpdated(eArgs);
+                return true;
+            }
+            return false;
         }
 
         public IEnumerable<Player> All()
@@ -61,6 +82,11 @@ namespace ChessDatabase.Services
             Func<Player, bool> function = p => p.name.Contains(_text);
 
             return playerRepository.ByFunc(function);
+        }
+
+        protected virtual void OnUpdated(EventArgs e)
+        {
+            Updated?.Invoke(this, e);
         }
     }
 }

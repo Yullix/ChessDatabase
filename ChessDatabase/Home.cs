@@ -28,7 +28,6 @@ namespace ChessDatabase
         private static string selectedPieceAnnotation;
         private string color;
         private int moveNmbr;
-        private string plyAnnotation;
         private bool whiteCastle;
         private bool blackCastle;
         private Assembly currentAssembly;
@@ -52,57 +51,14 @@ namespace ChessDatabase
         private List<Ply> gamePlies;
         private Move currentMove;
 
-        public MoveService moveService
-        {
-            get
-            {
-                return _moveService ?? new MoveService(repoFactory);
-            }
-            private set
-            {
-                _moveService = value;
-            }
-        }
-
-        public PlayerService playerService
-        {
-            get
-            {
-                return _playerService ?? new PlayerService(repoFactory);
-            }
-            private set
-            {
-                _playerService = value;
-            }
-        }
-
-        public MatchService matchService
-        {
-            get
-            {
-                return _matchService ?? new MatchService(repoFactory);
-            }
-            private set
-            {
-                _matchService = value;
-            }
-        }
-
-        public RepositoryFactory repoFactory
-        {
-            get
-            {
-                return _repoFactory ?? new RepositoryFactory();
-            }
-            private set
-            {
-                _repoFactory = value;
-            }
-        }
-
         public Home()
         {
             InitializeComponent();
+
+            _repoFactory = new RepositoryFactory();
+            _matchService = new MatchService(_repoFactory);
+            _moveService = new MoveService(_repoFactory);
+            _playerService = new PlayerService(_repoFactory);
 
             gameMoves = new List<Move>();
             gamePlies = new List<Ply>();
@@ -118,7 +74,7 @@ namespace ChessDatabase
             endSqPos = new int[2];
             selectedPieceAnnotation = "";
 
-            foreach(var p in playerService.All())
+            foreach(var p in _playerService.All())
             {
                 cboxWhitePlayer.Items.Add(p);
                 cboxBlackPlayer.Items.Add(p);
@@ -358,7 +314,7 @@ namespace ChessDatabase
             {
                 Player whitePlayer = (Player)cboxWhitePlayer.SelectedItem;
                 Player blackPlayer = (Player)cboxBlackPlayer.SelectedItem;
-                matchService.Add(gamePlies, whitePlayer.name + " vs. " + blackPlayer.name + " - " + dateGameDate.Value.Date, blackPlayer.Id, whitePlayer.Id, dateGameDate.Value, null);
+                _matchService.Add(gamePlies, whitePlayer.name + " vs. " + blackPlayer.name + " - " + dateGameDate.Value.ToString("dd/MM/yyyy"), blackPlayer.Id, whitePlayer.Id, dateGameDate.Value, null);
                 MessageBox.Show("The game was successfully saved.");
             }
             catch

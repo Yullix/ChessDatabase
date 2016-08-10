@@ -19,64 +19,36 @@ namespace ChessDatabase
         private MatchService _matchService;
         private RepositoryFactory _repoFactory;
 
-        public PlayerService playerService
-        {
-            get
-            {
-                return _playerService ?? new PlayerService(repoFactory);
-            }
-            private set
-            {
-                value = _playerService;
-            }
-        }
-
-        public MatchService matchService
-        {
-            get
-            {
-                return _matchService ?? new MatchService(repoFactory);
-            }
-            private set
-            {
-                value = _matchService;
-            }
-        }
-
-        public RepositoryFactory repoFactory
-        {
-            get
-            {
-                return _repoFactory ?? new RepositoryFactory();
-            }
-            private set
-            {
-                value = _repoFactory;
-            }
-        }
-
         public ManagePlayers()
         {
             InitializeComponent();
-            UpdateLstPlayers();
+
+            _repoFactory = new RepositoryFactory();
+            _matchService = new MatchService(_repoFactory);
+            _playerService = new PlayerService(_repoFactory);
+
+            _matchService.Updated += UpdateLstPlayerMatches;
+            _playerService.Updated += UpdateLstPlayers;
+
+            UpdateLstPlayers(this, new EventArgs());
         }
 
-        public void UpdateLstPlayers()
+        public void UpdateLstPlayers(object sender, EventArgs e)
         {
             lstPlayers.Items.Clear();
 
-            foreach(var p in playerService.All())
+            foreach(var p in _playerService.All())
             {
                 lstPlayers.Items.Add(p);
             }
         }
 
-        public void UpdateLstPlayerMatches()
+        public void UpdateLstPlayerMatches(object sender, EventArgs e)
         {
             Player player = (Player)lstPlayers.SelectedItem;
             lstPlayerMatches.Items.Clear();
 
-            foreach(var m in matchService.ByPlayer(player.Id))
+            foreach(var m in _matchService.ByPlayer(player.Id))
             {
                 lstPlayerMatches.Items.Add(m);
             }
@@ -90,7 +62,7 @@ namespace ChessDatabase
 
                 txtPlayerName.Text = player.name;
                 txtPlayerRating.Text = player.rating.ToString();
-                UpdateLstPlayerMatches();
+                UpdateLstPlayerMatches(this, new EventArgs());
             }
             catch
             {
@@ -104,11 +76,15 @@ namespace ChessDatabase
                 string _newPlayerName = txtNewPlayerName.Text;
                 int _newPlayerRating = Int32.Parse(txtNewPlayerRating.Text);
 
-                playerService.Add(_newPlayerName, _newPlayerRating);
+                _playerService.Add(_newPlayerName, _newPlayerRating);
+            }
+            catch(ArgumentException excep)
+            {
+                MessageBox.Show(excep.Message , "Error");
             }
             catch(Exception)
             {
-                MessageBox.Show("You must enter a name and a rating number.");
+                MessageBox.Show("You must enter a numeric rating value", "Error");
             }
         }
 
@@ -134,13 +110,18 @@ namespace ChessDatabase
         private void btnDeleteGame_Click(object sender, EventArgs e)
         {
             Match match = (Match)lstPlayerMatches.SelectedItem;
+
+            if (MessageBox.Show("Are you sure you want to delete the game '" + match.name + "'?", "Delete Game", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+                _matchService.Remove(match.Id);
+            }
         }
 
         private void btnDeletePlayer_Click(object sender, EventArgs e)
         {
             Player deletePlayer = (Player)lstPlayers.SelectedItem;
 
-            playerService.Remove(deletePlayer.Id);
+            _playerService.Remove(deletePlayer.Id);
         }
     }
 }
