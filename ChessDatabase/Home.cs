@@ -281,7 +281,8 @@ namespace ChessDatabase
                     startSqRow = startSqPos[0],
                     endSqColumn = endSqPos[1],
                     endSqRow = endSqPos[0],
-                    plyAnnotation = _plyAnnotation
+                    plyAnnotation = _plyAnnotation,
+                    capturedPieceAnnotation = position[endSqPos[0], endSqPos[1]]
                 };
 
                 gamePlies.Add(newPly);
