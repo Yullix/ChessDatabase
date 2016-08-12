@@ -55,7 +55,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Board.cs" />
     <Compile Include="ChessLogic.cs" />
     <Compile Include="Home.cs">
       <SubType>Form</SubType>
@@ -133,7 +132,6 @@
     <Compile Include="Services\CategoryService.cs" />
     <Compile Include="Services\IService.cs" />
     <Compile Include="Services\MatchService.cs" />
-    <Compile Include="Services\MoveService.cs" />
     <Compile Include="Services\OpeningService.cs" />
     <Compile Include="Services\PlayerService.cs" />
     <Compile Include="Services\TournamentService.cs" />

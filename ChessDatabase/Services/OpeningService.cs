@@ -46,5 +46,10 @@ namespace ChessDatabase.Services
 
             return openingRepository.ByFunc(function);
         }
+
+        protected virtual void OnUpdated(EventArgs e)
+        {
+            Updated?.Invoke(this, e);
+        }
     }
 }

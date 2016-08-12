@@ -105,6 +105,10 @@
             this.panelBoard = new System.Windows.Forms.Panel();
             this.pnlDate = new System.Windows.Forms.Panel();
             this.lblDate = new System.Windows.Forms.Label();
+            this.pnlOpeningName = new System.Windows.Forms.Panel();
+            this.lblOpeningName = new System.Windows.Forms.Label();
+            this.txtOpeningName = new System.Windows.Forms.TextBox();
+            this.btnSaveOpening = new System.Windows.Forms.Button();
             this.panelWhitePlayer.SuspendLayout();
             this.panelBlackPlayer.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pBoxd8)).BeginInit();
@@ -173,12 +177,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.pBoxa8)).BeginInit();
             this.panelBoard.SuspendLayout();
             this.pnlDate.SuspendLayout();
+            this.pnlOpeningName.SuspendLayout();
             this.SuspendLayout();
             // 
             // lstMoves
             // 
             this.lstMoves.FormattingEnabled = true;
-            this.lstMoves.Location = new System.Drawing.Point(550, 68);
+            this.lstMoves.Location = new System.Drawing.Point(498, 39);
             this.lstMoves.Name = "lstMoves";
             this.lstMoves.Size = new System.Drawing.Size(104, 394);
             this.lstMoves.TabIndex = 117;
@@ -188,7 +193,7 @@
             this.panelWhitePlayer.BackColor = System.Drawing.Color.Transparent;
             this.panelWhitePlayer.Controls.Add(this.cboxWhitePlayer);
             this.panelWhitePlayer.Controls.Add(this.labelWhitePlayer);
-            this.panelWhitePlayer.Location = new System.Drawing.Point(675, 68);
+            this.panelWhitePlayer.Location = new System.Drawing.Point(623, 39);
             this.panelWhitePlayer.Name = "panelWhitePlayer";
             this.panelWhitePlayer.Size = new System.Drawing.Size(160, 60);
             this.panelWhitePlayer.TabIndex = 118;
@@ -217,7 +222,7 @@
             this.panelBlackPlayer.BackColor = System.Drawing.Color.Transparent;
             this.panelBlackPlayer.Controls.Add(this.cboxBlackPlayer);
             this.panelBlackPlayer.Controls.Add(this.labelBlackPlayer);
-            this.panelBlackPlayer.Location = new System.Drawing.Point(675, 146);
+            this.panelBlackPlayer.Location = new System.Drawing.Point(623, 117);
             this.panelBlackPlayer.Name = "panelBlackPlayer";
             this.panelBlackPlayer.Size = new System.Drawing.Size(160, 60);
             this.panelBlackPlayer.TabIndex = 119;
@@ -244,7 +249,7 @@
             // btnSaveGame
             // 
             this.btnSaveGame.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.btnSaveGame.Location = new System.Drawing.Point(675, 351);
+            this.btnSaveGame.Location = new System.Drawing.Point(629, 249);
             this.btnSaveGame.Name = "btnSaveGame";
             this.btnSaveGame.Size = new System.Drawing.Size(131, 40);
             this.btnSaveGame.TabIndex = 120;
@@ -262,7 +267,7 @@
             // btnUndoMove
             // 
             this.btnUndoMove.BackColor = System.Drawing.SystemColors.GrayText;
-            this.btnUndoMove.Location = new System.Drawing.Point(550, 488);
+            this.btnUndoMove.Location = new System.Drawing.Point(498, 459);
             this.btnUndoMove.Name = "btnUndoMove";
             this.btnUndoMove.Size = new System.Drawing.Size(104, 40);
             this.btnUndoMove.TabIndex = 123;
@@ -976,7 +981,7 @@
             this.panelBoard.Controls.Add(this.pBoxc8);
             this.panelBoard.Controls.Add(this.pBoxe8);
             this.panelBoard.Controls.Add(this.pBoxd8);
-            this.panelBoard.Location = new System.Drawing.Point(64, 68);
+            this.panelBoard.Location = new System.Drawing.Point(12, 39);
             this.panelBoard.Name = "panelBoard";
             this.panelBoard.Size = new System.Drawing.Size(480, 480);
             this.panelBoard.TabIndex = 116;
@@ -986,7 +991,7 @@
             this.pnlDate.BackColor = System.Drawing.Color.Transparent;
             this.pnlDate.Controls.Add(this.lblDate);
             this.pnlDate.Controls.Add(this.dateGameDate);
-            this.pnlDate.Location = new System.Drawing.Point(675, 212);
+            this.pnlDate.Location = new System.Drawing.Point(623, 183);
             this.pnlDate.Name = "pnlDate";
             this.pnlDate.Size = new System.Drawing.Size(160, 60);
             this.pnlDate.TabIndex = 125;
@@ -1002,12 +1007,53 @@
             this.lblDate.TabIndex = 0;
             this.lblDate.Text = "Date";
             // 
+            // pnlOpeningName
+            // 
+            this.pnlOpeningName.BackColor = System.Drawing.Color.Transparent;
+            this.pnlOpeningName.Controls.Add(this.txtOpeningName);
+            this.pnlOpeningName.Controls.Add(this.lblOpeningName);
+            this.pnlOpeningName.Location = new System.Drawing.Point(795, 183);
+            this.pnlOpeningName.Name = "pnlOpeningName";
+            this.pnlOpeningName.Size = new System.Drawing.Size(160, 60);
+            this.pnlOpeningName.TabIndex = 124;
+            // 
+            // lblOpeningName
+            // 
+            this.lblOpeningName.AutoSize = true;
+            this.lblOpeningName.BackColor = System.Drawing.Color.Transparent;
+            this.lblOpeningName.ForeColor = System.Drawing.Color.Lime;
+            this.lblOpeningName.Location = new System.Drawing.Point(3, 11);
+            this.lblOpeningName.Name = "lblOpeningName";
+            this.lblOpeningName.Size = new System.Drawing.Size(78, 13);
+            this.lblOpeningName.TabIndex = 0;
+            this.lblOpeningName.Text = "Opening Name";
+            // 
+            // txtOpeningName
+            // 
+            this.txtOpeningName.Location = new System.Drawing.Point(6, 28);
+            this.txtOpeningName.Name = "txtOpeningName";
+            this.txtOpeningName.Size = new System.Drawing.Size(131, 20);
+            this.txtOpeningName.TabIndex = 1;
+            // 
+            // btnSaveOpening
+            // 
+            this.btnSaveOpening.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.btnSaveOpening.Location = new System.Drawing.Point(801, 249);
+            this.btnSaveOpening.Name = "btnSaveOpening";
+            this.btnSaveOpening.Size = new System.Drawing.Size(131, 40);
+            this.btnSaveOpening.TabIndex = 126;
+            this.btnSaveOpening.Text = "Save Opening";
+            this.btnSaveOpening.UseVisualStyleBackColor = false;
+            this.btnSaveOpening.Click += new System.EventHandler(this.btnSaveOpening_Click);
+            // 
             // Home
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(984, 611);
+            this.Controls.Add(this.btnSaveOpening);
+            this.Controls.Add(this.pnlOpeningName);
             this.Controls.Add(this.pnlDate);
             this.Controls.Add(this.btnUndoMove);
             this.Controls.Add(this.btnSaveGame);
@@ -1024,6 +1070,8 @@
             this.Controls.SetChildIndex(this.btnSaveGame, 0);
             this.Controls.SetChildIndex(this.btnUndoMove, 0);
             this.Controls.SetChildIndex(this.pnlDate, 0);
+            this.Controls.SetChildIndex(this.pnlOpeningName, 0);
+            this.Controls.SetChildIndex(this.btnSaveOpening, 0);
             this.panelWhitePlayer.ResumeLayout(false);
             this.panelWhitePlayer.PerformLayout();
             this.panelBlackPlayer.ResumeLayout(false);
@@ -1095,6 +1143,8 @@
             this.panelBoard.ResumeLayout(false);
             this.pnlDate.ResumeLayout(false);
             this.pnlDate.PerformLayout();
+            this.pnlOpeningName.ResumeLayout(false);
+            this.pnlOpeningName.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1178,5 +1228,9 @@
         private System.Windows.Forms.Panel panelBoard;
         private System.Windows.Forms.Panel pnlDate;
         private System.Windows.Forms.Label lblDate;
+        private System.Windows.Forms.Panel pnlOpeningName;
+        private System.Windows.Forms.TextBox txtOpeningName;
+        private System.Windows.Forms.Label lblOpeningName;
+        private System.Windows.Forms.Button btnSaveOpening;
     }
 }

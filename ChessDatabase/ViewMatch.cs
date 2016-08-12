@@ -33,33 +33,7 @@ namespace ChessDatabase
         private Stream blackRookStream;
         private Stream blackQueenStream;
         private Stream blackKingStream;
-        private RepositoryFactory _repoFactory;
         private int currentPlyIndex;
-        private PlayerService _playerService;
-
-        public RepositoryFactory repoFactory
-        {
-            get
-            {
-                return _repoFactory ?? new RepositoryFactory();
-            }
-            private set
-            {
-                value = _repoFactory;
-            }
-        }
-
-        public PlayerService playerService
-        {
-            get
-            {
-                return _playerService ?? new PlayerService(repoFactory);
-            }
-            private set
-            {
-                value = _playerService;
-            }
-        }
 
         public ViewMatch(Match _match)
         {
@@ -67,7 +41,7 @@ namespace ChessDatabase
             this.match = _match;
             txtWhitePlayer.Text = _match.whitePlayer.ToString();
             txtBlackPlayer.Text = _match.blackPlayer.ToString();
-            txtDate.Text = _match.date.ToString();
+            txtDate.Text = _match.date.ToString("dd/MM/yyyy");
             position = ChessLogic.GetStartPosition();
             gameMoves = new List<Move>();
             currentPlyIndex = 0;

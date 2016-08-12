@@ -48,5 +48,10 @@ namespace ChessDatabase.Services
         {
             categoryRepository.Edit(_category);
         }
+
+        protected virtual void OnUpdated(EventArgs e)
+        {
+            Updated?.Invoke(this, e);
+        }
     }
 }

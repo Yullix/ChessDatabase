@@ -43,9 +43,9 @@ namespace ChessDatabase
         private Stream blackRookStream;
         private Stream blackQueenStream;
         private Stream blackKingStream;
-        private MoveService _moveService;
         private PlayerService _playerService;
         private MatchService _matchService;
+        private OpeningService _openingService;
         private RepositoryFactory _repoFactory;
         private List<Move> gameMoves;
         private List<Ply> gamePlies;
@@ -57,8 +57,8 @@ namespace ChessDatabase
 
             _repoFactory = new RepositoryFactory();
             _matchService = new MatchService(_repoFactory);
-            _moveService = new MoveService(_repoFactory);
             _playerService = new PlayerService(_repoFactory);
+            _openingService = new OpeningService(_repoFactory);
 
             gameMoves = new List<Move>();
             gamePlies = new List<Ply>();
@@ -320,6 +320,18 @@ namespace ChessDatabase
             catch
             {
                 MessageBox.Show("You must select a white and a black player.");
+            }
+        }
+
+        private void btnSaveOpening_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                _openingService.Add(gamePlies, txtOpeningName.Text, gamePlies[0].plyAnnotation);
+            }
+            catch(ArgumentException excp)
+            {
+                MessageBox.Show(excp.Message);
             }
         }
 

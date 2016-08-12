@@ -838,7 +838,7 @@
             this.panelBlackPlayer.Controls.Add(this.labelBlackPlayer);
             this.panelBlackPlayer.Location = new System.Drawing.Point(559, 335);
             this.panelBlackPlayer.Name = "panelBlackPlayer";
-            this.panelBlackPlayer.Size = new System.Drawing.Size(146, 57);
+            this.panelBlackPlayer.Size = new System.Drawing.Size(193, 57);
             this.panelBlackPlayer.TabIndex = 127;
             // 
             // txtBlackPlayer
@@ -846,7 +846,7 @@
             this.txtBlackPlayer.Location = new System.Drawing.Point(6, 25);
             this.txtBlackPlayer.Name = "txtBlackPlayer";
             this.txtBlackPlayer.ReadOnly = true;
-            this.txtBlackPlayer.Size = new System.Drawing.Size(137, 20);
+            this.txtBlackPlayer.Size = new System.Drawing.Size(184, 20);
             this.txtBlackPlayer.TabIndex = 2;
             // 
             // labelMoves
@@ -873,7 +873,7 @@
             this.panelWhitePlayer.Controls.Add(this.labelWhitePlayer);
             this.panelWhitePlayer.Location = new System.Drawing.Point(559, 272);
             this.panelWhitePlayer.Name = "panelWhitePlayer";
-            this.panelWhitePlayer.Size = new System.Drawing.Size(146, 57);
+            this.panelWhitePlayer.Size = new System.Drawing.Size(193, 57);
             this.panelWhitePlayer.TabIndex = 126;
             // 
             // txtWhitePlayer
@@ -881,7 +881,7 @@
             this.txtWhitePlayer.Location = new System.Drawing.Point(6, 25);
             this.txtWhitePlayer.Name = "txtWhitePlayer";
             this.txtWhitePlayer.ReadOnly = true;
-            this.txtWhitePlayer.Size = new System.Drawing.Size(137, 20);
+            this.txtWhitePlayer.Size = new System.Drawing.Size(184, 20);
             this.txtWhitePlayer.TabIndex = 1;
             // 
             // lstMoves
@@ -889,7 +889,7 @@
             this.lstMoves.FormattingEnabled = true;
             this.lstMoves.Location = new System.Drawing.Point(559, 32);
             this.lstMoves.Name = "lstMoves";
-            this.lstMoves.Size = new System.Drawing.Size(104, 186);
+            this.lstMoves.Size = new System.Drawing.Size(104, 225);
             this.lstMoves.TabIndex = 125;
             // 
             // btnNextMove
