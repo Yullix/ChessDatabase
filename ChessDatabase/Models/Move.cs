@@ -20,10 +20,10 @@ namespace ChessDatabase.Models
         {            
             if(blackPly == null)
             {
-                return moveNumber + ". " + whitePly.plyAnnotation;
+                return moveNumber + ". " + whitePly.ToString();
             }
 
-            return moveNumber + ". " + whitePly.plyAnnotation + "  " + blackPly.plyAnnotation;
+            return moveNumber + ". " + whitePly.ToString() + "  " + blackPly.ToString();
         }
     }
 }

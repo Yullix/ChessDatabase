@@ -77,7 +77,51 @@ namespace ChessDatabase.Models
                     break;
             }
 
-            return moveNumber.ToString() + ". " + pieceAnnotation + column + (endSqRow + 1);
+            string returnvalue = "";
+
+            if(pieceAnnotation == 'P')
+            {
+                if (capturedPieceAnnotation == "")
+                    returnvalue = " " + column + (endSqRow + 1);
+                else
+                {
+                    char startColumn = 'a';
+
+                    switch (startSqColumn)
+                    {
+                        case 1:
+                            startColumn = 'b';
+                            break;
+                        case 2:
+                            startColumn = 'c';
+                            break;
+                        case 3:
+                            startColumn = 'd';
+                            break;
+                        case 4:
+                            startColumn = 'e';
+                            break;
+                        case 5:
+                            startColumn = 'f';
+                            break;
+                        case 6:
+                            startColumn = 'g';
+                            break;
+                        case 7:
+                            startColumn = 'h';
+                            break;
+                    }
+                    returnvalue = startColumn + "x" + column + (endSqRow + 1);
+                }
+            }
+            else
+            {
+                if (capturedPieceAnnotation == "")
+                    returnvalue = pieceAnnotation.ToString() + column + (endSqRow + 1);
+                else
+                    returnvalue = pieceAnnotation.ToString() + "x" + column + (endSqRow + 1);
+            }
+            return returnvalue;
         }
     }
 }

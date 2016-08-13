@@ -12,6 +12,7 @@ namespace ChessDatabase.Services
     public class OnUpdatedEventArgs : EventArgs
     {
         public string updateMessage { get; set; }
+        public int entityId { get; set; }
     }
 
     public interface IService

@@ -46,7 +46,8 @@ namespace ChessDatabase.Services
             {
                 OnUpdatedEventArgs eArgs = new OnUpdatedEventArgs()
                 {
-                    updateMessage = "Remove"
+                    updateMessage = "Remove",
+                    entityId = _Id
                 };
 
                 OnUpdated(eArgs);

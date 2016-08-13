@@ -106,8 +106,8 @@
             this.pnlDate = new System.Windows.Forms.Panel();
             this.lblDate = new System.Windows.Forms.Label();
             this.pnlOpeningName = new System.Windows.Forms.Panel();
-            this.lblOpeningName = new System.Windows.Forms.Label();
             this.txtOpeningName = new System.Windows.Forms.TextBox();
+            this.lblOpeningName = new System.Windows.Forms.Label();
             this.btnSaveOpening = new System.Windows.Forms.Button();
             this.panelWhitePlayer.SuspendLayout();
             this.panelBlackPlayer.SuspendLayout();
@@ -203,7 +203,7 @@
             this.cboxWhitePlayer.FormattingEnabled = true;
             this.cboxWhitePlayer.Location = new System.Drawing.Point(3, 27);
             this.cboxWhitePlayer.Name = "cboxWhitePlayer";
-            this.cboxWhitePlayer.Size = new System.Drawing.Size(131, 21);
+            this.cboxWhitePlayer.Size = new System.Drawing.Size(154, 21);
             this.cboxWhitePlayer.TabIndex = 123;
             // 
             // labelWhitePlayer
@@ -232,7 +232,7 @@
             this.cboxBlackPlayer.FormattingEnabled = true;
             this.cboxBlackPlayer.Location = new System.Drawing.Point(3, 30);
             this.cboxBlackPlayer.Name = "cboxBlackPlayer";
-            this.cboxBlackPlayer.Size = new System.Drawing.Size(131, 21);
+            this.cboxBlackPlayer.Size = new System.Drawing.Size(154, 21);
             this.cboxBlackPlayer.TabIndex = 124;
             // 
             // labelBlackPlayer
@@ -249,7 +249,7 @@
             // btnSaveGame
             // 
             this.btnSaveGame.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.btnSaveGame.Location = new System.Drawing.Point(629, 249);
+            this.btnSaveGame.Location = new System.Drawing.Point(640, 249);
             this.btnSaveGame.Name = "btnSaveGame";
             this.btnSaveGame.Size = new System.Drawing.Size(131, 40);
             this.btnSaveGame.TabIndex = 120;
@@ -261,7 +261,7 @@
             // 
             this.dateGameDate.Location = new System.Drawing.Point(6, 30);
             this.dateGameDate.Name = "dateGameDate";
-            this.dateGameDate.Size = new System.Drawing.Size(131, 20);
+            this.dateGameDate.Size = new System.Drawing.Size(151, 20);
             this.dateGameDate.TabIndex = 121;
             // 
             // btnUndoMove
@@ -1017,6 +1017,13 @@
             this.pnlOpeningName.Size = new System.Drawing.Size(160, 60);
             this.pnlOpeningName.TabIndex = 124;
             // 
+            // txtOpeningName
+            // 
+            this.txtOpeningName.Location = new System.Drawing.Point(6, 28);
+            this.txtOpeningName.Name = "txtOpeningName";
+            this.txtOpeningName.Size = new System.Drawing.Size(131, 20);
+            this.txtOpeningName.TabIndex = 1;
+            // 
             // lblOpeningName
             // 
             this.lblOpeningName.AutoSize = true;
@@ -1027,13 +1034,6 @@
             this.lblOpeningName.Size = new System.Drawing.Size(78, 13);
             this.lblOpeningName.TabIndex = 0;
             this.lblOpeningName.Text = "Opening Name";
-            // 
-            // txtOpeningName
-            // 
-            this.txtOpeningName.Location = new System.Drawing.Point(6, 28);
-            this.txtOpeningName.Name = "txtOpeningName";
-            this.txtOpeningName.Size = new System.Drawing.Size(131, 20);
-            this.txtOpeningName.TabIndex = 1;
             // 
             // btnSaveOpening
             // 

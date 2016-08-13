@@ -56,6 +56,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ChessLogic.cs" />
+    <Compile Include="ExploreOpening.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ExploreOpening.Designer.cs">
+      <DependentUpon>ExploreOpening.cs</DependentUpon>
+    </Compile>
     <Compile Include="Home.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -67,6 +73,12 @@
     </Compile>
     <Compile Include="MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ManageOpenings.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ManageOpenings.Designer.cs">
+      <DependentUpon>ManageOpenings.cs</DependentUpon>
     </Compile>
     <Compile Include="ManagePlayers.cs">
       <SubType>Form</SubType>
@@ -141,11 +153,17 @@
     <Compile Include="ViewMatch.Designer.cs">
       <DependentUpon>ViewMatch.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="ExploreOpening.resx">
+      <DependentUpon>ExploreOpening.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Home.resx">
       <DependentUpon>Home.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ManageOpenings.resx">
+      <DependentUpon>ManageOpenings.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ManagePlayers.resx">
       <DependentUpon>ManagePlayers.cs</DependentUpon>

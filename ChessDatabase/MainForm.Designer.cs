@@ -30,12 +30,12 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.homeNavBar = new System.Windows.Forms.MenuStrip();
+            this.homeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.playersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.categoriesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.gamesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tournamentsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.homeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.homeNavBar.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -53,6 +53,13 @@
             this.homeNavBar.Size = new System.Drawing.Size(984, 24);
             this.homeNavBar.TabIndex = 125;
             this.homeNavBar.Text = "NavBar";
+            // 
+            // homeToolStripMenuItem
+            // 
+            this.homeToolStripMenuItem.Name = "homeToolStripMenuItem";
+            this.homeToolStripMenuItem.Size = new System.Drawing.Size(77, 20);
+            this.homeToolStripMenuItem.Text = "New Game";
+            this.homeToolStripMenuItem.Click += new System.EventHandler(this.homeToolStripMenuItem_Click);
             // 
             // playersToolStripMenuItem
             // 
@@ -78,19 +85,13 @@
             this.openingsToolStripMenuItem.Name = "openingsToolStripMenuItem";
             this.openingsToolStripMenuItem.Size = new System.Drawing.Size(70, 20);
             this.openingsToolStripMenuItem.Text = "Openings";
+            this.openingsToolStripMenuItem.Click += new System.EventHandler(this.openingsToolStripMenuItem_Click);
             // 
             // tournamentsToolStripMenuItem
             // 
             this.tournamentsToolStripMenuItem.Name = "tournamentsToolStripMenuItem";
             this.tournamentsToolStripMenuItem.Size = new System.Drawing.Size(89, 20);
             this.tournamentsToolStripMenuItem.Text = "Tournaments";
-            // 
-            // homeToolStripMenuItem
-            // 
-            this.homeToolStripMenuItem.Name = "homeToolStripMenuItem";
-            this.homeToolStripMenuItem.Size = new System.Drawing.Size(77, 20);
-            this.homeToolStripMenuItem.Text = "New Game";
-            this.homeToolStripMenuItem.Click += new System.EventHandler(this.homeToolStripMenuItem_Click);
             // 
             // MainForm
             // 

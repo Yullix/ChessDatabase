@@ -33,16 +33,18 @@ namespace ChessDatabase
             UpdateLstPlayers(this, new EventArgs());
         }
 
+        // Updates the items in lstPlayers.
         public void UpdateLstPlayers(object sender, EventArgs e)
         {
             lstPlayers.Items.Clear();
 
-            foreach(var p in _playerService.All())
+            foreach (var p in _playerService.All())
             {
                 lstPlayers.Items.Add(p);
             }
         }
 
+        // Updates the lstPlayerMatches listbox when a new player is selected in lstPlayers
         public void UpdateLstPlayerMatches(object sender, EventArgs e)
         {
             Player player = (Player)lstPlayers.SelectedItem;
@@ -54,6 +56,7 @@ namespace ChessDatabase
             }
         }
 
+        // Updates the information in player panel when selecting a player in lstPlayers
         private void lstPlayers_SelectedIndexChanged(object sender, EventArgs e)
         {
             try
@@ -69,6 +72,7 @@ namespace ChessDatabase
             }
         }
 
+        // Creates a new player with the input values for name and ELO rating.
         private void btnCreatePlayer_Click(object sender, EventArgs e)
         {
             try
@@ -93,6 +97,7 @@ namespace ChessDatabase
             Player player = (Player)lstPlayers.SelectedItem;
         }
 
+        // Opens selected game in a new form
         private void btnOpenGame_Click(object sender, EventArgs e)
         {
             try
@@ -107,6 +112,7 @@ namespace ChessDatabase
             }
         }
 
+        // Opens a messagebox with yes/no option to delete a game
         private void btnDeleteGame_Click(object sender, EventArgs e)
         {
             Match match = (Match)lstPlayerMatches.SelectedItem;
@@ -117,11 +123,15 @@ namespace ChessDatabase
             }
         }
 
+        // Opens a messagebox with yes/no option to delete a player
         private void btnDeletePlayer_Click(object sender, EventArgs e)
         {
             Player deletePlayer = (Player)lstPlayers.SelectedItem;
 
-            _playerService.Remove(deletePlayer.Id);
+            if (MessageBox.Show("Are you sure you want to delete the player '" + deletePlayer.name + "' and all associated games?", "Delete Player", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+                _playerService.Remove(deletePlayer.Id);
+            }           
         }
     }
 }

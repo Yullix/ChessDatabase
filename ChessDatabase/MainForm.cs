@@ -30,5 +30,12 @@ namespace ChessDatabase
             homeForm.Show();
             this.Hide();
         }
+
+        private void openingsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form openingsForm = new ManageOpenings();
+            openingsForm.Show();
+            this.Hide();
+        }
     }
 }

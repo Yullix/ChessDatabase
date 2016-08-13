@@ -10,6 +10,14 @@ using ChessDatabase.Models;
 
 namespace ChessDatabase.Repositories
 {
+    public class DuplicateException : Exception
+    {
+        public DuplicateException(string _message) : base(_message)
+        {
+
+        }
+    }
+
     public interface IRepository<T, Tid> where T : IEntity
     {
         void Add(T item);

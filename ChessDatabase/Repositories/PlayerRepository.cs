@@ -47,8 +47,10 @@ namespace ChessDatabase.Repositories
         {
             Player removePlayer = context.Players.FirstOrDefault(p => p.Id.Equals(ID));
 
+            // If the target player exists. Remove all matches played by this player and then remove the player from the database.
             if(removePlayer != null)
             {
+                removePlayer.matches.ToList().ForEach(m => context.Matches.Remove(m));
                 context.Players.Remove(removePlayer);
                 context.SaveChanges();
                 return true;

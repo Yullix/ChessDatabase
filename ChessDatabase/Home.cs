@@ -238,7 +238,7 @@ namespace ChessDatabase
                     endSqColumn = endSqPos[1],
                     endSqRow = endSqPos[0],
                     plyAnnotation = _plyAnnotation,
-                    capturedPieceAnnotation = position[endSqPos[0], endSqPos[1]]
+                    capturedPieceAnnotation = position[endSqPos[0], endSqPos[1]] ?? ""
                 };
 
                 gamePlies.Add(newPly);
@@ -331,14 +331,16 @@ namespace ChessDatabase
             }
             catch(ArgumentException excp)
             {
-                MessageBox.Show(excp.Message);
+                MessageBox.Show(excp.Message, "Error");
             }
-        }
-
-        private void playersToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            ManagePlayers newForm = new ManagePlayers();
-            newForm.Show();
+            catch(DuplicateException excp)
+            {
+                MessageBox.Show(excp.Message, "Error");
+            }
+            catch
+            {
+                MessageBox.Show("Oops! Something went wrong.", "Error");
+            }
         }
 
         private void btnUndoMove_Click(object sender, EventArgs e)

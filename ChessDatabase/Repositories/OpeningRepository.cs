@@ -18,8 +18,13 @@ namespace ChessDatabase.Repositories
 
         public void Add(Opening item)
         {
-            context.Openings.Add(item);
-            context.SaveChanges();
+            if (context.Openings.FirstOrDefault(o => o.name.Equals(item.name)) == null)
+            {
+                context.Openings.Add(item);
+                context.SaveChanges();
+            }
+            else
+                throw new DuplicateException("There is already an opening with this name in the database.");
         }
 
         public IEnumerable<Opening> All()

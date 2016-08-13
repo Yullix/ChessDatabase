@@ -20,14 +20,21 @@ namespace ChessDatabase.Services
 
         public void Add(List<Ply> _plies, string _name, string _openingMove)
         {
-            var newOpening = new Opening()
+            if (_name != "")
             {
-                name = _name,
-                openingMove = _openingMove,
-                plies = _plies
-            };
+                var newOpening = new Opening()
+                {
+                    name = _name,
+                    openingMove = _openingMove,
+                    plies = _plies
+                };
 
-            openingRepository.Add(newOpening);
+                openingRepository.Add(newOpening);
+                OnUpdated(new OnUpdatedEventArgs() { updateMessage = "Add" });
+            }
+            else
+                throw new ArgumentException("You must enter a name.");
+               
         }
 
         public bool Remove(int _Id)
