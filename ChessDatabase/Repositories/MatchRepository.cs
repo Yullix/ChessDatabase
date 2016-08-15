@@ -59,5 +59,10 @@ namespace ChessDatabase.Repositories
             }
             return false;
         }
+
+        public IEnumerable<Ply> GetPlies(int _matchId)
+        {
+            return context.Plies.Where(p => p.gameId.Equals(_matchId));
+        }
     }
 }

@@ -76,6 +76,11 @@ namespace ChessDatabase.Services
             return matchRepository.ByFunc(function);
         }
 
+        public IEnumerable<Ply> GetPlies(int _matchId)
+        {
+            return matchRepository.GetPlies(_matchId);
+        }
+
         protected virtual void OnUpdated(EventArgs e)
         {
             Updated?.Invoke(this, e);

@@ -16,10 +16,12 @@ namespace ChessDatabase
     public partial class ExploreOpening : Form
     {
         private Opening _opening;
+        private string[,] _position;
 
         public ExploreOpening(Opening _exploreOpening)
         {
             this._opening = _exploreOpening;
+            this._position = ChessLogic.GetStartPosition();
 
             InitializeComponent();
         }

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ViewMatch));
             this.panelBoard = new System.Windows.Forms.Panel();
             this.pBoxa8 = new System.Windows.Forms.PictureBox();
             this.pBoxh1 = new System.Windows.Forms.PictureBox();
@@ -826,6 +827,7 @@
             // labelBlackPlayer
             // 
             this.labelBlackPlayer.AutoSize = true;
+            this.labelBlackPlayer.ForeColor = System.Drawing.Color.Lime;
             this.labelBlackPlayer.Location = new System.Drawing.Point(3, 9);
             this.labelBlackPlayer.Name = "labelBlackPlayer";
             this.labelBlackPlayer.Size = new System.Drawing.Size(66, 13);
@@ -834,9 +836,10 @@
             // 
             // panelBlackPlayer
             // 
+            this.panelBlackPlayer.BackColor = System.Drawing.Color.Transparent;
             this.panelBlackPlayer.Controls.Add(this.txtBlackPlayer);
             this.panelBlackPlayer.Controls.Add(this.labelBlackPlayer);
-            this.panelBlackPlayer.Location = new System.Drawing.Point(559, 335);
+            this.panelBlackPlayer.Location = new System.Drawing.Point(549, 350);
             this.panelBlackPlayer.Name = "panelBlackPlayer";
             this.panelBlackPlayer.Size = new System.Drawing.Size(193, 57);
             this.panelBlackPlayer.TabIndex = 127;
@@ -852,7 +855,9 @@
             // labelMoves
             // 
             this.labelMoves.AutoSize = true;
-            this.labelMoves.Location = new System.Drawing.Point(617, 22);
+            this.labelMoves.BackColor = System.Drawing.Color.Transparent;
+            this.labelMoves.ForeColor = System.Drawing.Color.Lime;
+            this.labelMoves.Location = new System.Drawing.Point(552, 31);
             this.labelMoves.Name = "labelMoves";
             this.labelMoves.Size = new System.Drawing.Size(39, 13);
             this.labelMoves.TabIndex = 124;
@@ -861,6 +866,7 @@
             // labelWhitePlayer
             // 
             this.labelWhitePlayer.AutoSize = true;
+            this.labelWhitePlayer.ForeColor = System.Drawing.Color.Lime;
             this.labelWhitePlayer.Location = new System.Drawing.Point(3, 9);
             this.labelWhitePlayer.Name = "labelWhitePlayer";
             this.labelWhitePlayer.Size = new System.Drawing.Size(67, 13);
@@ -869,9 +875,10 @@
             // 
             // panelWhitePlayer
             // 
+            this.panelWhitePlayer.BackColor = System.Drawing.Color.Transparent;
             this.panelWhitePlayer.Controls.Add(this.txtWhitePlayer);
             this.panelWhitePlayer.Controls.Add(this.labelWhitePlayer);
-            this.panelWhitePlayer.Location = new System.Drawing.Point(559, 272);
+            this.panelWhitePlayer.Location = new System.Drawing.Point(549, 287);
             this.panelWhitePlayer.Name = "panelWhitePlayer";
             this.panelWhitePlayer.Size = new System.Drawing.Size(193, 57);
             this.panelWhitePlayer.TabIndex = 126;
@@ -886,8 +893,9 @@
             // 
             // lstMoves
             // 
+            this.lstMoves.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.lstMoves.FormattingEnabled = true;
-            this.lstMoves.Location = new System.Drawing.Point(559, 32);
+            this.lstMoves.Location = new System.Drawing.Point(549, 47);
             this.lstMoves.Name = "lstMoves";
             this.lstMoves.Size = new System.Drawing.Size(104, 225);
             this.lstMoves.TabIndex = 125;
@@ -895,7 +903,7 @@
             // btnNextMove
             // 
             this.btnNextMove.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.btnNextMove.Location = new System.Drawing.Point(669, 132);
+            this.btnNextMove.Location = new System.Drawing.Point(659, 147);
             this.btnNextMove.Name = "btnNextMove";
             this.btnNextMove.Size = new System.Drawing.Size(83, 40);
             this.btnNextMove.TabIndex = 130;
@@ -905,9 +913,10 @@
             // 
             // panel1
             // 
+            this.panel1.BackColor = System.Drawing.Color.Transparent;
             this.panel1.Controls.Add(this.txtDate);
             this.panel1.Controls.Add(this.lblDate);
-            this.panel1.Location = new System.Drawing.Point(559, 398);
+            this.panel1.Location = new System.Drawing.Point(549, 413);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(146, 57);
             this.panel1.TabIndex = 127;
@@ -923,6 +932,7 @@
             // lblDate
             // 
             this.lblDate.AutoSize = true;
+            this.lblDate.ForeColor = System.Drawing.Color.Lime;
             this.lblDate.Location = new System.Drawing.Point(3, 9);
             this.lblDate.Name = "lblDate";
             this.lblDate.Size = new System.Drawing.Size(30, 13);
@@ -932,7 +942,7 @@
             // btnLastMove
             // 
             this.btnLastMove.BackColor = System.Drawing.Color.Olive;
-            this.btnLastMove.Location = new System.Drawing.Point(669, 178);
+            this.btnLastMove.Location = new System.Drawing.Point(659, 193);
             this.btnLastMove.Name = "btnLastMove";
             this.btnLastMove.Size = new System.Drawing.Size(83, 40);
             this.btnLastMove.TabIndex = 131;
@@ -944,7 +954,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(801, 527);
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.ClientSize = new System.Drawing.Size(884, 561);
             this.Controls.Add(this.btnLastMove);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.btnNextMove);

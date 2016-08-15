@@ -19,7 +19,10 @@ namespace ChessDatabase
     {
         public Match match;
         public string[,] position;
-        public List<Move> gameMoves;
+        private MatchService _matchService;
+        private RepositoryFactory _repoFactory;
+        private List<Move> gameMoves;
+        private List<Ply> gamePlies;
         private Assembly currentAssembly;
         private Stream whitePawnStream;
         private Stream whiteKnightStream;
@@ -39,12 +42,16 @@ namespace ChessDatabase
         {
             InitializeComponent();
             this.match = _match;
+            this._repoFactory = new RepositoryFactory();
+            this._matchService = new MatchService(_repoFactory);
             txtWhitePlayer.Text = _match.whitePlayer.ToString();
             txtBlackPlayer.Text = _match.blackPlayer.ToString();
             txtDate.Text = _match.date.ToString("dd/MM/yyyy");
             position = ChessLogic.GetStartPosition();
             gameMoves = new List<Move>();
             currentPlyIndex = 0;
+
+            gamePlies = _matchService.GetPlies(match.Id).ToList();
 
             currentAssembly = Assembly.GetExecutingAssembly();
 
@@ -63,7 +70,7 @@ namespace ChessDatabase
             blackKingStream = currentAssembly.GetManifestResourceStream("ChessDatabase.Resources.blackKing.png");
 
             Move moveHolder = new Move();
-            foreach(var p in _match.plies)
+            foreach(var p in match.plies)
             {
                 if (p.color == "white")
                 {
