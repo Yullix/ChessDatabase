@@ -36,9 +36,6 @@ namespace ChessDatabase.Models
         public string color { get; set; }
 
         [Required]
-        public char pieceAnnotation { get; set; }
-
-        [Required]
         public string plyAnnotation { get; set; }
 
         [Required]
@@ -79,7 +76,7 @@ namespace ChessDatabase.Models
 
             string returnvalue = "";
 
-            if(pieceAnnotation == 'P')
+            if(plyAnnotation[0] == 'P')
             {
                 if (capturedPieceAnnotation == "")
                     returnvalue = " " + column + (endSqRow + 1);
@@ -111,15 +108,15 @@ namespace ChessDatabase.Models
                             startColumn = 'h';
                             break;
                     }
-                    returnvalue = startColumn + "x" + column + (endSqRow + 1);
+                    returnvalue = startColumn + "x" + column.ToString() + (endSqRow + 1);
                 }
             }
             else
             {
                 if (capturedPieceAnnotation == "")
-                    returnvalue = pieceAnnotation.ToString() + column + (endSqRow + 1);
+                    returnvalue = plyAnnotation[0].ToString() + column + (endSqRow + 1);
                 else
-                    returnvalue = pieceAnnotation.ToString() + "x" + column + (endSqRow + 1);
+                    returnvalue = plyAnnotation[0] + "x" + column + (endSqRow + 1);
             }
             return returnvalue;
         }

@@ -232,7 +232,6 @@ namespace ChessDatabase
                 {
                     color = color,
                     moveNumber = moveNmbr,
-                    pieceAnnotation = _pieceAnnotation,
                     startSqColumn = startSqPos[1],
                     startSqRow = startSqPos[0],
                     endSqColumn = endSqPos[1],
