@@ -115,6 +115,59 @@ namespace ChessDatabase
         /// <returns>bool</returns>
         public static bool CheckLegality(string[,] _position, char _pieceAnnotation, string _color, bool _whiteCastle, bool _blackCastle, int[] _startSq, int[] _endSq)
         {
+            string capturedPiece = _position[_endSq[0], _endSq[1]];
+
+            if(_color == "white")
+            {
+                switch (_pieceAnnotation)
+                {
+                    case 'P':
+                        // If pawn tries to move sideways without capturing a piece return false
+                        if (capturedPiece == null && _startSq[1] - _endSq[1] != 0)
+                            return false;
+
+                        if (capturedPiece != null)
+                        {
+                            // If a piece was captured that wasnt diagonally straight infront of the pawn return false
+                            if (_startSq[1] - _endSq[1] != 1 || _endSq[1] - _startSq[1] != 1 && _endSq[0] - _startSq[0] != 1)
+                                return false;
+                        }
+                        break;
+                    case 'N':
+                        break;
+                    case 'B':
+                        break;
+                    case 'R':
+                        break;
+                    case 'Q':
+                        break;
+                    case 'K':
+                        break;
+                    default:
+                        return false;
+                }
+            }
+            else
+            {
+                switch(_pieceAnnotation)
+                {
+                    case 'P':
+                        break;
+                    case 'N':
+                        break;
+                    case 'B':
+                        break;
+                    case 'R':
+                        break;
+                    case 'Q':
+                        break;
+                    case 'K':
+                        break;
+                    default:
+                        return false;
+                }
+            }
+
             return true;
         }
 
