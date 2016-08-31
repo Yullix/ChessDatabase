@@ -113,7 +113,7 @@ namespace ChessDatabase
         /// <param name="_startSq"></param>
         /// <param name="_endSq"></param>
         /// <returns>bool</returns>
-        public static bool CheckLegality(string[,] _position, char _pieceAnnotation, string _color, bool _whiteCastle, bool _blackCastle, int[] _startSq, int[] _endSq)
+        public static bool CheckLegality(string[,] _position, char _pieceAnnotation, string _color, bool _whiteCastle, bool _blackCastle, int[] _startSq, int[] _endSq, Ply _lastPly)
         {
             string capturedPiece = _position[_endSq[0], _endSq[1]];
 
@@ -122,18 +122,37 @@ namespace ChessDatabase
                 switch (_pieceAnnotation)
                 {
                     case 'P':
-                        // If pawn tries to move sideways without capturing a piece return false
-                        if (capturedPiece == null && _startSq[1] - _endSq[1] != 0)
-                            return false;
-
                         if (capturedPiece != null)
                         {
                             // If a piece was captured that wasnt diagonally straight infront of the pawn return false
-                            if (_startSq[1] - _endSq[1] != 1 || _endSq[1] - _startSq[1] != 1 && _endSq[0] - _startSq[0] != 1)
+                            if (_endSq[0] - _startSq[0] != 1 || (_startSq[1] - _endSq[1] != 1 && _endSq[1] - _startSq[1] != 1))
+                                return false;
+                            // else the move is legal and return true
+                            else
+                                return true;
+                        }
+                        else
+                        {
+                            // If a pawn is taken en passant return true
+                            if (_startSq[0] == 4 && _lastPly.plyAnnotation[0] == 'P' && _lastPly.startSqRow == 6 && _lastPly.endSqRow == 4 && (_lastPly.endSqColumn - _startSq[1] == 1 || _startSq[1] - _lastPly.endSqColumn == 1) && _lastPly.endSqColumn == _endSq[1])
+                                return true;
+                            // If pawn tries to move sideways without capturing a piece return false
+                            if (_startSq[1] - _endSq[1] != 0)
+                                return false;
+                            // If the pawn moves further than 1 square and is not on the 2nd row return false
+                            if (_endSq[0] - _startSq[0] > 1 && _startSq[0] != 1)
+                                return false;
+                            // If the pawn moves further than 2 squares and is on the 2nd row return false
+                            if (_endSq[0] - _startSq[0] > 2 && _startSq[0] == 1)
+                                return false;
+                            // If the pawn moves past another piece return false
+                            if (_endSq[0] - _startSq[0] > 1 && _position[_endSq[0] - 1, _endSq[1]] != null)
                                 return false;
                         }
                         break;
                     case 'N':
+                        // If the knight doesnt make an 'L' move return false
+                        // If the knight lands on a square containing a same colored piece return false
                         break;
                     case 'B':
                         break;
@@ -152,6 +171,33 @@ namespace ChessDatabase
                 switch(_pieceAnnotation)
                 {
                     case 'P':
+                        if (capturedPiece != null)
+                        {
+                            // If a piece was captured that wasnt diagonally straight infront of the pawn return false
+                            if (_startSq[0] - _endSq[0] != 1 || (_endSq[1] - _startSq[1] != 1 && _startSq[1] - _endSq[1] != 1))
+                                return false;
+                            // else the move is legal and return true
+                            else
+                                return true;
+                        }
+                        else
+                        {
+                            // If a pawn is taken en passant return true
+                            if (_startSq[0] == 3 && _lastPly.plyAnnotation[0] == 'P' && _lastPly.startSqRow == 1 && _lastPly.endSqRow == 3 && (_lastPly.endSqColumn - _startSq[1] == 1 || _startSq[1] - _lastPly.endSqColumn == 1) && _lastPly.endSqColumn == _endSq[1])
+                                return true;
+                            // If pawn tries to move sideways without capturing a piece return false
+                            if (_startSq[1] - _endSq[1] != 0)
+                                return false;
+                            // If the pawn moves further than 1 square and is not on the 2nd row return false
+                            if (_startSq[0] - _endSq[0] > 1 && _startSq[0] != 6)
+                                return false;
+                            // If the pawn moves further than 2 squares and is on the 2nd row return false
+                            if (_startSq[0] - _endSq[0] > 2 && _startSq[0] == 6)
+                                return false;
+                            // If the pawn moves past another piece return false
+                            if (_startSq[0] - _endSq[0] > 1 && _position[_endSq[0] + 1, _endSq[1]] != null)
+                                return false;
+                        }
                         break;
                     case 'N':
                         break;
@@ -185,11 +231,11 @@ namespace ChessDatabase
             switch(_nextPly.color)
             {
                 case "white":
-                    position[_nextPly.startSqRow, _nextPly.startSqColumn] = "";
+                    position[_nextPly.startSqRow, _nextPly.startSqColumn] = null;
                     position[_nextPly.endSqRow, _nextPly.endSqColumn] = "w" + pieceAnnotation.ToString();
                     break;
                 case "black":
-                    position[_nextPly.startSqRow, _nextPly.startSqColumn] = "";
+                    position[_nextPly.startSqRow, _nextPly.startSqColumn] = null;
                     position[_nextPly.endSqRow, _nextPly.endSqColumn] = "b" + pieceAnnotation.ToString();
                     break;
             }            

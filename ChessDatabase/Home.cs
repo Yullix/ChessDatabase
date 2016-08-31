@@ -212,9 +212,17 @@ namespace ChessDatabase
             }
 
             char _pieceAnnotation = selectedPieceAnnotation[1];
-
+            
+            Ply lastPly = new Ply() { plyAnnotation = "none" };
+            try
+            {
+                lastPly = gamePlies[gamePlies.Count() - 1];
+            }
+            catch
+            {
+            }     
             // Checks if the move is legal
-            if (ChessLogic.CheckLegality(position, _pieceAnnotation, color, whiteCastle, blackCastle, startSqPos, endSqPos))
+            if (ChessLogic.CheckLegality(position, _pieceAnnotation, color, whiteCastle, blackCastle, startSqPos, endSqPos, lastPly))
             {
                 // Updates white's ability to castle
                 if(_pieceAnnotation == 'K' && whiteCastle)

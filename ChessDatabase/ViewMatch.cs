@@ -90,7 +90,7 @@ namespace ChessDatabase
             SetPosition();
         }
 
-        // Greates the graphical position from the jagged string array (position)
+        // Greates the graphical position from position string array
         public void SetPosition()
         {
             for (int c = 0; c < 8; c++)
