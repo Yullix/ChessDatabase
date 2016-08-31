@@ -30,7 +30,7 @@ namespace ChessDatabase.Services
                 };
 
                 openingRepository.Add(newOpening);
-                OnUpdated(new OnUpdatedEventArgs() { updateMessage = "Add" });
+                OnUpdated(new UpdatedEventArgs() { updateMessage = "Add" });
             }
             else
                 throw new ArgumentException("You must enter a name.");

@@ -10,13 +10,27 @@ using ChessDatabase.Models;
 
 namespace ChessDatabase
 {
+    public class ChessLogicEventArgs : EventArgs
+    {
+        public string color;
+        public int column;
+
+        public ChessLogicEventArgs(string _color, int _column)
+        {
+            this.color = _color;
+            this.column = _column;
+        }
+    }
+
     public static class ChessLogic
     {
+        public static event EventHandler pawnPromote;
+        public static event EventHandler enPassant;
         /// <summary>
         /// Returns 2 int values that represents the position of the square in a 8x8 jagged array
         /// </summary>
         /// <param name="pBoxName"></param>
-        /// <returns>int[2]</returns>
+        /// <returns>int[2] [0] = row [1] = column</returns>
         public static int[] GetSquarePos(string pBoxName)
         {
             string[] squareString = pBoxName.Split('x');
@@ -148,6 +162,9 @@ namespace ChessDatabase
                             // If the pawn moves past another piece return false
                             if (_endSq[0] - _startSq[0] > 1 && _position[_endSq[0] - 1, _endSq[1]] != null)
                                 return false;
+                            // If the pawn tried to move backwards return false
+                            if (_endSq[0] - _startSq[0] < 1)
+                                return false;
                         }
                         break;
                     case 'N':
@@ -197,6 +214,9 @@ namespace ChessDatabase
                             // If the pawn moves past another piece return false
                             if (_startSq[0] - _endSq[0] > 1 && _position[_endSq[0] + 1, _endSq[1]] != null)
                                 return false;
+                            // If the pawn tries to move backwards return false
+                            if (_startSq[0] - _endSq[0] < 0)
+                                return false;
                         }
                         break;
                     case 'N':
@@ -222,13 +242,29 @@ namespace ChessDatabase
         /// </summary>
         /// <param name="_position"></param>
         /// <param name="_nextPly"></param>
-        /// <returns></returns>
+        /// <returns>string[8,8]</returns>
         public static string[,] NextMove(string[,] _position, Ply _nextPly)
         {
             string[,] position = _position;
             char pieceAnnotation = _nextPly.plyAnnotation[0];
 
-            switch(_nextPly.color)
+            // If en passant
+            if (_nextPly.plyAnnotation[0] == 'P' && _nextPly.startSqColumn != _nextPly.endSqColumn && _nextPly.capturedPieceAnnotation == "")
+            {
+                position[_nextPly.startSqRow, _nextPly.startSqColumn] = null;
+                
+                if (_nextPly.color == "white")
+                {
+                    position[_nextPly.endSqRow, _nextPly.endSqColumn] = "w" + pieceAnnotation.ToString();
+                    position[_nextPly.endSqRow, _nextPly.endSqColumn - 1] = null;
+                }
+
+                OnEnPassant(new ChessLogicEventArgs(_nextPly.color, _nextPly.endSqColumn));
+
+                return position;
+            }
+
+            switch (_nextPly.color)
             {
                 case "white":
                     position[_nextPly.startSqRow, _nextPly.startSqColumn] = null;
@@ -238,13 +274,19 @@ namespace ChessDatabase
                     position[_nextPly.startSqRow, _nextPly.startSqColumn] = null;
                     position[_nextPly.endSqRow, _nextPly.endSqColumn] = "b" + pieceAnnotation.ToString();
                     break;
-            }            
+            }
+
+            // If a pawn reaches the 8th rank
+            if (_nextPly.plyAnnotation[0] == 'P' && (_nextPly.endSqRow == 7 || _nextPly.endSqRow == 0))
+            {
+                OnPawnPromote(new ChessLogicEventArgs(_nextPly.color, _nextPly.endSqColumn));
+            }
 
             return position;
         }
 
         /// <summary>
-        /// Returns a position after undoing the ply the argument position
+        /// Returns a position after undoing the ply in the argument position
         /// </summary>
         /// <param name="_position"></param>
         /// <param name="_lastPly"></param>
@@ -267,6 +309,16 @@ namespace ChessDatabase
             }
 
             return position;
+        }
+
+        public static void OnPawnPromote(ChessLogicEventArgs e)
+        {
+            pawnPromote?.Invoke(new object(), e);
+        }
+
+        public static void OnEnPassant(ChessLogicEventArgs e)
+        {
+            enPassant?.Invoke(new object(), e);
         }
     }
 }

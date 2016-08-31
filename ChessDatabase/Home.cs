@@ -27,6 +27,8 @@ namespace ChessDatabase
         private string[,] position;
         private static string selectedPieceAnnotation;
         private string color;
+        private string capturedPieceAnnotation;
+        private string promotionPiece;
         private int moveNmbr;
         private bool whiteCastle;
         private bool blackCastle;
@@ -59,6 +61,9 @@ namespace ChessDatabase
             _matchService = new MatchService(_repoFactory);
             _playerService = new PlayerService(_repoFactory);
             _openingService = new OpeningService(_repoFactory);
+
+            ChessLogic.enPassant += SetCapturedPiece;
+            ChessLogic.pawnPromote += PromotePawn;
 
             gameMoves = new List<Move>();
             gamePlies = new List<Ply>();
@@ -99,6 +104,39 @@ namespace ChessDatabase
             blackKingStream = currentAssembly.GetManifestResourceStream("ChessDatabase.Resources.blackKing.png");
 
             SetPosition();
+        }
+
+        // Sets capturedPiece when event en passant is triggered in ChessLogic
+        private void SetCapturedPiece(object sender, EventArgs e)
+        {
+            ChessLogicEventArgs args = (ChessLogicEventArgs)e;
+
+            if (args.color == "white")
+                capturedPieceAnnotation = "w" + "P";
+            else
+                capturedPieceAnnotation = "b" + "p";
+        }
+
+        // Opens a new form with a dialog to select a promotion piece
+        private void PromotePawn(object sender, EventArgs e)
+        {
+            using (var form = new PromotionDialog())
+            {
+                var result = form.ShowDialog();
+                if (result == DialogResult.OK)
+                {
+                    string piece;
+
+                    if (color == "white")
+                        piece = "w" + form.selectedPromotionPiece;
+                    else
+                        piece = "b" + form.selectedPromotionPiece;
+
+                    promotionPiece = piece;
+                }
+                else
+                    PromotePawn(this, e);
+            }
         }
 
         // Greates the graphical position from the jagged string array (position)

@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace ChessDatabase.Services
 {
-    public class OnUpdatedEventArgs : EventArgs
+    public class UpdatedEventArgs : EventArgs
     {
         public string updateMessage { get; set; }
         public int entityId { get; set; }

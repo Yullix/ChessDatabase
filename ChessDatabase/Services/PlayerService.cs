@@ -29,7 +29,7 @@ namespace ChessDatabase.Services
                 };
                 playerRepository.Add(newPlayer);
 
-                OnUpdatedEventArgs eArgs = new OnUpdatedEventArgs()
+                UpdatedEventArgs eArgs = new UpdatedEventArgs()
                 {
                     updateMessage = "Add"
                 };
@@ -44,7 +44,7 @@ namespace ChessDatabase.Services
         {
             if(playerRepository.Remove(_Id))
             {
-                OnUpdatedEventArgs eArgs = new OnUpdatedEventArgs()
+                UpdatedEventArgs eArgs = new UpdatedEventArgs()
                 {
                     updateMessage = "Remove",
                     entityId = _Id

@@ -34,7 +34,7 @@ namespace ChessDatabase.Services
 
             matchRepository.Add(newMatch);
 
-            OnUpdatedEventArgs eArgs = new OnUpdatedEventArgs()
+            UpdatedEventArgs eArgs = new UpdatedEventArgs()
             {
                 updateMessage = "Add"
             };
@@ -46,7 +46,7 @@ namespace ChessDatabase.Services
         {
             if(matchRepository.Remove(_Id))
             {
-                OnUpdatedEventArgs eArgs = new OnUpdatedEventArgs()
+                UpdatedEventArgs eArgs = new UpdatedEventArgs()
                 {
                     updateMessage = "Remove"
                 };
