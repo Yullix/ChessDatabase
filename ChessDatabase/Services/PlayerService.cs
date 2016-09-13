@@ -11,23 +11,23 @@ namespace ChessDatabase.Services
     public class PlayerService : IService
     {
         public event EventHandler Updated;
-        private PlayerRepository playerRepository;
+        private PlayerRepository _playerRepository;
 
-        public PlayerService(RepositoryFactory _repoFactory)
+        public PlayerService(RepositoryFactory repoFactory)
         {
-            this.playerRepository = _repoFactory.GetPlayerRepository();
+            this._playerRepository = repoFactory.GetPlayerRepository();
         }
 
-        public void Add(string _name, int _rating)
+        public void Add(string name, int rating)
         {
-            if (_name != "")
+            if (name != "")
             {
                 Player newPlayer = new Player()
                 {
-                    name = _name,
-                    rating = _rating
+                    name = name,
+                    rating = rating
                 };
-                playerRepository.Add(newPlayer);
+                _playerRepository.Add(newPlayer);
 
                 UpdatedEventArgs eArgs = new UpdatedEventArgs()
                 {
@@ -40,14 +40,14 @@ namespace ChessDatabase.Services
                 throw new ArgumentException("You must enter a name to create a new player.");            
         }
 
-        public bool Remove(int _Id)
+        public bool Remove(int Id)
         {
-            if(playerRepository.Remove(_Id))
+            if(_playerRepository.Remove(Id))
             {
                 UpdatedEventArgs eArgs = new UpdatedEventArgs()
                 {
                     updateMessage = "Remove",
-                    entityId = _Id
+                    entityId = Id
                 };
 
                 OnUpdated(eArgs);
@@ -58,31 +58,31 @@ namespace ChessDatabase.Services
 
         public IEnumerable<Player> All()
         {
-            return playerRepository.All();
+            return _playerRepository.All();
         }
 
-        public IEnumerable<Player> ByRating(int _rating)
+        public IEnumerable<Player> ByRating(int rating)
         {
-            Func<Player, bool> function = p => p.rating >= _rating;
+            Func<Player, bool> function = p => p.rating >= rating;
 
-            return playerRepository.ByFunc(function);
+            return _playerRepository.ByFunc(function);
         }
 
-        public void Edit(Player _player)
+        public void Edit(Player player)
         {
-            playerRepository.Edit(_player);
+            _playerRepository.Edit(player);
         }
 
-        public Player Find(int _Id)
+        public Player Find(int Id)
         {
-            return playerRepository.Find(_Id);
+            return _playerRepository.Find(Id);
         }
 
-        public IEnumerable<Player> ByName(string _text)
+        public IEnumerable<Player> ByName(string text)
         {
-            Func<Player, bool> function = p => p.name.Contains(_text);
+            Func<Player, bool> function = p => p.name.Contains(text);
 
-            return playerRepository.ByFunc(function);
+            return _playerRepository.ByFunc(function);
         }
 
         protected virtual void OnUpdated(EventArgs e)

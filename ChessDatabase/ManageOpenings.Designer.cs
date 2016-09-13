@@ -30,13 +30,13 @@
         {
             this.lstOpenings = new System.Windows.Forms.ListBox();
             this.pnlSelectedOpening = new System.Windows.Forms.Panel();
-            this.txtOpeningName = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.lstOpeningGames = new System.Windows.Forms.ListBox();
-            this.btnExploreOpening = new System.Windows.Forms.Button();
-            this.btnOpenGame = new System.Windows.Forms.Button();
             this.btnDeleteGame = new System.Windows.Forms.Button();
+            this.btnOpenGame = new System.Windows.Forms.Button();
+            this.btnExploreOpening = new System.Windows.Forms.Button();
+            this.lstOpeningGames = new System.Windows.Forms.ListBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.txtOpeningName = new System.Windows.Forms.TextBox();
             this.pnlSelectedOpening.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -65,54 +65,15 @@
             this.pnlSelectedOpening.Size = new System.Drawing.Size(297, 329);
             this.pnlSelectedOpening.TabIndex = 127;
             // 
-            // txtOpeningName
+            // btnDeleteGame
             // 
-            this.txtOpeningName.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.txtOpeningName.Location = new System.Drawing.Point(13, 29);
-            this.txtOpeningName.Name = "txtOpeningName";
-            this.txtOpeningName.ReadOnly = true;
-            this.txtOpeningName.Size = new System.Drawing.Size(159, 20);
-            this.txtOpeningName.TabIndex = 0;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.ForeColor = System.Drawing.Color.Lime;
-            this.label1.Location = new System.Drawing.Point(10, 13);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(78, 13);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Opening Name";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.ForeColor = System.Drawing.Color.Lime;
-            this.label2.Location = new System.Drawing.Point(10, 109);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(131, 13);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "Games With This Opening";
-            // 
-            // lstOpeningGames
-            // 
-            this.lstOpeningGames.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.lstOpeningGames.FormattingEnabled = true;
-            this.lstOpeningGames.Location = new System.Drawing.Point(13, 125);
-            this.lstOpeningGames.Name = "lstOpeningGames";
-            this.lstOpeningGames.Size = new System.Drawing.Size(159, 199);
-            this.lstOpeningGames.TabIndex = 3;
-            // 
-            // btnExploreOpening
-            // 
-            this.btnExploreOpening.BackColor = System.Drawing.Color.DarkOliveGreen;
-            this.btnExploreOpening.Location = new System.Drawing.Point(178, 29);
-            this.btnExploreOpening.Name = "btnExploreOpening";
-            this.btnExploreOpening.Size = new System.Drawing.Size(116, 48);
-            this.btnExploreOpening.TabIndex = 4;
-            this.btnExploreOpening.Text = "Explore Opening";
-            this.btnExploreOpening.UseVisualStyleBackColor = false;
-            this.btnExploreOpening.Click += new System.EventHandler(this.btnExploreOpening_Click);
+            this.btnDeleteGame.BackColor = System.Drawing.Color.Red;
+            this.btnDeleteGame.Location = new System.Drawing.Point(178, 276);
+            this.btnDeleteGame.Name = "btnDeleteGame";
+            this.btnDeleteGame.Size = new System.Drawing.Size(116, 48);
+            this.btnDeleteGame.TabIndex = 6;
+            this.btnDeleteGame.Text = "Delete Game";
+            this.btnDeleteGame.UseVisualStyleBackColor = false;
             // 
             // btnOpenGame
             // 
@@ -125,15 +86,54 @@
             this.btnOpenGame.UseVisualStyleBackColor = false;
             this.btnOpenGame.Click += new System.EventHandler(this.btnOpenGame_Click);
             // 
-            // btnDeleteGame
+            // btnExploreOpening
             // 
-            this.btnDeleteGame.BackColor = System.Drawing.Color.Red;
-            this.btnDeleteGame.Location = new System.Drawing.Point(178, 276);
-            this.btnDeleteGame.Name = "btnDeleteGame";
-            this.btnDeleteGame.Size = new System.Drawing.Size(116, 48);
-            this.btnDeleteGame.TabIndex = 6;
-            this.btnDeleteGame.Text = "Delete Game";
-            this.btnDeleteGame.UseVisualStyleBackColor = false;
+            this.btnExploreOpening.BackColor = System.Drawing.Color.DarkOliveGreen;
+            this.btnExploreOpening.Location = new System.Drawing.Point(178, 29);
+            this.btnExploreOpening.Name = "btnExploreOpening";
+            this.btnExploreOpening.Size = new System.Drawing.Size(116, 48);
+            this.btnExploreOpening.TabIndex = 4;
+            this.btnExploreOpening.Text = "Explore Opening";
+            this.btnExploreOpening.UseVisualStyleBackColor = false;
+            this.btnExploreOpening.Click += new System.EventHandler(this.btnExploreOpening_Click);
+            // 
+            // lstOpeningGames
+            // 
+            this.lstOpeningGames.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.lstOpeningGames.FormattingEnabled = true;
+            this.lstOpeningGames.Location = new System.Drawing.Point(13, 125);
+            this.lstOpeningGames.Name = "lstOpeningGames";
+            this.lstOpeningGames.Size = new System.Drawing.Size(159, 199);
+            this.lstOpeningGames.TabIndex = 3;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.ForeColor = System.Drawing.Color.Lime;
+            this.label2.Location = new System.Drawing.Point(10, 109);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(131, 13);
+            this.label2.TabIndex = 2;
+            this.label2.Text = "Games With This Opening";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.ForeColor = System.Drawing.Color.Lime;
+            this.label1.Location = new System.Drawing.Point(10, 13);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(78, 13);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "Opening Name";
+            // 
+            // txtOpeningName
+            // 
+            this.txtOpeningName.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.txtOpeningName.Location = new System.Drawing.Point(13, 29);
+            this.txtOpeningName.Name = "txtOpeningName";
+            this.txtOpeningName.ReadOnly = true;
+            this.txtOpeningName.Size = new System.Drawing.Size(159, 20);
+            this.txtOpeningName.TabIndex = 0;
             // 
             // ManageOpenings
             // 

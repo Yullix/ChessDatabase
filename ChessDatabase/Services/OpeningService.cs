@@ -11,25 +11,25 @@ namespace ChessDatabase.Services
     public class OpeningService : IService
     {
         public event EventHandler Updated;
-        private OpeningRepository openingRepository;
+        private OpeningRepository _openingRepository;
 
-        public OpeningService(RepositoryFactory _repoFactory)
+        public OpeningService(RepositoryFactory repoFactory)
         {
-            this.openingRepository = _repoFactory.GetOpeningRepositry();
+            this._openingRepository = repoFactory.GetOpeningRepositry();
         }
 
-        public void Add(List<Ply> _plies, string _name, string _openingMove)
+        public void Add(List<Ply> plies, string name, string openingMove)
         {
-            if (_name != "")
+            if (name != "")
             {
                 var newOpening = new Opening()
                 {
-                    name = _name,
-                    openingMove = _openingMove,
-                    plies = _plies
+                    name = name,
+                    openingMove = openingMove,
+                    plies = plies
                 };
 
-                openingRepository.Add(newOpening);
+                _openingRepository.Add(newOpening);
                 OnUpdated(new UpdatedEventArgs() { updateMessage = "Add" });
             }
             else
@@ -37,21 +37,21 @@ namespace ChessDatabase.Services
                
         }
 
-        public bool Remove(int _Id)
+        public bool Remove(int Id)
         {
-            return openingRepository.Remove(_Id);
+            return _openingRepository.Remove(Id);
         }
 
         public IEnumerable<Opening> All()
         {
-            return openingRepository.All();
+            return _openingRepository.All();
         }
 
-        public IEnumerable<Opening> ByOpeningMove(string _openingMove)
+        public IEnumerable<Opening> ByOpeningMove(string openingMove)
         {
-            Func<Opening, bool> function = o => o.openingMove.Equals(_openingMove);
+            Func<Opening, bool> function = o => o.openingMove.Equals(openingMove);
 
-            return openingRepository.ByFunc(function);
+            return _openingRepository.ByFunc(function);
         }
 
         protected virtual void OnUpdated(EventArgs e)

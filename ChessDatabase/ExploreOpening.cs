@@ -18,9 +18,9 @@ namespace ChessDatabase
         private Opening _opening;
         private string[,] _position;
 
-        public ExploreOpening(Opening _exploreOpening)
+        public ExploreOpening(Opening exploreOpening)
         {
-            this._opening = _exploreOpening;
+            this._opening = exploreOpening;
             this._position = ChessLogic.GetStartPosition();
 
             InitializeComponent();

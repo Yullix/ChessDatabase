@@ -11,49 +11,49 @@ namespace ChessDatabase.Services
     public class TournamentService : IService
     {
         public event EventHandler Updated;
-        private TournamentRepository tournamentRepository;
+        private TournamentRepository _tournamentRepository;
 
-        public TournamentService(RepositoryFactory _repoFactory)
+        public TournamentService(RepositoryFactory repoFactory)
         {
-            this.tournamentRepository = _repoFactory.GetTournamentRepository(); 
+            this._tournamentRepository = repoFactory.GetTournamentRepository(); 
         }
 
-        public void Add(string _name, DateTime _startDate, DateTime _endDate)
+        public void Add(string name, DateTime startDate, DateTime endDate)
         {
             Tournament newTournament = new Tournament()
             {
-                name = _name,
-                startDate = _startDate,
-                endDate = _endDate
+                name = name,
+                startDate = startDate,
+                endDate = endDate
             };
-            tournamentRepository.Add(newTournament);
+            _tournamentRepository.Add(newTournament);
         }
 
         public IEnumerable<Tournament> All()
         {
-            return tournamentRepository.All();
+            return _tournamentRepository.All();
         }
 
-        public void Edit(Tournament _tournament)
+        public void Edit(Tournament tournament)
         {
-            tournamentRepository.Edit(_tournament);
+            _tournamentRepository.Edit(tournament);
         }
 
-        public Tournament Find(int _Id)
+        public Tournament Find(int Id)
         {
-            return tournamentRepository.Find(_Id);
+            return _tournamentRepository.Find(Id);
         }
 
-        public bool Remove(int _Id)
+        public bool Remove(int Id)
         {
-            return tournamentRepository.Remove(_Id);
+            return _tournamentRepository.Remove(Id);
         }
 
-        public IEnumerable<Tournament> ByTimeSpan(DateTime _startDate, DateTime _endDate)
+        public IEnumerable<Tournament> ByTimeSpan(DateTime startDate, DateTime endDate)
         {
-            Func<Tournament, bool> function = t => t.startDate > _startDate && t.endDate < _endDate;
+            Func<Tournament, bool> function = t => t.startDate > startDate && t.endDate < endDate;
 
-            return tournamentRepository.ByFunc(function);
+            return _tournamentRepository.ByFunc(function);
         }
 
         protected virtual void OnUpdated(EventArgs e)

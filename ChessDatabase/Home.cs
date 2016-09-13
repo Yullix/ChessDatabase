@@ -20,38 +20,38 @@ namespace ChessDatabase
 {
     public partial class Home : MainForm
     {
-        private PictureBox startSq;
-        private PictureBox endSq;
-        private int[] startSqPos;
-        private int[] endSqPos;
-        private string[,] position;
-        private static string selectedPieceAnnotation;
-        private string color;
-        private string capturedPieceAnnotation;
-        private string promotionPiece;
-        private int moveNmbr;
-        private bool whiteCastle;
-        private bool blackCastle;
-        private Assembly currentAssembly;
-        private Stream whitePawnStream;
-        private Stream whiteKnightStream;
-        private Stream whiteBishopStream;
-        private Stream whiteRookStream;
-        private Stream whiteQueenStream;
-        private Stream whiteKingStream;
-        private Stream blackPawnStream;
-        private Stream blackKnightStream;
-        private Stream blackBishopStream;
-        private Stream blackRookStream;
-        private Stream blackQueenStream;
-        private Stream blackKingStream;
+        private PictureBox _startSq;
+        private PictureBox _endSq;
+        private int[] _startSqPos;
+        private int[] _endSqPos;
+        private string[,] _position;
+        private static string _selectedPieceAnnotation;
+        private string _color;
+        private string _capturedPieceAnnotation;
+        private string _promotionPiece;
+        private int _moveNmbr;
+        private bool _whiteCastle;
+        private bool _blackCastle;
+        private Assembly _currentAssembly;
+        private Stream _whitePawnStream;
+        private Stream _whiteKnightStream;
+        private Stream _whiteBishopStream;
+        private Stream _whiteRookStream;
+        private Stream _whiteQueenStream;
+        private Stream _whiteKingStream;
+        private Stream _blackPawnStream;
+        private Stream _blackKnightStream;
+        private Stream _blackBishopStream;
+        private Stream _blackRookStream;
+        private Stream _blackQueenStream;
+        private Stream _blackKingStream;
         private PlayerService _playerService;
         private MatchService _matchService;
         private OpeningService _openingService;
         private RepositoryFactory _repoFactory;
-        private List<Move> gameMoves;
-        private List<Ply> gamePlies;
-        private Move currentMove;
+        private List<Move> _gameMoves;
+        private List<Ply> _gamePlies;
+        private Move _currentMove;
 
         public Home()
         {
@@ -62,22 +62,23 @@ namespace ChessDatabase
             _playerService = new PlayerService(_repoFactory);
             _openingService = new OpeningService(_repoFactory);
 
-            ChessLogic.enPassant += SetCapturedPiece;
-            ChessLogic.pawnPromote += PromotePawn;
+            ChessLogic.EnPassant += SetCapturedPiece;
+            ChessLogic.PawnPromote += PromotePawn;
 
-            gameMoves = new List<Move>();
-            gamePlies = new List<Ply>();
-            color = "white";
-            position = ChessLogic.GetStartPosition();
-            moveNmbr = 1;
-            whiteCastle = true;
-            blackCastle = true;
+            _gameMoves = new List<Move>();
+            _gamePlies = new List<Ply>();
+            _color = "white";
+            _position = ChessLogic.GetStartPosition();
+            _moveNmbr = 1;
+            _whiteCastle = true;
+            _blackCastle = true;
 
-            startSq = null;
-            endSq = null;
-            startSqPos = new int[2];
-            endSqPos = new int[2];
-            selectedPieceAnnotation = "";
+            _startSq = null;
+            _endSq = null;
+            _startSqPos = new int[2];
+            _endSqPos = new int[2];
+            _selectedPieceAnnotation = "";
+            _capturedPieceAnnotation = "";
 
             foreach(var p in _playerService.All())
             {
@@ -85,23 +86,23 @@ namespace ChessDatabase
                 cboxBlackPlayer.Items.Add(p);
             }
 
-            var check = this.GetType().Assembly.GetManifestResourceNames();
+            //var check = this.GetType().Assembly.GetManifestResourceNames();
 
-            currentAssembly = Assembly.GetExecutingAssembly();
+            _currentAssembly = Assembly.GetExecutingAssembly();
 
-            whitePawnStream = currentAssembly.GetManifestResourceStream("ChessDatabase.Resources.whitePawn.png");
-            whiteKnightStream = currentAssembly.GetManifestResourceStream("ChessDatabase.Resources.whiteKnight.png");
-            whiteBishopStream = currentAssembly.GetManifestResourceStream("ChessDatabase.Resources.whiteBishop.png");
-            whiteRookStream = currentAssembly.GetManifestResourceStream("ChessDatabase.Resources.whiteRook.png");
-            whiteQueenStream = currentAssembly.GetManifestResourceStream("ChessDatabase.Resources.whiteQueen.png");
-            whiteKingStream = currentAssembly.GetManifestResourceStream("ChessDatabase.Resources.whiteKing.png");
+            _whitePawnStream = _currentAssembly.GetManifestResourceStream("ChessDatabase.Resources.whitePawn.png");
+            _whiteKnightStream = _currentAssembly.GetManifestResourceStream("ChessDatabase.Resources.whiteKnight.png");
+            _whiteBishopStream = _currentAssembly.GetManifestResourceStream("ChessDatabase.Resources.whiteBishop.png");
+            _whiteRookStream = _currentAssembly.GetManifestResourceStream("ChessDatabase.Resources.whiteRook.png");
+            _whiteQueenStream = _currentAssembly.GetManifestResourceStream("ChessDatabase.Resources.whiteQueen.png");
+            _whiteKingStream = _currentAssembly.GetManifestResourceStream("ChessDatabase.Resources.whiteKing.png");
 
-            blackPawnStream = currentAssembly.GetManifestResourceStream("ChessDatabase.Resources.blackPawn.png");
-            blackKnightStream = currentAssembly.GetManifestResourceStream("ChessDatabase.Resources.blackKnight.png");
-            blackBishopStream = currentAssembly.GetManifestResourceStream("ChessDatabase.Resources.blackBishop.png");
-            blackRookStream = currentAssembly.GetManifestResourceStream("ChessDatabase.Resources.blackRook.png");
-            blackQueenStream = currentAssembly.GetManifestResourceStream("ChessDatabase.Resources.blackQueen.png");
-            blackKingStream = currentAssembly.GetManifestResourceStream("ChessDatabase.Resources.blackKing.png");
+            _blackPawnStream = _currentAssembly.GetManifestResourceStream("ChessDatabase.Resources.blackPawn.png");
+            _blackKnightStream = _currentAssembly.GetManifestResourceStream("ChessDatabase.Resources.blackKnight.png");
+            _blackBishopStream = _currentAssembly.GetManifestResourceStream("ChessDatabase.Resources.blackBishop.png");
+            _blackRookStream = _currentAssembly.GetManifestResourceStream("ChessDatabase.Resources.blackRook.png");
+            _blackQueenStream = _currentAssembly.GetManifestResourceStream("ChessDatabase.Resources.blackQueen.png");
+            _blackKingStream = _currentAssembly.GetManifestResourceStream("ChessDatabase.Resources.blackKing.png");
 
             SetPosition();
         }
@@ -112,27 +113,35 @@ namespace ChessDatabase
             ChessLogicEventArgs args = (ChessLogicEventArgs)e;
 
             if (args.color == "white")
-                capturedPieceAnnotation = "w" + "P";
+                _capturedPieceAnnotation = "w" + "P";
             else
-                capturedPieceAnnotation = "b" + "p";
+                _capturedPieceAnnotation = "b" + "p";
         }
 
         // Opens a new form with a dialog to select a promotion piece
         private void PromotePawn(object sender, EventArgs e)
         {
-            using (var form = new PromotionDialog())
+            ChessLogicEventArgs _args = (ChessLogicEventArgs)e;
+            using (var form = new PromotionDialog(_args.color))
             {
                 var result = form.ShowDialog();
                 if (result == DialogResult.OK)
                 {
-                    string piece;
+                    string _piece;
 
-                    if (color == "white")
-                        piece = "w" + form.selectedPromotionPiece;
+                    if (_color == "white")
+                    {
+                        _piece = "w" + form.selectedPromotionPiece;
+                        _position[7, _args.column] = _piece;
+                    }
                     else
-                        piece = "b" + form.selectedPromotionPiece;
+                    {
+                        _piece = "b" + form.selectedPromotionPiece;
+                        _position[0, _args.column] = _piece;
+                    }
+                    SetPosition();
 
-                    promotionPiece = piece;
+                    _promotionPiece = _piece;
                 }
                 else
                     PromotePawn(this, e);
@@ -144,74 +153,74 @@ namespace ChessDatabase
         {
             for (int c = 0; c < 8; c++)
             {
-                char row = 'a';
+                char _row = 'a';
                 for (int r = 0; r < 8; r++)
                 {
-                    PictureBox pSquare = this.Controls.Find("pBox" + row + (c + 1), true).FirstOrDefault() as PictureBox;
-                    switch (position[c, r])
+                    PictureBox pSquare = this.Controls.Find("pBox" + _row + (c + 1), true).FirstOrDefault() as PictureBox;
+                    switch (_position[c, r])
                     {
                         case "wP":
-                            pSquare.Image = new Bitmap(whitePawnStream);
+                            pSquare.Image = new Bitmap(_whitePawnStream);
                             break;
                         case "wN":
-                            pSquare.Image = new Bitmap(whiteKnightStream);
+                            pSquare.Image = new Bitmap(_whiteKnightStream);
                             break;
                         case "wB":
-                            pSquare.Image = new Bitmap(whiteBishopStream);
+                            pSquare.Image = new Bitmap(_whiteBishopStream);
                             break;
                         case "wR":
-                            pSquare.Image = new Bitmap(whiteRookStream);
+                            pSquare.Image = new Bitmap(_whiteRookStream);
                             break;
                         case "wQ":
-                            pSquare.Image = new Bitmap(whiteQueenStream);
+                            pSquare.Image = new Bitmap(_whiteQueenStream);
                             break;
                         case "wK":
-                            pSquare.Image = new Bitmap(whiteKingStream);
+                            pSquare.Image = new Bitmap(_whiteKingStream);
                             break;
                         case "bP":
-                            pSquare.Image = new Bitmap(blackPawnStream);
+                            pSquare.Image = new Bitmap(_blackPawnStream);
                             break;
                         case "bN":
-                            pSquare.Image = new Bitmap(blackKnightStream);
+                            pSquare.Image = new Bitmap(_blackKnightStream);
                             break;
                         case "bB":
-                            pSquare.Image = new Bitmap(blackBishopStream);
+                            pSquare.Image = new Bitmap(_blackBishopStream);
                             break;
                         case "bR":
-                            pSquare.Image = new Bitmap(blackRookStream);
+                            pSquare.Image = new Bitmap(_blackRookStream);
                             break;
                         case "bQ":
-                            pSquare.Image = new Bitmap(blackQueenStream);
+                            pSquare.Image = new Bitmap(_blackQueenStream);
                             break;
                         case "bK":
-                            pSquare.Image = new Bitmap(blackKingStream);
+                            pSquare.Image = new Bitmap(_blackKingStream);
                             break;
                         default:
                             pSquare.Image = null;
                             break;
                     }
-                    switch (row)
+                    switch (_row)
                     {
                         case 'a':
-                            row = 'b';
+                            _row = 'b';
                             break;
                         case 'b':
-                            row = 'c';
+                            _row = 'c';
                             break;
                         case 'c':
-                            row = 'd';
+                            _row = 'd';
                             break;
                         case 'd':
-                            row = 'e';
+                            _row = 'e';
                             break;
                         case 'e':
-                            row = 'f';
+                            _row = 'f';
                             break;
                         case 'f':
-                            row = 'g';
+                            _row = 'g';
                             break;
                         case 'g':
-                            row = 'h';
+                            _row = 'h';
                             break;
                         default:
                             break;
@@ -224,7 +233,7 @@ namespace ChessDatabase
         {
             lstMoves.Items.Clear();
 
-            foreach(var m in gameMoves)
+            foreach(var m in _gameMoves)
             {
                 lstMoves.Items.Add(m);
             }
@@ -234,79 +243,81 @@ namespace ChessDatabase
         public void CompleteMove()
         {
             // Changes the color of the starting square back to its original color
-            if(startSqPos[0] % 2 == 1)
+            if(_startSqPos[0] % 2 == 1)
             {
-                if (startSqPos[1] % 2 == 1)
-                    startSq.BackColor = Color.Gray;
+                if (_startSqPos[1] % 2 == 1)
+                    _startSq.BackColor = Color.Gray;
                 else
-                    startSq.BackColor = Color.White;
+                    _startSq.BackColor = Color.White;
             }
             else
             {
-                if (startSqPos[1] % 2 == 1)
-                    startSq.BackColor = Color.White;
+                if (_startSqPos[1] % 2 == 1)
+                    _startSq.BackColor = Color.White;
                 else
-                    startSq.BackColor = Color.Gray;
+                    _startSq.BackColor = Color.Gray;
             }
 
-            char _pieceAnnotation = selectedPieceAnnotation[1];
+            char _pieceAnnotation = _selectedPieceAnnotation[1];
             
-            Ply lastPly = new Ply() { plyAnnotation = "none" };
+            Ply _lastPly = new Ply() { plyAnnotation = "none" };
             try
             {
-                lastPly = gamePlies[gamePlies.Count() - 1];
+                _lastPly = _gamePlies[_gamePlies.Count() - 1];
             }
             catch
             {
             }     
             // Checks if the move is legal
-            if (ChessLogic.CheckLegality(position, _pieceAnnotation, color, whiteCastle, blackCastle, startSqPos, endSqPos, lastPly))
+            if (ChessLogic.CheckLegality(_position, _pieceAnnotation, _color, _whiteCastle, _blackCastle, _startSqPos, _endSqPos, _lastPly))
             {
                 // Updates white's ability to castle
-                if(_pieceAnnotation == 'K' && whiteCastle)
-                    whiteCastle = false;
+                if(_pieceAnnotation == 'K' && _whiteCastle)
+                    _whiteCastle = false;
 
                 //Updates black's ability to castle
-                if (_pieceAnnotation == 'K' && blackCastle)
-                    blackCastle = false;
+                if (_pieceAnnotation == 'K' && _blackCastle)
+                    _blackCastle = false;
 
-                var pBoxNameSplit = endSq.Name.Split('x');
+                var pBoxNameSplit = _endSq.Name.Split('x');
 
                 string _plyAnnotation = _pieceAnnotation + pBoxNameSplit[1];
 
-                var newPly = new Ply()
+                var _newPly = new Ply()
                 {
-                    color = color,
-                    moveNumber = moveNmbr,
-                    startSqColumn = startSqPos[1],
-                    startSqRow = startSqPos[0],
-                    endSqColumn = endSqPos[1],
-                    endSqRow = endSqPos[0],
+                    color = _color,
+                    moveNumber = _moveNmbr,
+                    startSqColumn = _startSqPos[1],
+                    startSqRow = _startSqPos[0],
+                    endSqColumn = _endSqPos[1],
+                    endSqRow = _endSqPos[0],
                     plyAnnotation = _plyAnnotation,
-                    capturedPieceAnnotation = position[endSqPos[0], endSqPos[1]] ?? ""
+                    capturedPieceAnnotation = _position[_endSqPos[0], _endSqPos[1]] ?? this._capturedPieceAnnotation
                 };
 
-                gamePlies.Add(newPly);
+                _capturedPieceAnnotation = "";
 
-                position = ChessLogic.NextMove(position, newPly);
+                _gamePlies.Add(_newPly);
 
-                switch (color)
+                _position = ChessLogic.NextMove(_position, _newPly);
+
+                switch (_color)
                 {
                     case "white":
-                        currentMove = new Move()
+                        _currentMove = new Move()
                         {
-                            whitePly = newPly,
-                            moveNumber = moveNmbr
+                            whitePly = _newPly,
+                            moveNumber = _moveNmbr
                         };
-                        gameMoves.Add(currentMove);
-                        color = "black";
+                        _gameMoves.Add(_currentMove);
+                        _color = "black";
                         break;
                     case "black":
-                        gameMoves.RemoveAt(gameMoves.Count() - 1);
-                        gameMoves.Add(currentMove);
-                        currentMove.blackPly = newPly;
-                        color = "white";
-                        moveNmbr += 1;
+                        _gameMoves.RemoveAt(_gameMoves.Count() - 1);
+                        _gameMoves.Add(_currentMove);
+                        _currentMove.blackPly = _newPly;
+                        _color = "white";
+                        _moveNmbr += 1;
                         break;
                 }
 
@@ -314,41 +325,41 @@ namespace ChessDatabase
                 SetPosition();
             }
 
-            startSq = null;
-            endSq = null;
+            _startSq = null;
+            _endSq = null;
         }
 
         //Selects a square to perform a move
         private void SelectSquare(PictureBox square)
         {
             // checks if there is a start square selected already
-            if(startSq == null)
+            if(_startSq == null)
             {
                 // if the square does not hold a piece it cannot be selected as start square.
                 if (square.Image != null)
                 {
-                    startSq = square;
-                    startSqPos = ChessLogic.GetSquarePos(square.Name);
-                    selectedPieceAnnotation = position[startSqPos[0], startSqPos[1]];
+                    _startSq = square;
+                    _startSqPos = ChessLogic.GetSquarePos(square.Name);
+                    _selectedPieceAnnotation = _position[_startSqPos[0], _startSqPos[1]];
 
-                    if (color == "white" && selectedPieceAnnotation[0] == 'w')
+                    if (_color == "white" && _selectedPieceAnnotation[0] == 'w')
                     {
                         square.BackColor = Color.Brown;
                     }
-                    else if (color == "black" && selectedPieceAnnotation[0] == 'b')
+                    else if (_color == "black" && _selectedPieceAnnotation[0] == 'b')
                     {
                         square.BackColor = Color.Brown;
                     }
                     else
-                        startSq = null;
+                        _startSq = null;
                 }
                 else
                     return;
             }
             else
             {
-                endSqPos = ChessLogic.GetSquarePos(square.Name);
-                endSq = square;
+                _endSqPos = ChessLogic.GetSquarePos(square.Name);
+                _endSq = square;
                 CompleteMove();
             }
         }
@@ -359,7 +370,7 @@ namespace ChessDatabase
             {
                 Player whitePlayer = (Player)cboxWhitePlayer.SelectedItem;
                 Player blackPlayer = (Player)cboxBlackPlayer.SelectedItem;
-                _matchService.Add(gamePlies, whitePlayer.name + " vs. " + blackPlayer.name + " - " + dateGameDate.Value.ToString("dd/MM/yyyy"), blackPlayer.Id, whitePlayer.Id, dateGameDate.Value, null);
+                _matchService.Add(_gamePlies, whitePlayer.name + " vs. " + blackPlayer.name + " - " + dateGameDate.Value.ToString("dd/MM/yyyy"), blackPlayer.Id, whitePlayer.Id, dateGameDate.Value, null);
                 MessageBox.Show("The game was successfully saved.");
             }
             catch
@@ -372,7 +383,7 @@ namespace ChessDatabase
         {
             try
             {
-                _openingService.Add(gamePlies, txtOpeningName.Text, gamePlies[0].plyAnnotation);
+                _openingService.Add(_gamePlies, txtOpeningName.Text, _gamePlies[0].plyAnnotation);
             }
             catch(ArgumentException excp)
             {
@@ -392,22 +403,22 @@ namespace ChessDatabase
         {
             try
             {
-                position = ChessLogic.UndoMove(position, gamePlies.Last());
-                gamePlies.RemoveAt(gamePlies.Count() - 1);
+                _position = ChessLogic.UndoMove(_position, _gamePlies.Last());
+                _gamePlies.RemoveAt(_gamePlies.Count() - 1);
 
-                switch (gamePlies.Last().color)
+                switch (_gamePlies.Last().color)
                 {
                     case "white":
-                        gameMoves.RemoveAt(gameMoves.Count() - 1);
-                        color = "black";
-                        moveNmbr -= 1;
+                        _gameMoves.RemoveAt(_gameMoves.Count() - 1);
+                        _color = "black";
+                        _moveNmbr -= 1;
                         break;
                     case "black":
-                        Move moveHolder = gameMoves.Last();
-                        gameMoves.RemoveAt(gameMoves.Count() - 1);
+                        Move moveHolder = _gameMoves.Last();
+                        _gameMoves.RemoveAt(_gameMoves.Count() - 1);
                         moveHolder.blackPly = null;
-                        gameMoves.Add(moveHolder);
-                        color = "white";
+                        _gameMoves.Add(moveHolder);
+                        _color = "white";
                         break;
                 }
 

@@ -11,42 +11,42 @@ namespace ChessDatabase.Services
     public class CategoryService : IService
     {
         public event EventHandler Updated;
-        private CategoryRepository categoryRepository;
+        private CategoryRepository _categoryRepository;
 
-        public CategoryService(RepositoryFactory _repoFactory)
+        public CategoryService(RepositoryFactory repoFactory)
         {
-            this.categoryRepository = _repoFactory.GetCategoryRepository();
+            this._categoryRepository = repoFactory.GetCategoryRepository();
         }
 
-        public void Add(string _name, string _description)
+        public void Add(string name, string description)
         {
             var newCategory = new Category()
             {
-                name = _name,
-                description = _description
+                name = name,
+                description = description
             };
 
-            categoryRepository.Add(newCategory);
+            _categoryRepository.Add(newCategory);
         }
 
-        public Category Find(int _Id)
+        public Category Find(int Id)
         {
-            return categoryRepository.Find(_Id);
+            return _categoryRepository.Find(Id);
         }
 
-        public bool Remove(int _Id)
+        public bool Remove(int Id)
         {
-            return categoryRepository.Remove(_Id);
+            return _categoryRepository.Remove(Id);
         }
 
         public IEnumerable<Category> All()
         {
-            return categoryRepository.All();
+            return _categoryRepository.All();
         }
 
-        public void Edit(Category _category)
+        public void Edit(Category category)
         {
-            categoryRepository.Edit(_category);
+            _categoryRepository.Edit(category);
         }
 
         protected virtual void OnUpdated(EventArgs e)

@@ -24,16 +24,12 @@ namespace ChessDatabase.Repositories
 
         public IEnumerable<Match> All()
         {
-            var result = context.Matches.ToList();
-
-            return result;
+            return context.Matches.ToList();
         }
 
         public IEnumerable<Match> ByFunc(Func<Match, bool> function)
         {
-            var result = context.Matches.Where(function).ToList();
-
-            return result;
+            return context.Matches.Where(function).ToList();
         }
 
         public void Edit(Match item)
@@ -49,7 +45,7 @@ namespace ChessDatabase.Repositories
 
         public bool Remove(int ID)
         {
-            Match removeMatch = context.Matches.FirstOrDefault(m => m.Id.Equals(ID));
+            Match removeMatch = Find(ID);
 
             if (removeMatch != null)
             {

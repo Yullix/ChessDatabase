@@ -15,58 +15,60 @@ namespace ChessDatabase
         public string color;
         public int column;
 
-        public ChessLogicEventArgs(string _color, int _column)
+        public ChessLogicEventArgs(string color, int column)
         {
-            this.color = _color;
-            this.column = _column;
+            this.color = color;
+            this.column = column;
         }
     }
 
     public static class ChessLogic
     {
-        public static event EventHandler pawnPromote;
-        public static event EventHandler enPassant;
+
+        public static event EventHandler PawnPromote;
+        public static event EventHandler EnPassant;
+
         /// <summary>
-        /// Returns 2 int values that represents the position of the square in a 8x8 jagged array
+        /// Returns 2 int values that represents the position of a square in a 8x8 jagged array
         /// </summary>
         /// <param name="pBoxName"></param>
         /// <returns>int[2] [0] = row [1] = column</returns>
         public static int[] GetSquarePos(string pBoxName)
         {
-            string[] squareString = pBoxName.Split('x');
+            string[] _squareString = pBoxName.Split('x');
 
-            int[] squarePos = new int[2];
-            squarePos[0] = Int32.Parse(squareString[1][1].ToString()) - 1;
+            int[] _squarePos = new int[2];
+            _squarePos[0] = Int32.Parse(_squareString[1][1].ToString()) - 1;
 
-            switch (squareString[1][0])
+            switch (_squareString[1][0])
             {
                 case 'a':
-                    squarePos[1] = 0;
+                    _squarePos[1] = 0;
                     break;
                 case 'b':
-                    squarePos[1] = 1;
+                    _squarePos[1] = 1;
                     break;
                 case 'c':
-                    squarePos[1] = 2;
+                    _squarePos[1] = 2;
                     break;
                 case 'd':
-                    squarePos[1] = 3;
+                    _squarePos[1] = 3;
                     break;
                 case 'e':
-                    squarePos[1] = 4;
+                    _squarePos[1] = 4;
                     break;
                 case 'f':
-                    squarePos[1] = 5;
+                    _squarePos[1] = 5;
                     break;
                 case 'g':
-                    squarePos[1] = 6;
+                    _squarePos[1] = 6;
                     break;
                 case 'h':
-                    squarePos[1] = 7;
+                    _squarePos[1] = 7;
                     break;
             }
 
-            return squarePos;
+            return _squarePos;
         }
 
         /// <summary>
@@ -75,45 +77,45 @@ namespace ChessDatabase
         /// <returns>string[8,8]</returns>
         public static string[,] GetStartPosition()
         {
-            string[,] startPosition = new string[8, 8];
+            string[,] _startPosition = new string[8, 8];
 
             // White starting position
-            startPosition[0, 0] = "wR";
-            startPosition[0, 1] = "wN";
-            startPosition[0, 2] = "wB";
-            startPosition[0, 3] = "wQ";
-            startPosition[0, 4] = "wK";
-            startPosition[0, 5] = "wB";
-            startPosition[0, 6] = "wN";
-            startPosition[0, 7] = "wR";
-            startPosition[1, 0] = "wP";
-            startPosition[1, 1] = "wP";
-            startPosition[1, 2] = "wP";
-            startPosition[1, 3] = "wP";
-            startPosition[1, 4] = "wP";
-            startPosition[1, 5] = "wP";
-            startPosition[1, 6] = "wP";
-            startPosition[1, 7] = "wP";
+            _startPosition[0, 0] = "wR";
+            _startPosition[0, 1] = "wN";
+            _startPosition[0, 2] = "wB";
+            _startPosition[0, 3] = "wQ";
+            _startPosition[0, 4] = "wK";
+            _startPosition[0, 5] = "wB";
+            _startPosition[0, 6] = "wN";
+            _startPosition[0, 7] = "wR";
+            _startPosition[1, 0] = "wP";
+            _startPosition[1, 1] = "wP";
+            _startPosition[1, 2] = "wP";
+            _startPosition[1, 3] = "wP";
+            _startPosition[1, 4] = "wP";
+            _startPosition[1, 5] = "wP";
+            _startPosition[1, 6] = "wP";
+            _startPosition[1, 7] = "wP";
 
             //Black starting position
-            startPosition[7, 0] = "bR";
-            startPosition[7, 1] = "bN";
-            startPosition[7, 2] = "bB";
-            startPosition[7, 3] = "bQ";
-            startPosition[7, 4] = "bK";
-            startPosition[7, 5] = "bB";
-            startPosition[7, 6] = "bN";
-            startPosition[7, 7] = "bR";
-            startPosition[6, 0] = "bP";
-            startPosition[6, 1] = "bP";
-            startPosition[6, 2] = "bP";
-            startPosition[6, 3] = "bP";
-            startPosition[6, 4] = "bP";
-            startPosition[6, 5] = "bP";
-            startPosition[6, 6] = "bP";
-            startPosition[6, 7] = "bP";
+            _startPosition[7, 0] = "bR";
+            _startPosition[7, 1] = "bN";
+            _startPosition[7, 2] = "bB";
+            _startPosition[7, 3] = "bQ";
+            _startPosition[7, 4] = "bK";
+            _startPosition[7, 5] = "bB";
+            _startPosition[7, 6] = "bN";
+            _startPosition[7, 7] = "bR";
+            _startPosition[6, 0] = "bP";
+            _startPosition[6, 1] = "bP";
+            _startPosition[6, 2] = "bP";
+            _startPosition[6, 3] = "bP";
+            _startPosition[6, 4] = "bP";
+            _startPosition[6, 5] = "bP";
+            _startPosition[6, 6] = "bP";
+            _startPosition[6, 7] = "bP";
 
-            return startPosition;
+            return _startPosition;
         }
 
         /// <summary>
@@ -127,19 +129,19 @@ namespace ChessDatabase
         /// <param name="_startSq"></param>
         /// <param name="_endSq"></param>
         /// <returns>bool</returns>
-        public static bool CheckLegality(string[,] _position, char _pieceAnnotation, string _color, bool _whiteCastle, bool _blackCastle, int[] _startSq, int[] _endSq, Ply _lastPly)
+        public static bool CheckLegality(string[,] position, char pieceAnnotation, string color, bool whiteCastle, bool blackCastle, int[] startSq, int[] endSq, Ply lastPly)
         {
-            string capturedPiece = _position[_endSq[0], _endSq[1]];
+            string _capturedPiece = position[endSq[0], endSq[1]];
 
-            if(_color == "white")
+            if(color == "white")
             {
-                switch (_pieceAnnotation)
+                switch (pieceAnnotation)
                 {
                     case 'P':
-                        if (capturedPiece != null)
+                        if (_capturedPiece != null)
                         {
                             // If a piece was captured that wasnt diagonally straight infront of the pawn return false
-                            if (_endSq[0] - _startSq[0] != 1 || (_startSq[1] - _endSq[1] != 1 && _endSq[1] - _startSq[1] != 1))
+                            if (endSq[0] - startSq[0] != 1 || (Math.Abs(endSq[1] - startSq[1]) != 1))
                                 return false;
                             // else the move is legal and return true
                             else
@@ -148,36 +150,58 @@ namespace ChessDatabase
                         else
                         {
                             // If a pawn is taken en passant return true
-                            if (_startSq[0] == 4 && _lastPly.plyAnnotation[0] == 'P' && _lastPly.startSqRow == 6 && _lastPly.endSqRow == 4 && (_lastPly.endSqColumn - _startSq[1] == 1 || _startSq[1] - _lastPly.endSqColumn == 1) && _lastPly.endSqColumn == _endSq[1])
+                            if (startSq[0] == 4 && lastPly.plyAnnotation[0] == 'P' && lastPly.startSqRow == 6 && lastPly.endSqRow == 4 && (lastPly.endSqColumn - startSq[1] == 1 || startSq[1] - lastPly.endSqColumn == 1) && lastPly.endSqColumn == endSq[1])
                                 return true;
                             // If pawn tries to move sideways without capturing a piece return false
-                            if (_startSq[1] - _endSq[1] != 0)
+                            if (startSq[1] - endSq[1] != 0)
                                 return false;
                             // If the pawn moves further than 1 square and is not on the 2nd row return false
-                            if (_endSq[0] - _startSq[0] > 1 && _startSq[0] != 1)
+                            if (endSq[0] - startSq[0] > 1 && startSq[0] != 1)
                                 return false;
                             // If the pawn moves further than 2 squares and is on the 2nd row return false
-                            if (_endSq[0] - _startSq[0] > 2 && _startSq[0] == 1)
+                            if (endSq[0] - startSq[0] > 2 && startSq[0] == 1)
                                 return false;
                             // If the pawn moves past another piece return false
-                            if (_endSq[0] - _startSq[0] > 1 && _position[_endSq[0] - 1, _endSq[1]] != null)
+                            if (endSq[0] - startSq[0] > 1 && position[endSq[0] - 1, endSq[1]] != null)
                                 return false;
                             // If the pawn tried to move backwards return false
-                            if (_endSq[0] - _startSq[0] < 1)
+                            if (endSq[0] - startSq[0] < 1)
                                 return false;
                         }
                         break;
-                    case 'N':
-                        // If the knight doesnt make an 'L' move return false
+                    case 'N':                     
                         // If the knight lands on a square containing a same colored piece return false
-                        break;
+                        if (position[endSq[0], endSq[1]] != null && position[endSq[0], endSq[1]][0] == 'w')
+                            return false;
+                        // If the knight makes an 'L' shaped move return true
+                        if ((Math.Abs(endSq[0] - startSq[0]) == 2 && Math.Abs(endSq[1] - startSq[1]) == 1) || (Math.Abs(endSq[0] - startSq[0]) == 1 && Math.Abs(endSq[1] - startSq[1]) == 2))
+                            return true;
+                        else
+                            return false;
                     case 'B':
+                        // If the bishop doesn't move in a diagonal line return false
+                        if(Math.Abs(endSq[0] - startSq[0]) != Math.Abs(endSq[1] - startSq[1]))
+                            return false;
+                        // If there is a piece between the start square and the end square return false
+                        for(int i = 1; i > 0; i++)
+                        {
+
+                        }
                         break;
                     case 'R':
+                        // If the rook doesn't move in a straight line return false
+                        if (Math.Abs(endSq[0] - startSq[0]) != 0 && Math.Abs(endSq[1] - startSq[1]) != 0)
+                            return false;
+                        // If there is a piece between the start square and the end square return false
                         break;
                     case 'Q':
+                        // If the queen doesn't move in a straight/diagonal line return false
+                        // If there is a piece between the start square and the end square return false
                         break;
                     case 'K':
+                        // If the king can castle and moves 2 steps to either direction and no piece blocking and no piece attacking the squares the king moves over, return true
+                        // If the king moves 1 square either direction and does not collide with an allied piece return true
+                        // Else return false
                         break;
                     default:
                         return false;
@@ -185,13 +209,13 @@ namespace ChessDatabase
             }
             else
             {
-                switch(_pieceAnnotation)
+                switch(pieceAnnotation)
                 {
                     case 'P':
-                        if (capturedPiece != null)
+                        if (_capturedPiece != null)
                         {
                             // If a piece was captured that wasnt diagonally straight infront of the pawn return false
-                            if (_startSq[0] - _endSq[0] != 1 || (_endSq[1] - _startSq[1] != 1 && _startSq[1] - _endSq[1] != 1))
+                            if (startSq[0] - endSq[0] != 1 || (endSq[1] - startSq[1] != 1 && startSq[1] - endSq[1] != 1))
                                 return false;
                             // else the move is legal and return true
                             else
@@ -200,22 +224,22 @@ namespace ChessDatabase
                         else
                         {
                             // If a pawn is taken en passant return true
-                            if (_startSq[0] == 3 && _lastPly.plyAnnotation[0] == 'P' && _lastPly.startSqRow == 1 && _lastPly.endSqRow == 3 && (_lastPly.endSqColumn - _startSq[1] == 1 || _startSq[1] - _lastPly.endSqColumn == 1) && _lastPly.endSqColumn == _endSq[1])
+                            if (startSq[0] == 3 && lastPly.plyAnnotation[0] == 'P' && lastPly.startSqRow == 1 && lastPly.endSqRow == 3 && (lastPly.endSqColumn - startSq[1] == 1 || startSq[1] - lastPly.endSqColumn == 1) && lastPly.endSqColumn == endSq[1])
                                 return true;
                             // If pawn tries to move sideways without capturing a piece return false
-                            if (_startSq[1] - _endSq[1] != 0)
+                            if (startSq[1] - endSq[1] != 0)
                                 return false;
                             // If the pawn moves further than 1 square and is not on the 2nd row return false
-                            if (_startSq[0] - _endSq[0] > 1 && _startSq[0] != 6)
+                            if (startSq[0] - endSq[0] > 1 && startSq[0] != 6)
                                 return false;
                             // If the pawn moves further than 2 squares and is on the 2nd row return false
-                            if (_startSq[0] - _endSq[0] > 2 && _startSq[0] == 6)
+                            if (startSq[0] - endSq[0] > 2 && startSq[0] == 6)
                                 return false;
                             // If the pawn moves past another piece return false
-                            if (_startSq[0] - _endSq[0] > 1 && _position[_endSq[0] + 1, _endSq[1]] != null)
+                            if (startSq[0] - endSq[0] > 1 && position[endSq[0] + 1, endSq[1]] != null)
                                 return false;
                             // If the pawn tries to move backwards return false
-                            if (_startSq[0] - _endSq[0] < 0)
+                            if (startSq[0] - endSq[0] < 0)
                                 return false;
                         }
                         break;
@@ -243,82 +267,82 @@ namespace ChessDatabase
         /// <param name="_position"></param>
         /// <param name="_nextPly"></param>
         /// <returns>string[8,8]</returns>
-        public static string[,] NextMove(string[,] _position, Ply _nextPly)
+        public static string[,] NextMove(string[,] position, Ply nextPly)
         {
-            string[,] position = _position;
-            char pieceAnnotation = _nextPly.plyAnnotation[0];
+            string[,] _position = position;
+            char _pieceAnnotation = nextPly.plyAnnotation[0];
 
             // If en passant
-            if (_nextPly.plyAnnotation[0] == 'P' && _nextPly.startSqColumn != _nextPly.endSqColumn && _nextPly.capturedPieceAnnotation == "")
+            if (nextPly.plyAnnotation[0] == 'P' && nextPly.startSqColumn != nextPly.endSqColumn && nextPly.capturedPieceAnnotation == "")
             {
-                position[_nextPly.startSqRow, _nextPly.startSqColumn] = null;
+                _position[nextPly.startSqRow, nextPly.startSqColumn] = null;
                 
-                if (_nextPly.color == "white")
+                if (nextPly.color == "white")
                 {
-                    position[_nextPly.endSqRow, _nextPly.endSqColumn] = "w" + pieceAnnotation.ToString();
-                    position[_nextPly.endSqRow, _nextPly.endSqColumn - 1] = null;
+                    _position[nextPly.endSqRow, nextPly.endSqColumn] = "w" + _pieceAnnotation.ToString();
+                    _position[nextPly.endSqRow - 1, nextPly.endSqColumn] = null;
                 }
 
-                OnEnPassant(new ChessLogicEventArgs(_nextPly.color, _nextPly.endSqColumn));
+                OnEnPassant(new ChessLogicEventArgs(nextPly.color, nextPly.endSqColumn));
 
-                return position;
+                return _position;
             }
 
-            switch (_nextPly.color)
+            switch (nextPly.color)
             {
                 case "white":
-                    position[_nextPly.startSqRow, _nextPly.startSqColumn] = null;
-                    position[_nextPly.endSqRow, _nextPly.endSqColumn] = "w" + pieceAnnotation.ToString();
+                    _position[nextPly.startSqRow, nextPly.startSqColumn] = null;
+                    _position[nextPly.endSqRow, nextPly.endSqColumn] = "w" + _pieceAnnotation.ToString();
                     break;
                 case "black":
-                    position[_nextPly.startSqRow, _nextPly.startSqColumn] = null;
-                    position[_nextPly.endSqRow, _nextPly.endSqColumn] = "b" + pieceAnnotation.ToString();
+                    _position[nextPly.startSqRow, nextPly.startSqColumn] = null;
+                    _position[nextPly.endSqRow, nextPly.endSqColumn] = "b" + _pieceAnnotation.ToString();
                     break;
             }
 
             // If a pawn reaches the 8th rank
-            if (_nextPly.plyAnnotation[0] == 'P' && (_nextPly.endSqRow == 7 || _nextPly.endSqRow == 0))
+            if (nextPly.plyAnnotation[0] == 'P' && (nextPly.endSqRow == 7 || nextPly.endSqRow == 0))
             {
-                OnPawnPromote(new ChessLogicEventArgs(_nextPly.color, _nextPly.endSqColumn));
+                OnPawnPromote(new ChessLogicEventArgs(nextPly.color, nextPly.endSqColumn));
             }
 
-            return position;
+            return _position;
         }
 
         /// <summary>
         /// Returns a position after undoing the ply in the argument position
         /// </summary>
-        /// <param name="_position"></param>
-        /// <param name="_lastPly"></param>
+        /// <param name="position"></param>
+        /// <param name="lastPly"></param>
         /// <returns>string[8,8]</returns>
-        public static string[,] UndoMove(string[,] _position, Ply _lastPly)
+        public static string[,] UndoMove(string[,] position, Ply lastPly)
         {
-            string[,] position = _position;
-            char pieceAnnotation = _lastPly.plyAnnotation[0];
+            string[,] _position = position;
+            char _pieceAnnotation = lastPly.plyAnnotation[0];
 
-            switch (_lastPly.color)
+            switch (lastPly.color)
             {
                 case "white":
-                    position[_lastPly.startSqRow, _lastPly.startSqColumn] = "w" + pieceAnnotation.ToString();
-                    position[_lastPly.endSqRow, _lastPly.endSqColumn] = _lastPly.capturedPieceAnnotation;
+                    _position[lastPly.startSqRow, lastPly.startSqColumn] = "w" + _pieceAnnotation.ToString();
+                    _position[lastPly.endSqRow, lastPly.endSqColumn] = lastPly.capturedPieceAnnotation;
                     break;
                 case "black":
-                    position[_lastPly.startSqRow, _lastPly.startSqColumn] = "b" + pieceAnnotation.ToString();
-                    position[_lastPly.endSqRow, _lastPly.endSqColumn] = _lastPly.capturedPieceAnnotation;
+                    _position[lastPly.startSqRow, lastPly.startSqColumn] = "b" + _pieceAnnotation.ToString();
+                    _position[lastPly.endSqRow, lastPly.endSqColumn] = lastPly.capturedPieceAnnotation;
                     break;
             }
 
-            return position;
+            return _position;
         }
 
         public static void OnPawnPromote(ChessLogicEventArgs e)
         {
-            pawnPromote?.Invoke(new object(), e);
+            PawnPromote?.Invoke(new object(), e);
         }
 
         public static void OnEnPassant(ChessLogicEventArgs e)
         {
-            enPassant?.Invoke(new object(), e);
+            EnPassant?.Invoke(new object(), e);
         }
     }
 }
